@@ -271,8 +271,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/06/2015-06-06-pi2/" itemprop="url">
-                  树莓派折腾之旅（二）
+                <a class="post-title-link" href="/2015/08/05/2015-08-05-pi3/" itemprop="url">
+                  树莓派折腾之旅（三）
                 </a>
               
             
@@ -285,8 +285,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-06T00:00:00+08:00" content="2015-06-06">
-              2015-06-06
+            <time itemprop="dateCreated" datetime="2015-08-05T00:00:00+08:00" content="2015-08-05">
+              2015-08-05
             </time>
           </span>
 
@@ -315,8 +315,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/06/06/2015-06-06-pi2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/06/2015-06-06-pi2/" itemprop="commentsCount"></span>
+                <a href="/2015/08/05/2015-08-05-pi3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/05/2015-08-05-pi3/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,21 +338,15 @@
 
       
         
-          <p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
-<p>######我是参考的这个帖子做的</p>
-<p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
-<p>插上摄像头可以看见usbvideo0.</p>
-<p>接下来安装</p>
-<pre><code>sudo apt-get install subversion
-
-sudo apt-get install libv4l-dev
-
-sudo apt-get install libjpeg8-dev
-
-sudo apt-get install imagemagick
-</code></pre>
+          <p>###暑假放假了，做了一个wifi小车。</p>
+<p>先是搭硬件，小车，电机驱动，稳压，电池什么的。</p>
+<p>此处略去很多字。</p>
+<p>既然是wifi小车，首先要让车跑起来。</p>
+<p>让车跑，首先要控制I/O口。</p>
+<p>用的是python的GPIO口的库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev</span><br><span class="line"><span class="comment"># 下载 </span></span><br><span class="line">$ wget http://raspberry-gpio-python.googlecode.com/files/RPi.GPIO-0.5.3a.tar.gz</span><br><span class="line"><span class="comment"># 解压缩 </span></span><br><span class="line">$ tar xvzf RPi.GPIO-0.5.3a.tar.gz </span><br><span class="line"><span class="comment"># 进入解压之后的目录 </span></span><br><span class="line">$ <span class="built_in">cd</span> RPi.GPIO-0.5.3a </span><br><span class="line"><span class="comment"># 启动安装 </span></span><br><span class="line">$ sudo python setup.py install</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-left">
-            <a class="btn" href="/2015/06/06/2015-06-06-pi2/#more" rel="contents">
+            <a class="btn" href="/2015/08/05/2015-08-05-pi3/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -465,6 +459,130 @@ sudo apt-get install imagemagick
           <h6 id="买了一星期的树莓派今天终于有时间折腾了。"><a href="#买了一星期的树莓派今天终于有时间折腾了。" class="headerlink" title="买了一星期的树莓派今天终于有时间折腾了。"></a>买了一星期的树莓派今天终于有时间折腾了。</h6><h6 id="早上一大早就起来，弄了一天。嘿嘿！"><a href="#早上一大早就起来，弄了一天。嘿嘿！" class="headerlink" title="早上一大早就起来，弄了一天。嘿嘿！"></a>早上一大早就起来，弄了一天。嘿嘿！</h6><h6 id="昨天把系统下载下来了。"><a href="#昨天把系统下载下来了。" class="headerlink" title="昨天把系统下载下来了。"></a>昨天把系统下载下来了。</h6><h6 id="树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads"><a href="#树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads" class="headerlink" title="树莓派官方 Raspbian 系统下载：http://www.raspberrypi.org/downloads"></a>树莓派官方 Raspbian 系统下载：<a href="http://www.raspberrypi.org/downloads">http://www.raspberrypi.org/downloads</a></h6><p>首先开始烧系统到内存卡。用win32disk imager</p>
           <div class="post-more-link text-left">
             <a class="btn" href="/2015/06/06/2015-06-06-pi1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/06/2015-06-06-pi2/" itemprop="url">
+                  树莓派折腾之旅（二）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-06-06T00:00:00+08:00" content="2015-06-06">
+              2015-06-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/树莓派/" itemprop="url" rel="index">
+                    <span itemprop="name">树莓派</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/06/2015-06-06-pi2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/06/2015-06-06-pi2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
+<p>######我是参考的这个帖子做的</p>
+<p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
+<p>插上摄像头可以看见usbvideo0.</p>
+<p>接下来安装</p>
+<pre><code>sudo apt-get install subversion
+
+sudo apt-get install libv4l-dev
+
+sudo apt-get install libjpeg8-dev
+
+sudo apt-get install imagemagick
+</code></pre>
+          <div class="post-more-link text-left">
+            <a class="btn" href="/2015/06/06/2015-06-06-pi2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -764,7 +882,7 @@ sudo apt-get install imagemagick
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -778,7 +896,7 @@ sudo apt-get install imagemagick
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
