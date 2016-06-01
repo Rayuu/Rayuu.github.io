@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[将hexo博客同时托管到github和coding]]></title>
+      <url>http://rayuu.com/2016/05/29/git-coding/</url>
+      <content type="html"><![CDATA[<h1 id="将hexo博客同时托管到github和coding"><a href="#将hexo博客同时托管到github和coding" class="headerlink" title="将hexo博客同时托管到github和coding"></a>将hexo博客同时托管到github和coding</h1><p>发现百度的sitemap.xml抓取不到github上面的，所以今天又弄了一个coding。</p>
+<p>在个人设置里面添加好公钥后，本地git登录</p>
+<p>然后在站点配置文件<code>_config.yml</code>里面配置如下：</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  <span class="comment">#repository: https://github.com/Rayuu/Rayuu.github.io.git</span></span><br><span class="line">  <span class="comment">#branch: master</span></span><br><span class="line">  repo:</span><br><span class="line">    github: git@github.com:Rayuu/Rayuu.github.io.git,master</span><br><span class="line">    coding: git@git.coding.net:chay/chay.git,coding-pages</span><br></pre></td></tr></table></figure>
+<p>接下来<code>git bash</code>到站点目录</p>
+<p>最后</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>没有报错说明完成，添加密钥后也不用每次输入密码了。</p>
+<p>这样就完美了哦！</p>
+<h1 id="—————我是分割线—————"><a href="#—————我是分割线—————" class="headerlink" title="—————我是分割线—————"></a>—————我是分割线—————</h1><p>今天重装了系统，感觉整个人都好多了。哈哈哈（#滑稽）<br>重新部署hexo</p>
+<p>先安装<code>hexo</code>，<br>再安装<code>nodejs,git</code><br>接着安装<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>找个文件夹打开 git bash here<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">cnpm install hexo-deployer-git --save</span><br><span class="line">cnpm install hexo-generator-sitemap --save</span><br><span class="line">cnpm install hexo-generator-baidu-sitemap --save</span><br><span class="line">cnpm install hexo-generator-search --save</span><br></pre></td></tr></table></figure></p>
+<p>把备份的公钥文件夹放到<code>C:\Users\用户名\.ssh</code>下面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.coding.net</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>让服务器使用<code>ssh</code>协议。<br>成功的话就一切正常。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p>上传！！！搞定。。。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[随笔]]></title>
+      <url>http://rayuu.com/2016/05/28/2015-03-19-first/</url>
+      <content type="html"><![CDATA[<p>一年后，我又在<code>github</code>上搭起了博客，虽然搬瓦工也买了一年的服务器。<br>它的地址是<a href="http://blog.rayuu.com/" title="rayu技术分享" target="_blank" rel="external">http://blog.rayuu.com/</a></p>
+<a id="more"></a>
+<ul>
+<li>Rayu 2016-05-28 </li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[centos6.4从python2.6升级python2.7.9]]></title>
+      <url>http://rayuu.com/2016/05/25/cetos-python-update/</url>
+      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-86-html"><a href="#原文地址：-http-blog-rayuu-com-86-html" class="headerlink" title="原文地址： http://blog.rayuu.com/86.html"></a>原文地址： <a href="http://blog.rayuu.com/86.html" title="centos6.4从python2.6升级python2.7.9" target="_blank" rel="external">http://blog.rayuu.com/86.html</a></h1><p>centos6.4系统自带的python版本是2.6，用起来不是很方便。</p>
+<p>于是今天我又开始折腾了。</p>
+<p>首先看一下系统的版本</p>
+<h1 id="lsb-release-a"><a href="#lsb-release-a" class="headerlink" title="lsb_release -a"></a>lsb_release -a</h1><p>发现是centos6.4</p>
+<a id="more"></a>
+<p>再查看python版本</p>
+<h1 id="python-V"><a href="#python-V" class="headerlink" title="python  -V"></a>python  -V</h1><p>Python 2.6.6<br>下面开始升级，下载源码自己编译。。。。。</p>
+<p>操作步骤如下：</p>
+<p>1）安装devtoolset</p>
+<p>yum groupinstall “Development tools”<br>2）安装编译Python需要的包包</p>
+<p>yum install zlib-devel<br>yum install bzip2-devel<br>yum install openssl-devel<br>yum install ncurses-devel<br>yum install sqlite-devel</p>
+<p>3）下载并解压Python 2.7.9的源代码</p>
+<p>cd /opt<br>wget –no-check-certificate <a href="https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz" target="_blank" rel="external">https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz</a><br>tar xf Python-2.7.9.tar.xz<br>cd Python-2.7.9<br>4）编译与安装Python 2.7.9</p>
+<p>./configure –prefix=/usr/local<br>make &amp;&amp; make altinstall<br>5）将python命令指向Python 2.7.9</p>
+<p>ln -s /usr/local/bin/python2.7 /usr/local/bin/python   //这句好像没什么用。。。</p>
+<p>#mv /usr/bin/python /usr/bin/python2.6  </p>
+<p>#ln -s /usr/local/bin/python2.7 /usr/bin/python<br>6）重新检验Python 版本</p>
+<p>#python -V<br>7）解决系统 Python 软链接指向 Python2.7 版本后，因为yum是不兼容 Python 2.7的，所以yum不能正常工作，我们需要指定 yum 的Python版本</p>
+<p>#vi /usr/bin/yum  </p>
+<p>将文件头部的</p>
+<p>#!/usr/bin/python</p>
+<p>改成</p>
+<p>#!/usr/bin/python2.6<br>保存并退出大功告成。。。。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[cordova+ionic跨平台应用]]></title>
+      <url>http://rayuu.com/2016/05/22/cordova2/</url>
+      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cordova2-html"><a href="#原文地址：-http-blog-rayuu-com-cordova2-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova2.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova2.html" title="cordova+ionic跨平台应用" target="_blank" rel="external">http://blog.rayuu.com/cordova2.html</a></h1>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[cordova入门]]></title>
+      <url>http://rayuu.com/2016/05/18/cordova1/</url>
+      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cordova1-html"><a href="#原文地址：-http-blog-rayuu-com-cordova1-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova1.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova1.html" title="cordova入门" target="_blank" rel="external">http://blog.rayuu.com/cordova1.html</a></h1>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[51单片机三线串行驱动12864液晶]]></title>
+      <url>http://rayuu.com/2016/05/17/12864lecd/</url>
+      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-12864lcd-html"><a href="#原文地址：-http-blog-rayuu-com-12864lcd-html" class="headerlink" title="原文地址： http://blog.rayuu.com/12864lcd.html"></a>原文地址： <a href="http://blog.rayuu.com/12864lcd.html" title="51单片机三线串行驱动12864液晶" target="_blank" rel="external">http://blog.rayuu.com/12864lcd.html</a></h1>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[typecho微信助手]]></title>
+      <url>http://rayuu.com/2016/05/12/wechat/</url>
+      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-typewechat-html"><a href="#原文地址：-http-blog-rayuu-com-typewechat-html" class="headerlink" title="原文地址： http://blog.rayuu.com/typewechat.html"></a>原文地址： <a href="http://blog.rayuu.com/typewechat.html" title="typecho微信助手" target="_blank" rel="external">http://blog.rayuu.com/typewechat.html</a></h1>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[16led摇摇棒]]></title>
+      <url>http://rayuu.com/2016/05/09/16led/</url>
+      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-16led-html"><a href="#原文地址：-http-blog-rayuu-com-16led-html" class="headerlink" title="原文地址： http://blog.rayuu.com/16led.html"></a>原文地址： <a href="http://blog.rayuu.com/16led.html" title="16led摇摇棒" target="_blank" rel="external">http://blog.rayuu.com/16led.html</a></h1>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CET4、6级无证查询99接口]]></title>
+      <url>http://rayuu.com/2016/05/03/cetnoticket/</url>
+      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cetnoticket-html"><a href="#原文地址：-http-blog-rayuu-com-cetnoticket-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cetnoticket.html"></a>原文地址： <a href="http://blog.rayuu.com/cetnoticket.html" title="CET4、6级无证查询99接口" target="_blank" rel="external">http://blog.rayuu.com/cetnoticket.html</a></h1>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[树莓派折腾之旅（三）]]></title>
+      <url>http://rayuu.com/2015/08/05/2015-08-05-pi3/</url>
+      <content type="html"><![CDATA[<p>###暑假放假了，做了一个wifi小车。</p>
+<p>先是搭硬件，小车，电机驱动，稳压，电池什么的。</p>
+<p>此处略去很多字。</p>
+<p>既然是wifi小车，首先要让车跑起来。</p>
+<p>让车跑，首先要控制I/O口。</p>
+<p>用的是python的GPIO口的库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev</span><br><span class="line"><span class="comment"># 下载 </span></span><br><span class="line">$ wget http://raspberry-gpio-python.googlecode.com/files/RPi.GPIO-0.5.3a.tar.gz</span><br><span class="line"><span class="comment"># 解压缩 </span></span><br><span class="line">$ tar xvzf RPi.GPIO-0.5.3a.tar.gz </span><br><span class="line"><span class="comment"># 进入解压之后的目录 </span></span><br><span class="line">$ <span class="built_in">cd</span> RPi.GPIO-0.5.3a </span><br><span class="line"><span class="comment"># 启动安装 </span></span><br><span class="line">$ sudo python setup.py install</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>然后进入python界面<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br></pre></td></tr></table></figure></p>
+<p>没有报错则说明安装成功。</p>
+<p>下面就是用I/O口控制小车了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO  </span><br><span class="line"><span class="keyword">import</span> time  </span><br><span class="line">GPIO.setmode(GPIO.BOARD)   </span><br><span class="line">GPIO.setup(<span class="number">11</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">12</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">15</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">16</span>, GPIO.OUT)</span><br><span class="line">in11 = GPIO.PWM(<span class="number">11</span>, <span class="number">50</span>)</span><br><span class="line">in12 = GPIO.PWM(<span class="number">12</span>, <span class="number">50</span>)</span><br><span class="line">in21 = GPIO.PWM(<span class="number">15</span>, <span class="number">50</span>)</span><br><span class="line">in22 = GPIO.PWM(<span class="number">16</span>, <span class="number">50</span>) </span><br><span class="line">shudu=<span class="number">30</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">yanshi</span><span class="params">(t)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">        t=t<span class="number">-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">houtui</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">30</span>)</span><br><span class="line">    in12.start(<span class="number">0</span>)</span><br><span class="line">    in21.start(<span class="number">30</span>)</span><br><span class="line">    in22.start(<span class="number">0</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tingzhi</span><span class="params">()</span>:</span></span><br><span class="line">    in11.stop()</span><br><span class="line">    in12.stop()</span><br><span class="line">    in21.stop()</span><br><span class="line">    in22.stop()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhizou1</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(<span class="number">30</span>)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(<span class="number">30</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhizou</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(shudu)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(shudu)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">youzhuan</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(<span class="number">30</span>)</span><br><span class="line">    in21.start(<span class="number">30</span>)</span><br><span class="line">    in22.start(<span class="number">0</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zuozhuan</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">30</span>)</span><br><span class="line">    in12.start(<span class="number">0</span>)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(<span class="number">30</span>)  </span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>: </span><br><span class="line">    fangxiang=raw_input()</span><br><span class="line">    <span class="keyword">if</span> fangxiang==<span class="string">'q'</span>:</span><br><span class="line">        shudu=shudu+<span class="number">10</span></span><br><span class="line">        zhizou()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'e'</span>:</span><br><span class="line">        shudu=shudu<span class="number">-10</span></span><br><span class="line">        zhizou()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'w'</span>:</span><br><span class="line">	    zhizou1()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'a'</span>:</span><br><span class="line">        t=<span class="number">30000</span></span><br><span class="line">        <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">            t=t<span class="number">-1</span></span><br><span class="line">	        zuozhuan()</span><br><span class="line">            tingzhi()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'s'</span>:</span><br><span class="line">	    houtui()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'d'</span>:</span><br><span class="line">        t=<span class="number">30000</span></span><br><span class="line">        <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">            t=t<span class="number">-1</span></span><br><span class="line">	        youzhuan()</span><br><span class="line">            tingzhi()</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">	    tingzhi()</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[树莓派折腾之旅（二）]]></title>
+      <url>http://rayuu.com/2015/06/06/2015-06-06-pi2/</url>
+      <content type="html"><![CDATA[<p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
+<p>######我是参考的这个帖子做的</p>
+<p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882" target="_blank" rel="external">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
+<p>插上摄像头可以看见usbvideo0.</p>
+<p>接下来安装</p>
+<pre><code>sudo apt-get install subversion
+
+sudo apt-get install libv4l-dev
+
+sudo apt-get install libjpeg8-dev
+
+sudo apt-get install imagemagick
+</code></pre><a id="more"></a>
+<p>到上面这些步骤都没有错。</p>
+<p>下面下载的是<code>mipg-steamer</code>软件，编译并安装。</p>
+<p>那个帖子里面的下载地址都过期了，所以我就重新百度 google找啊找。</p>
+<p>在网上搜<code>mjpg-streamer</code>搜出一个mjpg-streamer-r63，这个包始终编译不成功，有郁闷了很久。</p>
+<p>终于在github上面有一个和帖子说的一样的。</p>
+<p>还有在这里也有一个链接<a href="http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138" target="_blank" rel="external">http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138</a></p>
+<p>于是希望重新燃起，</p>
+<p>开始编译，建立软连接：<code>sudo ln -s /usr/include/libv4l1-videodev.h /usr/include/linux/videodev.h</code></p>
+<p>进入目录并编译：</p>
+<pre><code>cd mjpg-streamer
+make USE_LIBV4L2=true clean all
+</code></pre><p>编译好像是成功了，因为没有报错。</p>
+<p>然后执行 <code>sudo  ./start.sh</code></p>
+<p>打开浏览器访问，树莓派ip地址:<code>8080</code></p>
+<p>发现并没有成功，摄像头并没有出来，多么痛的领悟啊。</p>
+<p>很忧桑有木有。</p>
+<p>于是又开始找问题，</p>
+<p>分析得出以下结论：</p>
+<p>摄像头没有打开，但是这不科学啊，设备可以检查到usbvideo0。</p>
+<p>摄像头驱动问题，我把摄像头放到windows下发现可以使用。</p>
+<p>就是环境问题咯。</p>
+<p>所以我一个一个尝试，首先看用摄像头拍照可以不。</p>
+<p>结果发现摄像头没有问题。</p>
+<p>就是拍出来的照片有点失真。图片如下：</p>
+<p><img src="http://imglf0.ph.126.net/kvnPMluEeM1YSALtPk3uBg==/6630796186327897140.jpg" alt=""><br>然后又各种找资料。</p>
+<p>找到一个用motion软件做的摄像头识别。好像是专门的网络摄像头监控软件。</p>
+<p>嘿嘿，希望还是有的。</p>
+<pre><code>sudo apt-get install motion 
+</code></pre><p>配置motion，编辑motion.conf文件<br>    sudo vi /etc/motion/motion.conf</p>
+<p>找到”control_localhost on “和”webcam_localhost on“这两行，改为以下两行后，保存退出<br>    control_localhost off<br>    webcam_localhost off</p>
+<p>运行motion软件，输入<code>motion -n</code></p>
+<p>在pc上用浏览器打开 树莓派ip地址:8080</p>
+<p>经过我的测试 ie11  和chrome 不可以实现，火狐浏览器可以哦</p>
+<p><img src="http://imglf1.ph.126.net/HGjYV7U08iEfU8aLBA2PyQ==/2834453015494321729.jpg" alt=""><br>画面就是上面的这样子咯。</p>
+<p>昨天弄了一天效果还可以，感觉很满意。</p>
+<p>总结一下吧：</p>
+<p>树莓派和以前玩过全志A20差不多，都是烧入操作系统。</p>
+<p>直接上操作系统，因为有过这方面的经验，所以折腾起来也就不费事了。</p>
+<p>摄像头监控还做的不好，有时间再玩一玩，可能是因为昨天折腾了一天，头很晕，所以后面摄像头的思路不是很清晰。</p>
+<p>等暑假再做个wifi小车玩一玩。嘿嘿~~！</p>
+<p>还有就是最近的微信公众号效果不错，800多粉丝了。</p>
+<p>这几天查成绩功能不可用，还是很不爽的，所以就传了2个游戏让大家玩。</p>
+<p>嘿嘿，另外发现小米路由器还是很坑的。</p>
+<p>星期五服务器莫名其妙的无法访问，使用的云监控没有报警，原因很奇怪，后来发现是小米路由器不知道什么时候自己把硬盘自动休眠给开启了。害的我找了半天，还以为是网络问题呢。结果把小米路由器的硬盘休眠功能一关闭，服务器就不挂了，正常运行了一天。等查成绩功能教务系统开放了再看一看效果。实在不行就用树莓派当web服务器了。刷个openwrt玩一玩。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[树莓派折腾之旅（一）]]></title>
+      <url>http://rayuu.com/2015/06/06/2015-06-06-pi1/</url>
+      <content type="html"><![CDATA[<h6 id="买了一星期的树莓派今天终于有时间折腾了。"><a href="#买了一星期的树莓派今天终于有时间折腾了。" class="headerlink" title="买了一星期的树莓派今天终于有时间折腾了。"></a>买了一星期的树莓派今天终于有时间折腾了。</h6><h6 id="早上一大早就起来，弄了一天。嘿嘿！"><a href="#早上一大早就起来，弄了一天。嘿嘿！" class="headerlink" title="早上一大早就起来，弄了一天。嘿嘿！"></a>早上一大早就起来，弄了一天。嘿嘿！</h6><h6 id="昨天把系统下载下来了。"><a href="#昨天把系统下载下来了。" class="headerlink" title="昨天把系统下载下来了。"></a>昨天把系统下载下来了。</h6><h6 id="树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads"><a href="#树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads" class="headerlink" title="树莓派官方 Raspbian 系统下载：http://www.raspberrypi.org/downloads"></a>树莓派官方 Raspbian 系统下载：<a href="http://www.raspberrypi.org/downloads" target="_blank" rel="external">http://www.raspberrypi.org/downloads</a></h6><p>首先开始烧系统到内存卡。用win32disk imager</p>
+<a id="more"></a>
+<p>官网下载地址 <a href="http://sourceforge.net/projects/win32diskimager/" target="_blank" rel="external">http://sourceforge.net/projects/win32diskimager/</a></p>
+<p><img src="http://imglf0.ph.126.net/uaBktU2DB37gHaRr8Zqs7w==/6630829171676724435.jpg" alt=""></p>
+<p>然后就到上图所示的界面了。</p>
+<p>点击<code>write</code>就开始烧写到内存卡了。</p>
+<p>我开始还很二逼的点了<code>read</code>，苦苦的等了十几分钟发现内存卡还是空的，我的内心几乎是崩溃的。</p>
+<p>记得一定要点<code>write</code>哦！</p>
+<p>烧写完成，把内存卡插到树莓派上面。</p>
+<p>插上网线，通电。</p>
+<p>通过路由器查看raspberry设备的ip地址，然后ssh登上raspberry。</p>
+<p>因为树莓派默认开启了ssh，所以可以直接连上哦！</p>
+<p>默认账号和密码分别是：<code>pi</code>和<code>raspberry</code> </p>
+<p>接着可以把root权限打开</p>
+<pre><code>sudo passwd root
+</code></pre><p>输入2次密码就行了。</p>
+<p>然后进入如下界面：</p>
+<p>第一次用 root 登录，会自动弹出树莓派的高级设置面板（以后也可以通过 <code>raspi-config</code> 命令进入）：</p>
+<p><img src="http://imglf1.ph.126.net/vGsx9c9n3n4o8LNBnvAzwQ==/6630619164955821229.jpg" alt=""></p>
+<p>选择第一项 <code>Expand Filesystem</code> 扩展 SD 卡上可用的空间，不然以后会有很多大软件，不能安装（提示空间不足，例如 mysql）。<br>扩展之后可以通过 <code>df -h</code> 命令看到效果~</p>
+<p>第二项是修改密码。</p>
+<p><img src="http://imglf1.ph.126.net/YXUYDk6Ycyt4_QVifKwFcg==/6630867654583694509.jpg" alt=""></p>
+<p>第五项是开启摄像头。可以自己都试一试。</p>
+<p>然后最好更改一下软件源，因为在国内毕竟要快一些。</p>
+<p>树莓派官方有提供一个镜像列表：<a href="http://www.raspbian.org/RaspbianMirrors" target="_blank" rel="external">http://www.raspbian.org/RaspbianMirrors</a>  里面有很多中国的镜像。</p>
+<p>然后 <code>vi /etc/apt/sources.list</code></p>
+<p>改为</p>
+<pre><code>deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
+
+deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi
+</code></pre><p>按下ESC键，再按下wq  回车，就保存退出了。</p>
+<p>下面<code>apt-get update</code>一下吧。</p>
+<p><img src="http://imglf1.ph.126.net/ZcSUFGPHOZ3BchkYanQRjA==/6630282714397345666.jpg" alt=""></p>
+<p>然后我觉得网线连着不方便，所以就配置了无线网卡。</p>
+<pre><code>vi /etc/network/interfaces
+</code></pre><p>修改下面的代码，自行配制连上你的路由器。</p>
+<pre><code>iface wlan0 inet static
+
+wpa-ssid Your_Wifi_SSID
+
+wpa-psk Your_Wifi_Password
+
+address 192.168.1.200 # 设定的静态IP地址
+
+netmask 255.255.255.0 # 网络掩码
+
+gateway 192.168.1.1   # 网关
+
+network 192.168.1.1   # 网络地址
+
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre><p>然后拔掉网线，重启restart，开机就是无线上网了。很高兴是吧。</p>
+<p>后面我又安装了lamp</p>
+<p>步骤如下：</p>
+<p>搭建lamp环境，<code>apt-get install apache2 mysql-server php5</code></p>
+<p>修改apache2权限，<code>chmod 777 /var/www/</code></p>
+<p>安装phpmyadmin,<code>apt-get intstall phpmyadmin</code></p>
+<p>选apache2 </p>
+<p>链接到apache2目录，<code>ln -s /usr/share/phpmyadmin /var/www/</code></p>
+<p>在浏览器访问树莓派ip地址检查是否成功。并检查phpmyadmin可以进否。</p>
+<p>下面我开始研究GPIO口的配置。说出来又是一把心酸一把泪。</p>
+<p><img src="http://imglf0.ph.126.net/d4xawoSjs6x4LCvm75neOw==/6630780793165104597.jpg" alt=""><br>上面是GPIO口的分布。</p>
+<p>我在网上找了一下python的程序。</p>
+<p>先要安装RPi.GPIO</p>
+<p><a href="http://sourceforge.net/projects/raspberry-gpio-python/" target="_blank" rel="external">http://sourceforge.net/projects/raspberry-gpio-python/</a></p>
+<p>从这上面下载</p>
+<p>然后我是通过winscp把文件复制到板子里面去的。</p>
+<p>后来发现<code>sudo apt-get install python-rpi.gpio</code>这个命令也可以安装</p>
+<p>安装成功以后运行python</p>
+<p>输入</p>
+<pre><code>import RPi.GPIO as GPIO  
+</code></pre><p>注意RPi  i是小写的，白天就找了半天的错误。</p>
+<p>没有错误的话就说明安装成功了。</p>
+<p>然后就可以写个简单的程序。点亮一个流水灯。</p>
+<p>开始在网上找的程序都不能用，我也恨郁闷啊。</p>
+<p>因为</p>
+<pre><code>GPIO.setmode(GPIO.BOARD)
+</code></pre><p>这句话报错。</p>
+<p>后来想一想还是靠自己，于是我用python help  对RPi.GPIO的用法进行查看，发现这个函数都没有了。可能是因为硬件的更新吧。</p>
+<p>于是我就注释了这条代码。</p>
+<p>发现下面还有几条不能用。</p>
+<p>这是多么的纠结啊。</p>
+<p>所以我又继续改。</p>
+<p>最后</p>
+<pre><code>GPIO.setup(11, GPIO.OUT)  
+
+while True:  
+
+    GPIO.output(11, 1)  
+
+    time.sleep(1)  
+
+    GPIO.output(11, 0)  
+
+    time.sleep(1)
+</code></pre><p>这样写就没问题了，接在板子上的led灯也一秒一秒的闪烁了。</p>
+<p>真是喜大普奔啊。啊哈哈~~~！</p>
+<p>好吧就先写到这里。</p>
+<p>其实我下午还弄了摄像头监控。</p>
+<p>但是效果不太好。晚上如果还有时间的话我就继续写。</p>
+<p>先吃个饭洗个澡去啦。</p>
+<p>啦啦啦！！~</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux复习笔记（一）]]></title>
+      <url>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</url>
+      <content type="html"><![CDATA[<h6 id="从今天开始，准备复习一下一些以前学过的linux命令。"><a href="#从今天开始，准备复习一下一些以前学过的linux命令。" class="headerlink" title="从今天开始，准备复习一下一些以前学过的linux命令。"></a>从今天开始，准备复习一下一些以前学过的linux命令。</h6><h6 id="然后好进行后面的学习。"><a href="#然后好进行后面的学习。" class="headerlink" title="然后好进行后面的学习。"></a>然后好进行后面的学习。</h6><ul>
+<li>——————————————-<br></li>
+</ul>
+<h6 id="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"><a href="#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。" class="headerlink" title="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"></a>首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。</h6><h6 id="系统安装完成后-首先更新源。"><a href="#系统安装完成后-首先更新源。" class="headerlink" title="系统安装完成后,首先更新源。"></a>系统安装完成后,首先更新源。</h6><h6 id="吼吼吼！"><a href="#吼吼吼！" class="headerlink" title="吼吼吼！"></a>吼吼吼！</h6><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su passwd root</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su xcy</span><br></pre></td></tr></table></figure>
+<p>然后是安装ssh<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server openssh -client</span><br></pre></td></tr></table></figure></p>
+<p>安装完成服务端和客户端后，用电脑进行ssh远程登录。<br><br>连接成功。<br><br>回忆起来了一些命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 filename</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd testgroup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd test1 -g testgroup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser test2 -g testgroup</span><br></pre></td></tr></table></figure>
+<p>其中useradd新建用户在home目录下面没有文件夹，而adduser则有。<br><br>ps -e  查看进程<br><br>kill 3400杀死3400进程<br><br>kill -9 pid process<br><br>mkdir 目录名         =&gt; 创建一个目录<br><br>rmdir 空目录名      =&gt; 删除一个空目录<br><br>rm 文件名 文件名   =&gt; 删除一个文件或多个文件<br><br>rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切<br><br>touch 文件名        =&gt; 创建一个空文件<br><br>重命名文件（夹） / 移动文件（夹）到指定文件夹<br><br>执行格式： mv source destination<br><br>mv file1 file2    =&gt; 将文件 file1，更改文件名为 file2。<br><br>mv file1 dir1    =&gt; 将文件 file1，移到目录 dir1下，文件名仍为 file1。<br><br>mv dir1 dir2    =&gt; 若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到<br>目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和<br>子目录，更改为目录 dir2。<br><br>今天就练到这里。明天继续！加油！<br></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[chrome科学上网]]></title>
+      <url>http://rayuu.com/2015/03/22/2015-03-22-chome-science/</url>
+      <content type="html"><![CDATA[<ul>
+<li><code>chrome</code>科学上网方式</li>
+<li>（仅供喜欢折腾的chrome用户使用，使用chrome也是一种信仰。）</li>
+<li>由于xxx原因，无法上一些外国网站，比如说上google搜一些学术性的问题等，这是百度比不上的，现在百度搜索一些东西都是推广啊什么的，很恶心的。所以推荐如下科学上网方式。</li>
+<li>工具： <code>chrome浏览器+goagent+SwitchySharp</code></li>
+</ul>
+<a id="more"></a>
+<p>   用了几年的chrome了，chrome体验还是很不错的。<br><br>   下面是我从chrome吧里面找的一些资源。<br></p>
+<ul>
+<li><p>chrome下载地址 (<a href="http://pan.baidu.com/share/link?uk=3508695471&amp;shareid=2338828618" target="_blank" rel="external">http://pan.baidu.com/share/link?uk=3508695471&amp;shareid=2338828618</a>)</p>
+</li>
+<li><p>然后你可以先替换后斯特斯，这样可以保证你先能进入应用商店<br>(<a href="http://pan.baidu.com/share/link?uk=3508695471&amp;shareid=2772930274" target="_blank" rel="external">http://pan.baidu.com/share/link?uk=3508695471&amp;shareid=2772930274</a>)  解压密码chrome<br></p>
+</li>
+<li>把上面的hosts解压出来，windows用户找到C:\WINDOWS\system32\drivers\etc下的hosts，替换掉原来的。<br>如果有杀毒提醒，不用管，点信任即可。<br></li>
+<li>其他操作系统的hosts位置如下：</li>
+<li>Android：/system/etc/hosts</li>
+<li><p>Linux及其他类Unix操作系统：/etc</p>
+</li>
+<li><p>替换完成后，我们发现可以上应用商店，和登录google账号了。</p>
+</li>
+<li>然后打开应用商店，搜索SwitchySharp，点击添加至chrome。然后在浏览器右上角会出现一个灰色的地球。</li>
+<li>然后下载：switchyoptions.bak 链接：(<a href="http://pan.baidu.com/s/1sCw5g" target="_blank" rel="external">http://pan.baidu.com/s/1sCw5g</a>)</li>
+<li><p>下面我们来配置，单击那个灰色的地球，点“选项”，然后“导入导出”，接着“从文件恢复”，然后找到刚刚下载的备份文件导入即可。</p>
+</li>
+<li><p>最后就是配置goagent了。</p>
+</li>
+<li>下载链接: (<a href="http://pan.baidu.com/s/1mgmSwkg" target="_blank" rel="external">http://pan.baidu.com/s/1mgmSwkg</a>) 密码: 9kvz</li>
+<li>解压后在goagent-goagent-b9ff04c文件夹下，打开local目录。然后配置proxy.ini</li>
+<li>把里面的appid换成你的gae应用id即可。里面有readme.md，自己可以阅读。</li>
+<li>最后用管理员运行goagent.exe即可成功运行。</li>
+<li>如果ip还是被封了，那么你还可以下载里面的GoGo Tester2.3.9.exe，搜索ip，然后复制ip到proxy.ini，找到iplisit.  把ip地址放在google_cn=后面，还有google_hk=后面，粘贴2遍即可。</li>
+<li>这样配置就完成了。可以轻松打开youtube和facebook等一些网站了。</li>
+<li>最后，你还可以在右下角设置ie代理。这样ie浏览器同样也可以上了。</li>
+</ul>
+]]></content>
+    </entry>
+    
+  
+  
+</search>

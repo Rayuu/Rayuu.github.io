@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/29/git-coding/</loc>
+    <lastmod>2016-05-31T13:46:12.098Z</lastmod>
+    <data>
+        <display>
+        <title>将hexo博客同时托管到github和coding</title>
+        <pubTime>2016-05-29T05:57:09.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://rayuu.com/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/18/cordova1/</loc>
+    <lastmod>2016-05-28T09:24:20.273Z</lastmod>
+    <data>
+        <display>
+        <title>cordova入门</title>
+        <pubTime>2016-05-17T16:00:00.000Z</pubTime>
+        
+        <tag>cordova</tag>
+         
+         
+           
+             
+              <breadCrumb title="cordova" url="http://rayuu.com/categories/cordova/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/03/cetnoticket/</loc>
+    <lastmod>2016-05-28T09:19:51.598Z</lastmod>
+    <data>
+        <display>
+        <title>CET4、6级无证查询99接口</title>
+        <pubTime>2016-05-02T16:00:00.000Z</pubTime>
+        
+        <tag>cet</tag>
+         
+         
+           
+             
+              <breadCrumb title="cet" url="http://rayuu.com/categories/cet/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/12/wechat/</loc>
+    <lastmod>2016-05-28T09:19:05.503Z</lastmod>
+    <data>
+        <display>
+        <title>typecho微信助手</title>
+        <pubTime>2016-05-11T16:00:00.000Z</pubTime>
+        
+        <tag>微信助手</tag>
+         
+         
+           
+             
+              <breadCrumb title="微信" url="http://rayuu.com/categories/%E5%BE%AE%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/17/12864lecd/</loc>
+    <lastmod>2016-05-28T09:17:43.408Z</lastmod>
+    <data>
+        <display>
+        <title>51单片机三线串行驱动12864液晶</title>
+        <pubTime>2016-05-16T16:00:00.000Z</pubTime>
+        
+        <tag>lcd12864</tag>
+         
+         
+           
+             
+              <breadCrumb title="单片机" url="http://rayuu.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/09/16led/</loc>
+    <lastmod>2016-05-28T09:16:23.529Z</lastmod>
+    <data>
+        <display>
+        <title>16led摇摇棒</title>
+        <pubTime>2016-05-08T16:00:00.000Z</pubTime>
+        
+        <tag>led摇摇棒</tag>
+         
+         
+           
+             
+              <breadCrumb title="单片机" url="http://rayuu.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/22/cordova2/</loc>
+    <lastmod>2016-05-28T09:13:55.253Z</lastmod>
+    <data>
+        <display>
+        <title>cordova+ionic跨平台应用</title>
+        <pubTime>2016-05-21T16:00:00.000Z</pubTime>
+        
+        <tag>cordova</tag>
+         
+         
+           
+             
+              <breadCrumb title="cordova" url="http://rayuu.com/categories/cordova/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/25/cetos-python-update/</loc>
+    <lastmod>2016-05-28T09:09:09.806Z</lastmod>
+    <data>
+        <display>
+        <title>centos6.4从python2.6升级python2.7.9</title>
+        <pubTime>2016-05-24T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://rayuu.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/05/28/2015-03-19-first/</loc>
+    <lastmod>2016-05-28T08:24:17.352Z</lastmod>
+    <data>
+        <display>
+        <title>随笔</title>
+        <pubTime>2016-05-27T16:00:00.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://rayuu.com/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2015/06/06/2015-06-06-pi1/</loc>
+    <lastmod>2016-05-28T08:21:48.290Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派折腾之旅（一）</title>
+        <pubTime>2015-06-05T16:00:00.000Z</pubTime>
+        
+        <tag>树莓派</tag>
+         
+         
+           
+             
+              <breadCrumb title="树莓派" url="http://rayuu.com/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</loc>
+    <lastmod>2016-05-28T08:21:24.123Z</lastmod>
+    <data>
+        <display>
+        <title>linux复习笔记（一）</title>
+        <pubTime>2015-03-21T16:00:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://rayuu.com/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2015/08/05/2015-08-05-pi3/</loc>
+    <lastmod>2016-05-28T08:20:30.387Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派折腾之旅（三）</title>
+        <pubTime>2015-08-04T16:00:00.000Z</pubTime>
+        
+        <tag>树莓派</tag>
+         
+         
+           
+             
+              <breadCrumb title="树莓派" url="http://rayuu.com/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2015/06/06/2015-06-06-pi2/</loc>
+    <lastmod>2016-05-28T08:18:30.612Z</lastmod>
+    <data>
+        <display>
+        <title>树莓派折腾之旅（二）</title>
+        <pubTime>2015-06-05T16:00:00.000Z</pubTime>
+        
+        <tag>树莓派</tag>
+         
+         
+           
+             
+              <breadCrumb title="树莓派" url="http://rayuu.com/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2015/03/22/2015-03-22-chome-science/</loc>
+    <lastmod>2016-05-28T07:19:51.606Z</lastmod>
+    <data>
+        <display>
+        <title>chrome科学上网</title>
+        <pubTime>2015-03-21T16:00:00.000Z</pubTime>
+        
+        <tag>chrome</tag>
+         
+         
+           
+             
+              <breadCrumb title="chrome" url="http://rayuu.com/categories/chrome/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>
