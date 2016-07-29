@@ -4,10 +4,9 @@
   
     
     <entry>
-      <title><![CDATA[git基本命令.md]]></title>
+      <title><![CDATA[git基本命令推送到github]]></title>
       <url>http://rayuu.com/2016/07/29/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
-      <content type="html"><![CDATA[<p>#使用git上传下载github上的代码</p>
-<blockquote>
+      <content type="html"><![CDATA[<h1 id="使用git上传下载github上的代码"><a href="#使用git上传下载github上的代码" class="headerlink" title="使用git上传下载github上的代码"></a>使用git上传下载github上的代码</h1><blockquote>
 <p>1、安装git<br>2、在本地创建ssh key</p>
 </blockquote>
 <a id="more"></a>
@@ -48,8 +47,7 @@ git commit -m &quot;first commit&quot;
 <p>找到想要克隆的仓库。</p>
 <pre><code>git clone git@github.com:AloneMonkey/weekly.git
 </code></pre><p>提交上传的命令见第六步。</p>
-<p>PS: </p>
-<p>hexo新建md文件的命令是：</p>
+<h1 id="PS"><a href="#PS" class="headerlink" title="PS:"></a>PS:</h1><p>hexo新建md文件的命令是：</p>
 <pre><code>hexo new &quot;git&quot;
 </code></pre><p>会自带md后缀，哈哈，然后<code>hexo d -g</code></p>
 ]]></content>
