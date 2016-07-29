@@ -47,9 +47,26 @@ git commit -m &quot;first commit&quot;
 <p>找到想要克隆的仓库。</p>
 <pre><code>git clone git@github.com:AloneMonkey/weekly.git
 </code></pre><p>提交上传的命令见第六步。</p>
-<h1 id="PS"><a href="#PS" class="headerlink" title="PS:"></a>PS:</h1><p>hexo新建md文件的命令是：</p>
-<pre><code>hexo new &quot;git&quot;
+<h1 id="PS"><a href="#PS" class="headerlink" title="PS:"></a>PS:</h1><h3 id="一、hexo新建md文件的命令是："><a href="#一、hexo新建md文件的命令是：" class="headerlink" title="一、hexo新建md文件的命令是："></a>一、hexo新建md文件的命令是：</h3><pre><code>hexo new &quot;git&quot;
 </code></pre><p>会自带md后缀，哈哈，然后<code>hexo d -g</code></p>
+<h3 id="二、出现错误解决方法"><a href="#二、出现错误解决方法" class="headerlink" title="二、出现错误解决方法"></a>二、出现错误解决方法</h3><pre><code>Please, commit your changes or stash them before you can merge.
+Aborting
+</code></pre><p><code>git pull</code>时出现上述情况，解决方法如下：</p>
+<p>这是因为如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,<br>在发布这个配置文件的时候,会发生代码冲突:</p>
+<p>如果希望保留生产服务器上所做的改动,仅仅并入新配置项, 处理方法如下:</p>
+<pre><code>git stash 
+git pull 
+git stash pop
+</code></pre><p>然后可以使用<code>git diff -w +文件名</code> 来确认代码自动合并的情况.</p>
+<p>反过来,如果希望用代码库中的文件完全覆盖本地工作版本. 方法如下:</p>
+<pre><code>git reset --hard 
+git pull
+</code></pre><p>其中git reset是针对版本,如果想针对文件回退本地修改,使用<br> git checkout HEAD file/to/restore  </p>
+<p> 进阶：</p>
+<pre><code>git stash save &quot;work in progress for foo feature&quot;
+</code></pre><p>当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，</p>
+<p>’<code>git stash list</code>’ 命令可以将当前的Git栈信息打印出来，<br>你只需要将找到对应的版本号，<br>例如使用’git stash apply stash@{1}’<br>就可以将你指定版本号为stash@{1}的工作取出来，<br>当你将所有的栈都应用回来的时候，可以使用’<code>git stash clear</code>’来将栈清空。</p>
+<p>转自：<a href="http://blog.csdn.net/wh_19910525/article/details/7784901" target="_blank" rel="external">http://blog.csdn.net/wh_19910525/article/details/7784901</a></p>
 ]]></content>
     </entry>
     
