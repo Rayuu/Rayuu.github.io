@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title><![CDATA[git基本命令.md]]></title>
+      <url>http://rayuu.com/2016/07/29/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<p>#使用git上传下载github上的代码</p>
+<blockquote>
+<p>1、安装git<br>2、在本地创建ssh key</p>
+</blockquote>
+<a id="more"></a>
+<pre><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;
+</code></pre><p>比如 <code>ssh-keygen -t rsa -C &quot;rayu@engineer.com&quot;</code></p>
+<p>邮箱就是你的github邮箱。<br>之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。<br>成功的话会在~/下生成.ssh文件夹，进去，打开id_rsa.pub，复制里面的key。<br>回到github，进入Account Settings，左边选择SSH Keys，Add SSH Key,title随便填，粘贴key。<br>添加完成。</p>
+<blockquote>
+<p>3、连接到github</p>
+</blockquote>
+<pre><code>ssh -T git@github.com
+</code></pre><p>输入一个yes,会看到：<code>You’ve successfully authenticated, but GitHub does not provide shell access</code> 。这就表示已成功连上github。</p>
+<blockquote>
+<p>4、设置常用的用户名和密码</p>
+</blockquote>
+<pre><code>git config --global user.name &quot;your name&quot;
+git config --global user.email &quot;your_email@youremail.com&quot;
+</code></pre><p>这里的用户名和邮箱分别是github的用户名和邮箱。</p>
+<blockquote>
+<p>5、进入仓库</p>
+</blockquote>
+<pre><code>git remote add origin git@github.com:yourName/yourRepo.git
+</code></pre><p> 后面的yourName和yourRepo表示你再github的用户名和刚才新建的仓库，加完之后进入.git目录，打开config，这里会多出一个remote “origin”内容，这就是刚才添加的远程地址，也可以直接修改config来配置远程地址。</p>
+<blockquote>
+<p>6、提交上传</p>
+</blockquote>
+<p>接下来在本地仓库里添加一些文件，比如README，</p>
+<pre><code>git add README
+#git add .
+touch git.md
+git commit -m &quot;first commit&quot;
+</code></pre><p>上传到github：</p>
+<pre><code>git push origin master
+</code></pre><p>   <code>git push</code>命令会将本地仓库推送到远程服务器。<br>   <code>git pull</code>命令则相反。</p>
+<p>使用<code>git status</code>可以查看文件的差别，<br>使用<code>git add</code>添加要commit的文件，<br>之后<code>git commit</code>提交本次修改，<code>git push</code>上传到github。<br>或者<code>git push origin master</code></p>
+<blockquote>
+<p>7、克隆仓库</p>
+</blockquote>
+<p>找到想要克隆的仓库。</p>
+<pre><code>git clone git@github.com:AloneMonkey/weekly.git
+</code></pre><p>提交上传的命令见第六步。</p>
+<p>PS: </p>
+<p>hexo新建md文件的命令是：</p>
+<pre><code>hexo new &quot;git&quot;
+</code></pre><p>会自带md后缀，哈哈，然后<code>hexo d -g</code></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[windows右键添加cmd菜单]]></title>
       <url>http://rayuu.com/2016/06/01/cmdhere/</url>
       <content type="html"><![CDATA[<p>windows右键添加cmd菜单</p>
