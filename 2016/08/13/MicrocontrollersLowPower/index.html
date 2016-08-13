@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="cordova," />
+  <meta name="keywords" content="瑞萨 低功耗 单片机," />
 
 
 
@@ -58,16 +58,24 @@
 
 
 
-<meta name="description" content="原文地址： http://blog.rayuu.com/cordova2.html">
+<meta name="description" content="瑞萨单片机系统低功耗的设计经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。
+这和要求的功耗设计都不在一个数量级，要求的功耗是在微安级别的。所以需要一个方法降低系统的功耗。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cordova+ionic跨平台应用">
-<meta property="og:url" content="http://rayuu.com/2016/05/22/cordova2/index.html">
+<meta property="og:title" content="瑞萨单片机系统低功耗的设计">
+<meta property="og:url" content="http://rayuu.com/2016/08/13/MicrocontrollersLowPower/index.html">
 <meta property="og:site_name" content="Rayu技术分享">
-<meta property="og:description" content="原文地址： http://blog.rayuu.com/cordova2.html">
-<meta property="og:updated_time" content="2016-05-28T09:13:55.253Z">
+<meta property="og:description" content="瑞萨单片机系统低功耗的设计经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。
+这和要求的功耗设计都不在一个数量级，要求的功耗是在微安级别的。所以需要一个方法降低系统的功耗。">
+<meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/2578120507.png">
+<meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/4010025032.png">
+<meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/3292061551.png">
+<meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/3328869344.png">
+<meta property="og:updated_time" content="2016-08-13T15:11:08.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cordova+ionic跨平台应用">
-<meta name="twitter:description" content="原文地址： http://blog.rayuu.com/cordova2.html">
+<meta name="twitter:title" content="瑞萨单片机系统低功耗的设计">
+<meta name="twitter:description" content="瑞萨单片机系统低功耗的设计经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。
+这和要求的功耗设计都不在一个数量级，要求的功耗是在微安级别的。所以需要一个方法降低系统的功耗。">
+<meta name="twitter:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/2578120507.png">
 
 
 
@@ -85,7 +93,7 @@
   };
 </script>
 
-  <title> cordova+ionic跨平台应用 | Rayu技术分享 </title>
+  <title> 瑞萨单片机系统低功耗的设计 | Rayu技术分享 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +271,7 @@
             
             
               
-                cordova+ionic跨平台应用
+                瑞萨单片机系统低功耗的设计
               
             
           </h1>
@@ -275,8 +283,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-22T00:00:00+08:00" content="2016-05-22">
-              2016-05-22
+            <time itemprop="dateCreated" datetime="2016-08-13T22:57:16+08:00" content="2016-08-13">
+              2016-08-13
             </time>
           </span>
 
@@ -289,8 +297,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/cordova/" itemprop="url" rel="index">
-                    <span itemprop="name">cordova</span>
+                  <a href="/categories/单片机/" itemprop="url" rel="index">
+                    <span itemprop="name">单片机</span>
                   </a>
                 </span>
 
@@ -305,8 +313,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/22/cordova2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/22/cordova2/" itemprop="commentsCount"></span>
+                <a href="/2016/08/13/MicrocontrollersLowPower/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/MicrocontrollersLowPower/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -327,7 +335,87 @@
       
 
       
-        <h1 id="原文地址：-http-blog-rayuu-com-cordova2-html"><a href="#原文地址：-http-blog-rayuu-com-cordova2-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova2.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova2.html" title="cordova+ionic跨平台应用" target="_blank" rel="external">http://blog.rayuu.com/cordova2.html</a></h1>
+        <h1 id="瑞萨单片机系统低功耗的设计"><a href="#瑞萨单片机系统低功耗的设计" class="headerlink" title="瑞萨单片机系统低功耗的设计"></a>瑞萨单片机系统低功耗的设计</h1><p>经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。</p>
+<p>这和要求的功耗设计都不在一个数量级，要求的功耗是在微安级别的。所以需要一个方法降低系统的功耗。</p>
+<a id="more"></a>
+<p>单片机系统的功耗是由MCU和其他外围电路的功耗共同决定。所以首先要对单片机系统的工作特点非常熟悉。<br>查阅手册发现，现在用的瑞萨单片机，有STOP,HALT,SNOOZE三种模式可以降低功耗。</p>
+<p>以下是用户手册的说明</p>
+<blockquote>
+<p>(1) HALT 模式</p>
+</blockquote>
+<p>通过执行 HALT 指令进入 HALT 模式。 HALT 模式是停止 CPU 运行时钟的模式。在设定 HALT 模式前，如果高速系统时钟振荡电路、高速内部振荡器或者副系统时钟振荡电路正在振荡，各时钟就继续振荡。虽然此模式无法让工作电流降到 STOP 模式的程度，但是在想要通过中断请求立即重新开始处理或者想要频繁地进行间歇运行时是一种有效的模式。</p>
+<blockquote>
+<p>(2) STOP 模式</p>
+</blockquote>
+<p>通过执行 STOP 指令进入 STOP 模式。 STOP 模式是停止高速系统时钟振荡电路和高速内部振荡器的振荡并且停止整个系统的模式。能大幅度地降低 CPU 的工作电流。<br>因为 STOP 模式能通过中断请求来解除，所以也能进行间歇运行。但是，在 X1 时钟的情况下，因为在解除STOP 模式时需要确保振荡稳定的等待时间，所以如果一定要通过中断请求立即开始处理，就必须选择 HALT 模式。</p>
+<blockquote>
+<p>(3) SNOOZE 模式</p>
+</blockquote>
+<p>通过 CSIp 或者 UARTq 的数据接收以及由定时器触发信号 （中断请求信号 （ INTRTC/INTIT））产生的 A/D转换请求，解除 STOP 模式，不需要 CPU 运行而进行 CSIp 或者 UARTq 的数据接收，或者进行 A/D 转换。只有在选择高速内部振荡器作为 CPU/ 外围硬件时钟 （ fCLK）时才能设定 SNOOZE 模式。</p>
+<p>在任何一种模式中，寄存器、标志和数据存储器全部保持设定为待机模式前的内容，并且还保持输入 / 输出端口的输出锁存器和输出缓冲器的状态。</p>
+<p>最后决定使用STOP模式来进行功耗设计，使功耗尽可能降低到最低。</p>
+<p>以单片机为核心构成的系统，其系统的总能耗是由单片机能耗及其外围电路能耗共同构成。</p>
+<p>所以为了降低整个系统的功耗，除了要降低单片机自身的运行恭号外，还要降低外围电路的功耗。</p>
+<p>如果要在STOP模式下工作，首先要把单片机外围的IO设备最大程度上禁用。</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/2578120507.png" alt="&quot;STOP模式中的运行状态&quot;"></p>
+<h2 id="在本系统中，除了单片机，还有无线模块，蜂鸣器和一个LED灯耗电。"><a href="#在本系统中，除了单片机，还有无线模块，蜂鸣器和一个LED灯耗电。" class="headerlink" title="在本系统中，除了单片机，还有无线模块，蜂鸣器和一个LED灯耗电。"></a>在本系统中，除了单片机，还有无线模块，蜂鸣器和一个LED灯耗电。</h2><p>下面进行分步描述</p>
+<h3 id="gt-1、首先要做的是对无线模块休眠，因为射频在工作的时候，电流高达15mA左右。"><a href="#gt-1、首先要做的是对无线模块休眠，因为射频在工作的时候，电流高达15mA左右。" class="headerlink" title="&gt; 1、首先要做的是对无线模块休眠，因为射频在工作的时候，电流高达15mA左右。"></a>&gt; 1、首先要做的是对无线模块休眠，因为射频在工作的时候，电流高达15mA左右。</h3><p>Si24R1芯片内部有状态机，控制着芯片在不同工作模式的切换。<br>Si24R1可配置为Shutdown,Standby,Idle-TX,TX,Rx五种工作模式。</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/4010025032.png" alt="无线工作模式"></p>
+<p>为了降低无线模块的功耗，也要让无线模块在Shutdown模式下工作。</p>
+<p>在Shutdown工作模式下，Si24R1所有收发功能模块关闭，芯片停止工作，消耗电流最小，<br>但所有内部寄存器值和FIFO值保持不变，仍可通过SPI实现对寄存器的读写。</p>
+<p>设置CONFIG寄存器的PWR_UP位的值为0，芯片立即返回到Shutdown工作模式。</p>
+<p>查看CONFIG寄存器的配置如下：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/3292061551.png" alt="CONFIG寄存器"></p>
+<p>PWR_UP在CONFIG寄存器的第一位，所以把该位拉低即可。</p>
+<p>编写子函数如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/******************************************************************</span><br><span class="line"></span><br><span class="line">SPI Shutdown 关断模式</span><br><span class="line"></span><br><span class="line">把config 配置寄存器的第一位PWR_up拉低</span><br><span class="line"></span><br><span class="line">********************************************************************/</span><br><span class="line"></span><br><span class="line">void SI24R1_Shutdown(void )</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">               </span><br><span class="line"> 				SI24R1_CEL;</span><br><span class="line"></span><br><span class="line">                SPI_Write_Reg(NRF_WRITE_REG + CONFIG, 0x00);</span><br><span class="line"></span><br><span class="line">                SI24R1_Delay_ms(2);</span><br><span class="line"></span><br><span class="line">                SI24R1_CEH;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在必要的时候需要对无线模块进行唤醒。所以编写无线开启子函数。</p>
+<pre><code>/******************************************************************
+SPI 上电模式        
+********************************************************************/
+void SI24R1_PowerOn(void )
+{
+                SI24R1_CEL;
+                SPI_Write_Reg(NRF_WRITE_REG + CONFIG, 0x71);//发射模式
+                SI24R1_Delay_us(120);
+                SPI_Write_Reg(NRF_WRITE_REG + CONFIG, 0x3F);  // Set PWR_UP bit, enable CRC(2 bytes)
+                SI24R1_Delay_ms(2);
+                SI24R1_CEH;
+
+                RX_Mode(WireComm.Addr,WireComm.CommChannel);
+
+}
+</code></pre><p>至此无线低功耗设计完成。</p>
+<h3 id="gt-2、单片机I-O的处理"><a href="#gt-2、单片机I-O的处理" class="headerlink" title="&gt; 2、单片机I/O的处理"></a>&gt; 2、单片机I/O的处理</h3><p>该系统对单片机I/O的利用有A/D转换，蜂鸣器，LED灯，EEPROM等。所以在进入STOP模式时，要把这些引脚给拉高。</p>
+<p>蜂鸣器的话要根据硬件情况拉低或拉高。</p>
+<h3 id="gt-3、编写STOP模式函数"><a href="#gt-3、编写STOP模式函数" class="headerlink" title="&gt; 3、编写STOP模式函数"></a>&gt; 3、编写STOP模式函数</h3><p>进入STOP模式很简单，一条STOP();就可以进入，所以在进入STOP模式之前要把单片机系统外围的I/O进行处理。没有用到的I/O最好也要设为输出拉高。</p>
+<p>但是没有用到I/O对电流影响不大。</p>
+<p>对于唤醒stop模式，打开单片机的内部定时器，周期为200ms。根据用户手册进行时序设计。它可以用来唤醒STOP模式。</p>
+<p>内部定时器是一个12位间隔定时器。我们按事先设定的任意时间间隔产生中断 （ INTIT），能用于从 STOP 模式的唤醒以及 A/D 转换器的 SNOOZE模式的触发。</p>
+<p>在定时器里面设定无线为休眠状态，主函数里面调用STOP模式。</p>
+<p>无线的状态为每5s唤醒一次，工作50ms，然后重新进入休眠。</p>
+<p>定时器中断和STOP模式部分程序如下：</p>
+<pre><code>/***********************************************************************************************************************
+* Function Name: r_it_interrupt
+* Description  : This function is INTIT interrupt service routine.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+__interrupt static void r_it_interrupt( void)
+{
+    /* Start user code. Do not edit comment generated here */
+                 if(Envent.Si24R1Sleep&lt; 0xF0) Envent.Si24R1Sleep++;
+                 if(Envent.DoorSleep&lt; 0xF0) Envent.DoorSleep++;
+                 //按键扫描
+                KeyScan();
+               ....................................
+    /* End user code. Do not edit comment generated here */
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**********************************************************************************</span><br><span class="line">Function Name :   Stop_mode(void)</span><br><span class="line">Description             : 睡眠模式</span><br><span class="line">Parameters               : none</span><br><span class="line">Return value  : none</span><br><span class="line">***********************************************************************************/</span><br><span class="line">void Stop_mode(void )</span><br><span class="line">&#123;</span><br><span class="line">                 if((Envent.Si24R1Work&gt; 0) || (WIRREC !=WireComm.WorkSta) ) return ;</span><br><span class="line">                </span><br><span class="line">                SI24R1_Shutdown();</span><br><span class="line">                R_ADC_Set_OperationOff();</span><br><span class="line">                                </span><br><span class="line">                P6.0 =1;</span><br><span class="line">                P6.1 =1;</span><br><span class="line">                BELLOFF;</span><br><span class="line">                P2.2 =1;</span><br><span class="line">                P7.0 =1;</span><br><span class="line">                Envent.Si24R1Sleep =1;</span><br><span class="line">                 while(Envent.Si24R1Sleep)</span><br><span class="line">                &#123;</span><br><span class="line">                                 STOP();</span><br><span class="line">                                 NOP();</span><br><span class="line">                                 NOP();</span><br><span class="line">                                 NOP();</span><br><span class="line">                                 NOP();</span><br><span class="line">                    ....................</span><br><span class="line">                                   ...............</span><br><span class="line">                                 if(Envent.DoorSleep&gt;= 5)</span><br><span class="line">                                &#123;</span><br><span class="line">                                                Envent.DoorSleep =0;</span><br><span class="line">                                                 //状态改变上报一次</span><br><span class="line">                                                 if(ReedSwitch!= Envent.DoorSta)</span><br><span class="line">                                                &#123;</span><br><span class="line">                                                                Envent.DoorSta =ReedSwitch;</span><br><span class="line">                                                                 if(WirPro.ParaMode== 1 &amp;&amp; ReedSwitchOn ==ReedSwitch)</span><br><span class="line">                                                                &#123;</span><br><span class="line">                                                                                 BELLON;</span><br><span class="line">                                                                                 delay_ms(200);</span><br><span class="line">                                                                                 delay_ms(100);</span><br><span class="line">                                                                                 BELLOFF;</span><br><span class="line">                                                                                 TimeDelayUp=0;</span><br><span class="line">                                                                &#125;</span><br><span class="line">                                                                Envent.DeviceUp =0;</span><br><span class="line">                                                                Envent.CtrlUpSend =VALID_FLAG;</span><br><span class="line">                                                                </span><br><span class="line">                                                                Envent.Si24R1Sleep =25;</span><br><span class="line">                                                &#125;</span><br><span class="line">                                                </span><br><span class="line">                                &#125;</span><br><span class="line">                                 else if (Envent.Si24R1Sleep&gt;=25) //5s</span><br><span class="line">                                &#123;</span><br><span class="line">                                                Envent.Si24R1Sleep =0;</span><br><span class="line">                                                Envent.Si24R1Work =50;//50ms</span><br><span class="line">                                &#125;</span><br><span class="line">                                R_WDT_Restart();</span><br><span class="line">               &#125; </span><br><span class="line">               SI24R1_PowerOn();</span><br><span class="line">                ...............</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后对系统的功能进行整体调试，得到的待机模式下工作电流为6微安左右。无线发射和接收时有15mA，蜂鸣器工作时，最高有37mA。</p>
+<p>基本满足要求设计。不过还需要继续完善。</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/3328869344.png" alt="效果图"></p>
+
       
     </div>
 
@@ -335,7 +423,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cordova/" rel="tag">#cordova</a>
+            <a href="/tags/瑞萨-低功耗-单片机/" rel="tag">#瑞萨 低功耗 单片机</a>
           
         </div>
       
@@ -344,17 +432,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/18/cordova1/" rel="next" title="cordova入门">
-                <i class="fa fa-chevron-left"></i> cordova入门
+              <a href="/2016/07/29/git基本命令/" rel="next" title="git基本命令推送到github">
+                <i class="fa fa-chevron-left"></i> git基本命令推送到github
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/25/cetos-python-update/" rel="prev" title="centos6.4从python2.6升级python2.7.9">
-                centos6.4从python2.6升级python2.7.9 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -369,10 +453,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/22/cordova2/"
-     data-title="cordova+ionic跨平台应用"
+        <div class="ds-share flat" data-thread-key="2016/08/13/MicrocontrollersLowPower/"
+     data-title="瑞萨单片机系统低功耗的设计"
      data-content=""
-     data-url="http://rayuu.com/2016/05/22/cordova2/">
+     data-url="http://rayuu.com/2016/08/13/MicrocontrollersLowPower/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -399,8 +483,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/22/cordova2/"
-           data-title="cordova+ionic跨平台应用" data-url="http://rayuu.com/2016/05/22/cordova2/">
+      <div class="ds-thread" data-thread-key="2016/08/13/MicrocontrollersLowPower/"
+           data-title="瑞萨单片机系统低功耗的设计" data-url="http://rayuu.com/2016/08/13/MicrocontrollersLowPower/">
       </div>
     
   </div>
@@ -534,7 +618,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原文地址：-http-blog-rayuu-com-cordova2-html"><span class="nav-number">1.</span> <span class="nav-text">原文地址： http://blog.rayuu.com/cordova2.html</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#瑞萨单片机系统低功耗的设计"><span class="nav-number">1.</span> <span class="nav-text">瑞萨单片机系统低功耗的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在本系统中，除了单片机，还有无线模块，蜂鸣器和一个LED灯耗电。"><span class="nav-number">1.1.</span> <span class="nav-text">在本系统中，除了单片机，还有无线模块，蜂鸣器和一个LED灯耗电。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-1、首先要做的是对无线模块休眠，因为射频在工作的时候，电流高达15mA左右。"><span class="nav-number">1.1.1.</span> <span class="nav-text">> 1、首先要做的是对无线模块休眠，因为射频在工作的时候，电流高达15mA左右。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-2、单片机I-O的处理"><span class="nav-number">1.1.2.</span> <span class="nav-text">> 2、单片机I/O的处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-3、编写STOP模式函数"><span class="nav-number">1.1.3.</span> <span class="nav-text">> 3、编写STOP模式函数</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
