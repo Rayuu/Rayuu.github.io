@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[pyinstaller_py2exe_exe]]></title>
+      <title><![CDATA[pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标]]></title>
       <url>http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/</url>
       <content type="html"><![CDATA[<h1 id="pyinstaller和py2exe把Python脚本生成exe文件，"><a href="#pyinstaller和py2exe把Python脚本生成exe文件，" class="headerlink" title="pyinstaller和py2exe把Python脚本生成exe文件，"></a>pyinstaller和py2exe把Python脚本生成exe文件，</h1><h1 id="并添加版本信息和自定义图标。"><a href="#并添加版本信息和自定义图标。" class="headerlink" title="并添加版本信息和自定义图标。"></a>并添加版本信息和自定义图标。</h1><p>写了一个查找产品通道号的小程序，目前还没进行异常处理。<br>以下是程序源码。</p>
 <a id="more"></a>
