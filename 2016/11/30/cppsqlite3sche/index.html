@@ -58,19 +58,22 @@
 
 
 
-<meta name="description" content="C++使用sqlite3进行简单的课表管理一、生成sqlite3.lib1.在sqlite官网 http://www.sqlite.org/download.html 上下载sqlite-amalgamation-3071000.zip 和sqlite-dll-win32-x86-3071000.zip。
-2.分别解压上述两个文件到各自文件夹下（sqlite3.def、sqlite3.dll在同一">
+<meta name="description" content="C++使用sqlite3进行简单的课表管理
+一、生成sqlite3.lib1.在sqlite官网 http://www.sqlite.org/download.html 上下载sqlite-amalgamation-3071000.zip 和sqlite-dll-win32-x86-3071000.zip。
+2.分别解压上述两个文件到各自文件夹下（sqlite3.def、sqlite3.dll在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++使用sqlite3进行简单的课表管理">
 <meta property="og:url" content="http://rayuu.com/2016/11/30/cppsqlite3sche/index.html">
 <meta property="og:site_name" content="Rayu技术分享">
-<meta property="og:description" content="C++使用sqlite3进行简单的课表管理一、生成sqlite3.lib1.在sqlite官网 http://www.sqlite.org/download.html 上下载sqlite-amalgamation-3071000.zip 和sqlite-dll-win32-x86-3071000.zip。
-2.分别解压上述两个文件到各自文件夹下（sqlite3.def、sqlite3.dll在同一">
-<meta property="og:updated_time" content="2016-11-30T13:23:21.317Z">
+<meta property="og:description" content="C++使用sqlite3进行简单的课表管理
+一、生成sqlite3.lib1.在sqlite官网 http://www.sqlite.org/download.html 上下载sqlite-amalgamation-3071000.zip 和sqlite-dll-win32-x86-3071000.zip。
+2.分别解压上述两个文件到各自文件夹下（sqlite3.def、sqlite3.dll在">
+<meta property="og:updated_time" content="2016-11-30T13:31:05.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++使用sqlite3进行简单的课表管理">
-<meta name="twitter:description" content="C++使用sqlite3进行简单的课表管理一、生成sqlite3.lib1.在sqlite官网 http://www.sqlite.org/download.html 上下载sqlite-amalgamation-3071000.zip 和sqlite-dll-win32-x86-3071000.zip。
-2.分别解压上述两个文件到各自文件夹下（sqlite3.def、sqlite3.dll在同一">
+<meta name="twitter:description" content="C++使用sqlite3进行简单的课表管理
+一、生成sqlite3.lib1.在sqlite官网 http://www.sqlite.org/download.html 上下载sqlite-amalgamation-3071000.zip 和sqlite-dll-win32-x86-3071000.zip。
+2.分别解压上述两个文件到各自文件夹下（sqlite3.def、sqlite3.dll在">
 
 
 
@@ -311,7 +314,8 @@
       
 
       
-        <h1 id="C-使用sqlite3进行简单的课表管理"><a href="#C-使用sqlite3进行简单的课表管理" class="headerlink" title="C++使用sqlite3进行简单的课表管理"></a>C++使用sqlite3进行简单的课表管理</h1><h2 id="一、生成sqlite3-lib"><a href="#一、生成sqlite3-lib" class="headerlink" title="一、生成sqlite3.lib"></a>一、生成sqlite3.lib</h2><p>1.在sqlite官网 <a href="http://www.sqlite.org/download.html" target="_blank" rel="external">http://www.sqlite.org/download.html</a> 上下载<code>sqlite-amalgamation-3071000.zip</code> 和<code>sqlite-dll-win32-x86-3071000.zip</code>。</p>
+        <p> C++使用sqlite3进行简单的课表管理</p>
+<h2 id="一、生成sqlite3-lib"><a href="#一、生成sqlite3-lib" class="headerlink" title="一、生成sqlite3.lib"></a>一、生成sqlite3.lib</h2><p>1.在sqlite官网 <a href="http://www.sqlite.org/download.html" target="_blank" rel="external">http://www.sqlite.org/download.html</a> 上下载<code>sqlite-amalgamation-3071000.zip</code> 和<code>sqlite-dll-win32-x86-3071000.zip</code>。</p>
 <p>2.分别解压上述两个文件到各自文件夹下（<code>sqlite3.def、sqlite3.dll</code>在同一文件夹<code>sqlite-dll</code>下）。</p>
 <a id="more"></a>
 <p>3.从VS2010的安装目录下<code>Microsoft Visual Studio 10.0\VC\bin</code>找到<code>lib.exe</code>和<code>link.exe</code>，从VS2010的安装目录下<code>\Microsoft Visual Studio 10.0\Common7\IDE</code>找到<code>mspdb100.dll</code>。将<code>lib.exe`` link.exe ``mspdb100.dll</code>放到步骤2中的<code>sqlite-dll</code>文件夹下。</p>
@@ -920,7 +924,7 @@ string IntToString (int a)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-使用sqlite3进行简单的课表管理"><span class="nav-number">1.</span> <span class="nav-text">C++使用sqlite3进行简单的课表管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、生成sqlite3-lib"><span class="nav-number">1.1.</span> <span class="nav-text">一、生成sqlite3.lib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、VS2010静态编译生成exe文件"><span class="nav-number">1.2.</span> <span class="nav-text">二、VS2010静态编译生成exe文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、课表程序编写"><span class="nav-number">1.3.</span> <span class="nav-text">三、课表程序编写</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、生成sqlite3-lib"><span class="nav-number">1.</span> <span class="nav-text">一、生成sqlite3.lib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、VS2010静态编译生成exe文件"><span class="nav-number">2.</span> <span class="nav-text">二、VS2010静态编译生成exe文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、课表程序编写"><span class="nav-number">3.</span> <span class="nav-text">三、课表程序编写</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
