@@ -4,6 +4,489 @@
   
     
     <entry>
+      <title><![CDATA[单片机串口通讯RXD与TXD如何对接]]></title>
+      <url>http://rayuu.com/2016/11/30/mcurs232/</url>
+      <content type="html"><![CDATA[<h1 id="单片机串口通讯RXD与TXD如何对接"><a href="#单片机串口通讯RXD与TXD如何对接" class="headerlink" title="单片机串口通讯RXD与TXD如何对接"></a>单片机串口通讯RXD与TXD如何对接</h1><blockquote>
+<p>串口直通线和交叉线的区别</p>
+</blockquote>
+<h3 id="1：串口交叉线"><a href="#1：串口交叉线" class="headerlink" title="1：串口交叉线"></a>1：串口交叉线</h3><p>串口线两头都一样都相同。都是公对公或者母对母串口线，这种线必须是交叉线。</p>
+<p>一端的第二针与另一端的第三针是通路的，说明此线是交叉线。<br>以下是判断方法：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/2108422507.jpg" alt=""></p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/2023506305.jpg" alt=""></p>
+<h3 id="2：串口直通线"><a href="#2：串口直通线" class="headerlink" title="2：串口直通线"></a>2：串口直通线</h3><p>如果用户串口设备与串口服务器连接使用公对母串口线，那必须使用公对母直通线。</p>
+<p>一端公头的2对应，另一端母头的2，一端母头的3对应另一端公头的3.</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/3271306913.jpg" alt=""></p>
+<h3 id="3：公母头定义："><a href="#3：公母头定义：" class="headerlink" title="3：公母头定义："></a>3：公母头定义：</h3><p>公头：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/4086203997.png" alt=""></p>
+<p>母头：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/2966605950.jpg" alt=""></p>
+<h3 id="4："><a href="#4：" class="headerlink" title="4："></a>4：</h3><p>使用WiFi网络串口服务器，或者DTU，我们配套的串口线都是标配的，如果我们的串口服务器的公头的，那我们配套的串口线应该是母对母的交叉线，如果客户的设备的公头，可以直接用我们配套的线，前提是客户的串口母头符合标准母头串口定义。如果客户买的我们的串口服务器是母头，那我们配套的串口线应该是公对母的直通线，如果客户的设备是公头，那使用我们的公对母的直通线应该是可以通信的。前提是客户的公头串口是标准的串口，符合公头串口引脚定义。</p>
+<p>摘自：<a href="http://www.usr.cn/Faq/117.html" target="_blank" rel="external">http://www.usr.cn/Faq/117.html</a></p>
+<p>对接方法</p>
+<p>相信很多人都对单片机与计算机或者芯片通信时，RXD与TXD如何连接比较困惑。因为在一些电路图中，有的是直连接法，有的是交叉接法，让人有点摸不着头脑。</p>
+<p>首先需要明白两个概念，就是DTE和DCE。DTE是指数据终端设备，典型的DTE就是计算机和单片机。DCE是指数据通信设备，典型的DCE就是MODEM。RS232串口标准中的RXD和TXD都是站在DTE立场上的，而不是DCE。明白了这一点，再讲下面的接线方法，就很好理解了。</p>
+<p>单片机与计算机进行串口通信时，单片机的RXD接计算机的TXD，单片机的TXD接计算机的RXD。</p>
+<blockquote>
+<p>（1）使用串口直通线。设计电路时，单片机的RXD连接电路板DB9的TXD，单片机的TXD连接电路板DB9的RXD，具体实现可在232电平转换芯片处反接。</p>
+<p>（2）使用串口交叉线。设计电路时，因为串口线已做交叉，单片机的RXD连接电路板DB9的RXD，单片机的TXD连接电路板DB9的TXD，均直连即可。</p>
+</blockquote>
+<p>这就可以解释为什么有的电路中使用直连接法，有的电路中使用交叉接法，就是因为使用的串口线不同。</p>
+<p>单片机与串口设备（如GPRS模块、载波芯片等）通信时，一律将RXD与TXD反接，即单片机的RXD接设备的TXD，单片机的TXD接设备的RXD。</p>
+<p>摘自： <a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ubuntu 16.04下安装arm-linux-gcc]]></title>
+      <url>http://rayuu.com/2016/11/30/linuxarmgcc/</url>
+      <content type="html"><![CDATA[<h1 id="ubuntu-16-04下安装arm-linux-gcc"><a href="#ubuntu-16-04下安装arm-linux-gcc" class="headerlink" title="ubuntu 16.04下安装arm-linux-gcc"></a>ubuntu 16.04下安装arm-linux-gcc</h1><p>最近在玩<code>micropython</code>，下载了<code>micropython</code>的源码后想进行编译玩一玩。</p>
+<p><a href="https://github.com/micropython/micropython" target="_blank" rel="external">https://github.com/micropython/micropython</a></p>
+<p>查看<code>readme.md</code>发现编译stm32的固件需要安装<code>arm-linux-gcc</code>等<code>gnu arm toolchain</code>交叉编译工具.</p>
+<p>说干就干，还好电脑装了双系统，打开<code>ubuntu16.04</code>。</p>
+<p>开始安装。</p>
+<a id="more"></a>
+<h3 id="1）、进入这个网站下载源码"><a href="#1）、进入这个网站下载源码" class="headerlink" title="1）、进入这个网站下载源码"></a>1）、进入这个网站下载源码</h3><p><a href="https://launchpad.net/gcc-arm-embedded" target="_blank" rel="external">https://launchpad.net/gcc-arm-embedded</a></p>
+<p>右面有对应的版本下载，</p>
+<p>下载完成后就是安装，查看readme.txt。</p>
+<p>但是我的网速用浏览器下载太慢了。所以，我准备用apt-get 来安装。</p>
+<p><a href="https://launchpadlibrarian.net/287100883/readme.txt" target="_blank" rel="external">https://launchpadlibrarian.net/287100883/readme.txt</a></p>
+<h3 id="2）、apt-get-安装gcc-arm-embedded"><a href="#2）、apt-get-安装gcc-arm-embedded" class="headerlink" title="2）、apt-get 安装gcc-arm-embedded"></a>2）、apt-get 安装gcc-arm-embedded</h3><p>参考这篇文章 <a href="http://jingpin.jikexueyuan.com/article/56406.html" target="_blank" rel="external">http://jingpin.jikexueyuan.com/article/56406.html</a></p>
+<pre><code>sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded
+
+sudo apt-get update
+
+sudo apt-get install gcc-arm-none-eabi
+</code></pre><p>这样就安装好了，工具链路径在/usr/bin/目录下，具体可以用 ls | grep arm查看；</p>
+<p>然后搞个链接，像这样</p>
+<pre><code>cd /usr/bin
+
+sudo ln arm-none-eabi-gcc arm-linux-gcc
+
+sudo ln arm-none-eabi-ar  arm-linux-ar
+
+.....
+</code></pre><p>最后就安装完成了这个编译工具。</p>
+<h3 id="3）、开始编译micropython"><a href="#3）、开始编译micropython" class="headerlink" title="3）、开始编译micropython"></a>3）、开始编译micropython</h3><pre><code>git clone https://github.com/micropython/micropython.git
+
+cd stmhal/
+
+make
+</code></pre><p>还以为要编译好久，结果一会儿就编译完了。</p>
+<p>在<code>stmhal/build-PYBV10</code>目录下的<code>firmware.hex</code> 和<code>firmware.dfu</code>的就是编译出来的固件咯！</p>
+<p>接下来继续研究源码！！！</p>
+<p><img src="http://p1.bqimg.com/567571/aedc56efbecc1527.png" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++使用sqlite3进行简单的课表管理]]></title>
+      <url>http://rayuu.com/2016/11/30/cppsqlite3sche/</url>
+      <content type="html"><![CDATA[<h1 id="C-使用sqlite3进行简单的课表管理"><a href="#C-使用sqlite3进行简单的课表管理" class="headerlink" title="C++使用sqlite3进行简单的课表管理"></a>C++使用sqlite3进行简单的课表管理</h1><h2 id="一、生成sqlite3-lib"><a href="#一、生成sqlite3-lib" class="headerlink" title="一、生成sqlite3.lib"></a>一、生成sqlite3.lib</h2><p>1.在sqlite官网 <a href="http://www.sqlite.org/download.html" target="_blank" rel="external">http://www.sqlite.org/download.html</a> 上下载<code>sqlite-amalgamation-3071000.zip</code> 和<code>sqlite-dll-win32-x86-3071000.zip</code>。</p>
+<p>2.分别解压上述两个文件到各自文件夹下（<code>sqlite3.def、sqlite3.dll</code>在同一文件夹<code>sqlite-dll</code>下）。</p>
+<a id="more"></a>
+<p>3.从VS2010的安装目录下<code>Microsoft Visual Studio 10.0\VC\bin</code>找到<code>lib.exe</code>和<code>link.exe</code>，从VS2010的安装目录下<code>\Microsoft Visual Studio 10.0\Common7\IDE</code>找到<code>mspdb100.dll</code>。将<code>lib.exe`` link.exe ``mspdb100.dll</code>放到步骤2中的<code>sqlite-dll</code>文件夹下。</p>
+<p>4.打开cmd窗口，转到上述sqlite-dll文件夹下，在Windows右键添加cmd菜单可以快速到达，详见<a href="http://blog.rayuu.com/cmdhere.html" target="_blank" rel="external">http://blog.rayuu.com/cmdhere.html</a></p>
+<p>5.输入命令：</p>
+<pre><code>LIB /DEF:sqlite3.def /machine:ix86
+</code></pre><p>这时，在sqlite-dll文件夹下会出现sqlite3.lib。</p>
+<h2 id="二、VS2010静态编译生成exe文件"><a href="#二、VS2010静态编译生成exe文件" class="headerlink" title="二、VS2010静态编译生成exe文件"></a>二、VS2010静态编译生成exe文件</h2><p>VS2010静态编译生成的.exe可执行文件，可以免安装在其他电脑直接运行</p>
+<p>静态编译：就是在编译可执行文件的时候，将可执行文件需要调用的对应动态链接库（.so）中的部分提取出来，链接到可执行文件中去，使可执行文件在运行的时候不依赖动态链接库。</p>
+<p>编译方式：</p>
+<blockquote>
+<p>第1种：</p>
+</blockquote>
+<p>设置：</p>
+<p>1、项目-&gt;配置属性-&gt;常规-&gt;MFC的使用：在静态库中使用MFC</p>
+<p>2、项目 -&gt; 配置属性-&gt;C/C++-&gt;代码生成-&gt;运行库 :选择 多线程调试（/MTd）。</p>
+<p>编译时，选择的是debug，win32</p>
+<p>然后执行编译生成方案，在该工程目录下的debug文件中，找到该.exe文件，即可在其他电脑运行。</p>
+<blockquote>
+<p>第2种：</p>
+</blockquote>
+<p>一般可以配置一下两项：</p>
+<p>1.项目 -&gt; 配置属性-&gt;常规-&gt;MFC的使用 :在静态库中使用MFC。</p>
+<p>2.项目 -&gt; 配置属性-&gt;C/C++-&gt;代码生成-&gt;运行库 :选择 多线程调试（/MT）。</p>
+<p>编译时，选择的是release，win32（这个选择项在工具栏的debug选框中，一般我们使用debug方式）</p>
+<p>debug方式产生的文件会比较大，听说它包含了一些调试用的信息，release方式生成的只是该软件所需要的所有功能而已（这个我也不懂，反正大小差不多2:1）。</p>
+<h2 id="三、课表程序编写"><a href="#三、课表程序编写" class="headerlink" title="三、课表程序编写"></a>三、课表程序编写</h2><pre><code>#include&lt;iostream&gt;
+#include&lt;sstream&gt;
+#include&quot;lib/sqlite3.h&quot;
+#include&lt;string&gt;
+
+using namespace std;
+//定义课表结构
+struct content
+{
+    string context;
+};
+/**********************************
+        数据库操作
+***********************************/
+bool Connect();//连接数据库并创建表
+bool Select(int day);//查询单条记录
+bool Delete(int day);//删除单条记录
+bool SelectAll();//查询全部
+bool DeleteAll();//删除全部
+bool Add(int day,const string&amp; no1,const string&amp; no2,const string&amp; no3,const string&amp; no4,const string&amp; no5);//添加单条记录
+int AddDay(content *p);//添加某一天记录
+bool exist_in_db(int pathstr);//判断要添加的数据是否存在
+/**********************************
+        其他操作
+***********************************/
+string IntToString (int a);//数字转字符
+void Menu();//菜单
+void show(content *m);//显示输入的课表内容
+void Find();//查找
+void DelDay();//删除某一天的数据
+//SQLITE_OK 是零
+sqlite3 *db=NULL;
+
+// 回调sql
+static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+   int i;
+   for(i=0; i&lt;argc; i++){
+      printf(&quot;%s = %s\n&quot;, azColName[i], argv[i] ? argv[i] : &quot;NULL&quot;);
+   }
+   printf(&quot;\n&quot;);
+   return 0;
+}
+
+static int feedback(void *NotUsed, int argc, char **argv, char **azColName){
+   int i;
+   cout&lt;&lt;&quot;星期 &quot;&lt;&lt;argv[1]&lt;&lt;&quot; 的课表为：\n&quot;;
+   for(i=2; i&lt;argc; i++){
+      cout&lt;&lt;&quot;第 &quot;&lt;&lt;i-1&lt;&lt;&quot; 节课： &quot;;
+      printf(&quot;%s\n&quot;, argv[i] ? argv[i] : &quot;NULL&quot;);
+   }
+   printf(&quot;\n&quot;);
+   return 0;
+}
+
+int main()
+{
+    int SetDay;//星期
+    int MenuChoice;//菜单选择
+    char *errmsg = 0;
+    content *p = new content[5];
+    Connect();
+    Menu();
+    while(cin&gt;&gt;MenuChoice)
+    {
+        cin.sync();
+        cin.clear();
+        switch(MenuChoice)
+        {
+        case 1:{
+                SetDay = AddDay(p);
+                show(p);
+                Add(SetDay,p[0].context,p[1].context,p[2].context,p[3].context,p[4].context);
+               }break;
+        case 2:{Find();}break;
+        case 3:{DelDay();}break;
+        case 0:{exit(0);}break;
+        default :Menu();break;
+        }
+        cout &lt;&lt; &quot;按回车键返回主菜单......&quot;;
+        cin.get();
+        system(&quot;cls&quot;);
+        Menu();
+    }
+    sqlite3_close(db);
+    system(&quot;pause&quot;);
+    return 0;
+}
+
+//connect &amp; create table
+bool Connect()
+{
+    int con;
+    con = sqlite3_open(&quot;schedule.db&quot;,&amp;db);
+    if(con)
+    {
+        fprintf(stderr, &quot;Can&apos;t open database: %s\n&quot;,sqlite3_errmsg(db));
+        exit(0);
+    }
+    else
+    {
+        fprintf(stdout,&quot;连接数据库成功\n&quot;);
+    }
+    char *sql;
+    char * errmsg=0;
+    // 新建表 schedule
+    sql = &quot;CREATE TABLE IF NOT EXISTS schedule(&quot;\
+        &quot;ID INTEGER PRIMARY KEY AUTOINCREMENT,&quot;\
+        &quot;WEEKLY            INT     NOT NULL,&quot;\
+        &quot;NO1            TEXT    NOT NULL,&quot;\
+        &quot;NO2            TEXT    NOT NULL,&quot;\
+        &quot;NO3            TEXT    NOT NULL,&quot;\
+        &quot;NO4            TEXT    NOT NULL,&quot;\
+        &quot;NO5            TEXT    NOT NULL&quot;\
+        &quot;);&quot;;
+    con = sqlite3_exec(db,sql,callback, 0, &amp;errmsg);
+    if(con != SQLITE_OK)
+    {
+        cout &lt;&lt; &quot;add fail: &quot;&lt;&lt;errmsg&lt;&lt;endl;
+        return false;
+    }
+    return true;
+}
+
+//添加
+bool Add(int day,const string&amp; no1,const string&amp; no2,const string&amp; no3,const string&amp; no4,const string&amp; no5)
+{
+    char *errmsg=0;
+    int res=1;
+    int  week;
+    week = day;
+    string strsql = &quot;&quot;;
+    strsql += &quot;insert into schedule(WEEKLY,NO1,NO2,NO3,NO4,NO5)&quot;;
+    strsql += &quot; values(&quot;;
+    strsql += &quot;&apos;&quot;;
+    strsql += IntToString(day);
+    strsql += &quot;&apos;,&apos;&quot;;
+    strsql += no1;
+    strsql += &quot;&apos;,&apos;&quot;;
+    strsql += no2;
+    strsql += &quot;&apos;,&apos;&quot;;
+    strsql += no3;
+    strsql += &quot;&apos;,&apos;&quot;;
+    strsql += no4;
+    strsql += &quot;&apos;,&apos;&quot;;
+    strsql += no5;
+    strsql += &quot;&apos;);&quot;;
+    //启动一个事务处理
+    //cout &lt;&lt;strsql&lt;&lt;endl;
+    if(!exist_in_db(week))
+    {
+        res = sqlite3_exec(db,strsql.c_str(),0,0, &amp;errmsg);         
+    }
+    else
+    {
+        return false;
+    }
+    if(res != SQLITE_OK)
+    {
+        cout &lt;&lt; &quot;add fail: &quot;&lt;&lt;errmsg&lt;&lt;endl;
+        return false;
+    }
+    else
+    {
+        cout &lt;&lt; &quot;add success&quot;&lt;&lt;endl;
+    }
+    return true;
+}
+
+//查找某一天的课表
+bool Select(int day)
+{
+    stringstream strsql;
+    char *errmsg = 0;
+    //启动一个事务处理
+    int res; 
+
+    strsql &lt;&lt; &quot;SELECT * FROM schedule WHERE WEEKLY=&quot;;
+    strsql &lt;&lt; day;
+    string str = strsql.str();
+    res=sqlite3_exec(db,str.c_str(),feedback, 0, &amp;errmsg);
+    if(res!=SQLITE_OK)
+    {
+        cout &lt;&lt; &quot;查找失败&quot;&lt;&lt;endl;
+        return false;
+    }
+    return true;
+}
+
+// 查找全部
+bool SelectAll()
+{
+    stringstream strsql;
+    char *errmsg = 0;
+    //启动一个事务处理
+    int res;  
+    strsql &lt;&lt; &quot;SELECT * FROM schedule&quot;;
+    string str = strsql.str();
+    res=sqlite3_exec(db,str.c_str(),feedback, 0, &amp;errmsg);
+    if(res!=SQLITE_OK)
+    {
+        cout &lt;&lt; &quot;查找失败&quot;&lt;&lt;endl;
+        return false;
+    }
+    return true;
+}
+
+// 删除
+bool Delete(int day)
+{
+    stringstream strsql;
+    char *errmsg = 0;
+    //启动一个事务处理
+    int res; 
+    strsql &lt;&lt; &quot;DELETE FROM schedule WHERE WEEKLY=&quot;;
+    strsql &lt;&lt; day;
+    string str = strsql.str();
+    res=sqlite3_exec(db,str.c_str(),feedback, 0, &amp;errmsg);
+    if(res!=SQLITE_OK)
+    {
+        cout &lt;&lt; &quot;删除失败&quot;&lt;&lt;endl;
+        return false;
+    }
+    return true;
+}
+
+// 删除全部
+bool DeleteAll()
+{
+    stringstream strsql;
+    char *errmsg = 0;
+    //启动一个事务处理
+    int res;  
+    strsql &lt;&lt; &quot;DELETE FROM schedule&quot;;
+    string str = strsql.str();
+    res=sqlite3_exec(db,str.c_str(),feedback, 0, &amp;errmsg);
+    if(res!=SQLITE_OK)
+    {
+        cout &lt;&lt; &quot;删除全部失败&quot;&lt;&lt;endl;
+        return false;
+    }
+    return true;
+}
+
+//判断星期是否存在
+bool exist_in_db(int pathstr)
+{
+    char sql_query[128]={0};
+    sprintf(sql_query,&quot;select count(*) from schedule where WEEKLY=&apos;%d&apos;&quot;,pathstr);
+//    sprintf(sql_query,&quot;select count(*) from schedule where ID=&apos;%d&apos;&quot;,day);
+    //cout &lt;&lt; sql_query&lt;&lt;endl;
+    sqlite3_stmt *pstmt;
+    sqlite3_prepare(db, sql_query, strlen(sql_query), &amp;pstmt, NULL);
+    sqlite3_step(pstmt);
+    int count=sqlite3_column_int(pstmt,0);
+    sqlite3_finalize(pstmt);
+    //cout &lt;&lt; count&lt;&lt;endl;
+    if(count &gt; 0)
+    {
+        cout&lt;&lt;&quot;星期 &quot;&lt;&lt;pathstr&lt;&lt;&quot; 的课表已添加，\n请删除后重新添加.&quot;&lt;&lt;endl;
+        return true;
+    }
+    return false;
+}
+
+// 输入课表
+int AddDay(content *p)
+{
+    int day;
+    cout &lt;&lt;&quot;请输入星期数： &quot;&lt;&lt;endl;
+    cin &gt;&gt; day;
+    cin.get();
+    int i=0;
+    for(i=0;i&lt;5;i++)
+    {
+        cin.clear();
+        cin.sync();
+        cout &lt;&lt; &quot;第 &quot;&lt;&lt;i+1&lt;&lt;&quot; 节课&quot;&lt;&lt;endl;
+        getline(cin,p[i].context);
+    }
+    return day;
+
+}
+
+// 删除
+void DelDay()
+{
+    int day;
+    cout &lt;&lt;&quot;Please enter the day(1~7)&quot;&lt;&lt;endl;
+    cin&gt;&gt;day;
+    //while(cin&gt;&gt;day)
+    {
+        cin.sync();
+        cin.clear();
+        switch(day)
+        {
+        case 1:Delete(day);break;
+        case 2:Delete(day);break;
+        case 3:Delete(day);break;
+        case 4:Delete(day);break;
+        case 5:Delete(day);break;
+        case 6:Delete(day);break;
+        case 7:Delete(day);break;
+        default:DeleteAll();break;
+        }
+    }
+    if(!cin)
+    {
+        cout &lt;&lt; &quot;请输入数字......&quot;&lt;&lt;endl;
+    }
+
+}
+
+// 显示输入的内容
+void show(content *m)
+{
+    cout &lt;&lt;&quot;你输入的内容是：&quot;&lt;&lt;endl;
+    int i=0;
+    for(i=0;i&lt;5;i++)
+    {
+        cout &lt;&lt; &quot;第 &quot;&lt;&lt;i+1&lt;&lt;&quot; 节课 &quot;&lt;&lt; m[i].context &lt;&lt; endl;
+    }
+    cout &lt;&lt; endl;
+}
+
+// 菜单
+void Menu()
+{
+    cout&lt;&lt;&quot;+++++++++++++++++++++++++++++++++++++++++\n&quot;;
+    cout&lt;&lt;&quot;+               课    表                +\n&quot;;
+    cout&lt;&lt;&quot;+                V1.0                   +\n&quot;;
+    cout&lt;&lt;&quot;+               by:Rayu                 +\n&quot;;
+    cout&lt;&lt;&quot;+             2016.10.18                +\n&quot;;
+    cout&lt;&lt;&quot;+++++++++++++++++++++++++++++++++++++++++\n&quot;;
+    cout&lt;&lt;&quot;\n&quot;;
+    cout&lt;&lt;&quot;【1】添加课表\t&quot;;
+    cout&lt;&lt;&quot;【2】查询课表\n&quot;;
+    cout&lt;&lt;&quot;【3】删除课表\t&quot;;
+    cout&lt;&lt;&quot;【0】退出系统\n&quot;;
+    cout&lt;&lt;&quot;输入对应的数字进入菜单： \n&quot;;
+}
+
+void Find()
+{
+    int day;
+    cout &lt;&lt;&quot;Please enter the day(1~7)&quot;&lt;&lt;endl;
+    cin&gt;&gt;day;
+    //while(cin&gt;&gt;day)
+    {
+        cin.sync();
+        cin.clear();
+        switch(day)
+        {
+        case 1:Select(day);break;
+        case 2:Select(day);break;
+        case 3:Select(day);break;
+        case 4:Select(day);break;
+        case 5:Select(day);break;
+        case 6:Select(day);break;
+        case 7:Select(day);break;
+        default:SelectAll();break;
+        }
+    }
+    if(!cin)
+    {
+        cout &lt;&lt; &quot;请输入数字......&quot;&lt;&lt;endl;
+    }
+}
+
+// int to string
+string IntToString (int a)
+{
+    ostringstream temp;
+    temp&lt;&lt;a;
+    return temp.str();
+}
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标]]></title>
       <url>http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/</url>
       <content type="html"><![CDATA[<h1 id="pyinstaller和py2exe把Python脚本生成exe文件，"><a href="#pyinstaller和py2exe把Python脚本生成exe文件，" class="headerlink" title="pyinstaller和py2exe把Python脚本生成exe文件，"></a>pyinstaller和py2exe把Python脚本生成exe文件，</h1><h1 id="并添加版本信息和自定义图标。"><a href="#并添加版本信息和自定义图标。" class="headerlink" title="并添加版本信息和自定义图标。"></a>并添加版本信息和自定义图标。</h1><p>写了一个查找产品通道号的小程序，目前还没进行异常处理。<br>以下是程序源码。</p>
@@ -331,69 +814,6 @@ git pull
     </entry>
     
     <entry>
-      <title><![CDATA[树莓派折腾之旅（二）]]></title>
-      <url>http://rayuu.com/2015/06/06/2015-06-06-pi2/</url>
-      <content type="html"><![CDATA[<p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
-<p>######我是参考的这个帖子做的</p>
-<p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882" target="_blank" rel="external">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
-<p>插上摄像头可以看见usbvideo0.</p>
-<p>接下来安装</p>
-<pre><code>sudo apt-get install subversion
-
-sudo apt-get install libv4l-dev
-
-sudo apt-get install libjpeg8-dev
-
-sudo apt-get install imagemagick
-</code></pre><a id="more"></a>
-<p>到上面这些步骤都没有错。</p>
-<p>下面下载的是<code>mipg-steamer</code>软件，编译并安装。</p>
-<p>那个帖子里面的下载地址都过期了，所以我就重新百度 google找啊找。</p>
-<p>在网上搜<code>mjpg-streamer</code>搜出一个mjpg-streamer-r63，这个包始终编译不成功，有郁闷了很久。</p>
-<p>终于在github上面有一个和帖子说的一样的。</p>
-<p>还有在这里也有一个链接<a href="http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138" target="_blank" rel="external">http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138</a></p>
-<p>于是希望重新燃起，</p>
-<p>开始编译，建立软连接：<code>sudo ln -s /usr/include/libv4l1-videodev.h /usr/include/linux/videodev.h</code></p>
-<p>进入目录并编译：</p>
-<pre><code>cd mjpg-streamer
-make USE_LIBV4L2=true clean all
-</code></pre><p>编译好像是成功了，因为没有报错。</p>
-<p>然后执行 <code>sudo  ./start.sh</code></p>
-<p>打开浏览器访问，树莓派ip地址:<code>8080</code></p>
-<p>发现并没有成功，摄像头并没有出来，多么痛的领悟啊。</p>
-<p>很忧桑有木有。</p>
-<p>于是又开始找问题，</p>
-<p>分析得出以下结论：</p>
-<p>摄像头没有打开，但是这不科学啊，设备可以检查到usbvideo0。</p>
-<p>摄像头驱动问题，我把摄像头放到windows下发现可以使用。</p>
-<p>就是环境问题咯。</p>
-<p>所以我一个一个尝试，首先看用摄像头拍照可以不。</p>
-<p>结果发现摄像头没有问题。</p>
-<p>就是拍出来的照片有点失真。图片如下：</p>
-<p><img src="http://imglf0.ph.126.net/kvnPMluEeM1YSALtPk3uBg==/6630796186327897140.jpg" alt=""><br>然后又各种找资料。</p>
-<p>找到一个用motion软件做的摄像头识别。好像是专门的网络摄像头监控软件。</p>
-<p>嘿嘿，希望还是有的。</p>
-<pre><code>sudo apt-get install motion 
-</code></pre><p>配置motion，编辑motion.conf文件<br>    sudo vi /etc/motion/motion.conf</p>
-<p>找到”control_localhost on “和”webcam_localhost on“这两行，改为以下两行后，保存退出<br>    control_localhost off<br>    webcam_localhost off</p>
-<p>运行motion软件，输入<code>motion -n</code></p>
-<p>在pc上用浏览器打开 树莓派ip地址:8080</p>
-<p>经过我的测试 ie11  和chrome 不可以实现，火狐浏览器可以哦</p>
-<p><img src="http://imglf1.ph.126.net/HGjYV7U08iEfU8aLBA2PyQ==/2834453015494321729.jpg" alt=""><br>画面就是上面的这样子咯。</p>
-<p>昨天弄了一天效果还可以，感觉很满意。</p>
-<p>总结一下吧：</p>
-<p>树莓派和以前玩过全志A20差不多，都是烧入操作系统。</p>
-<p>直接上操作系统，因为有过这方面的经验，所以折腾起来也就不费事了。</p>
-<p>摄像头监控还做的不好，有时间再玩一玩，可能是因为昨天折腾了一天，头很晕，所以后面摄像头的思路不是很清晰。</p>
-<p>等暑假再做个wifi小车玩一玩。嘿嘿~~！</p>
-<p>还有就是最近的微信公众号效果不错，800多粉丝了。</p>
-<p>这几天查成绩功能不可用，还是很不爽的，所以就传了2个游戏让大家玩。</p>
-<p>嘿嘿，另外发现小米路由器还是很坑的。</p>
-<p>星期五服务器莫名其妙的无法访问，使用的云监控没有报警，原因很奇怪，后来发现是小米路由器不知道什么时候自己把硬盘自动休眠给开启了。害的我找了半天，还以为是网络问题呢。结果把小米路由器的硬盘休眠功能一关闭，服务器就不挂了，正常运行了一天。等查成绩功能教务系统开放了再看一看效果。实在不行就用树莓派当web服务器了。刷个openwrt玩一玩。</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[树莓派折腾之旅（一）]]></title>
       <url>http://rayuu.com/2015/06/06/2015-06-06-pi1/</url>
       <content type="html"><![CDATA[<h6 id="买了一星期的树莓派今天终于有时间折腾了。"><a href="#买了一星期的树莓派今天终于有时间折腾了。" class="headerlink" title="买了一星期的树莓派今天终于有时间折腾了。"></a>买了一星期的树莓派今天终于有时间折腾了。</h6><h6 id="早上一大早就起来，弄了一天。嘿嘿！"><a href="#早上一大早就起来，弄了一天。嘿嘿！" class="headerlink" title="早上一大早就起来，弄了一天。嘿嘿！"></a>早上一大早就起来，弄了一天。嘿嘿！</h6><h6 id="昨天把系统下载下来了。"><a href="#昨天把系统下载下来了。" class="headerlink" title="昨天把系统下载下来了。"></a>昨天把系统下载下来了。</h6><h6 id="树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads"><a href="#树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads" class="headerlink" title="树莓派官方 Raspbian 系统下载：http://www.raspberrypi.org/downloads"></a>树莓派官方 Raspbian 系统下载：<a href="http://www.raspberrypi.org/downloads" target="_blank" rel="external">http://www.raspberrypi.org/downloads</a></h6><p>首先开始烧系统到内存卡。用win32disk imager</p>
@@ -498,6 +918,69 @@ while True:
 <p>但是效果不太好。晚上如果还有时间的话我就继续写。</p>
 <p>先吃个饭洗个澡去啦。</p>
 <p>啦啦啦！！~</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[树莓派折腾之旅（二）]]></title>
+      <url>http://rayuu.com/2015/06/06/2015-06-06-pi2/</url>
+      <content type="html"><![CDATA[<p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
+<p>######我是参考的这个帖子做的</p>
+<p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882" target="_blank" rel="external">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
+<p>插上摄像头可以看见usbvideo0.</p>
+<p>接下来安装</p>
+<pre><code>sudo apt-get install subversion
+
+sudo apt-get install libv4l-dev
+
+sudo apt-get install libjpeg8-dev
+
+sudo apt-get install imagemagick
+</code></pre><a id="more"></a>
+<p>到上面这些步骤都没有错。</p>
+<p>下面下载的是<code>mipg-steamer</code>软件，编译并安装。</p>
+<p>那个帖子里面的下载地址都过期了，所以我就重新百度 google找啊找。</p>
+<p>在网上搜<code>mjpg-streamer</code>搜出一个mjpg-streamer-r63，这个包始终编译不成功，有郁闷了很久。</p>
+<p>终于在github上面有一个和帖子说的一样的。</p>
+<p>还有在这里也有一个链接<a href="http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138" target="_blank" rel="external">http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138</a></p>
+<p>于是希望重新燃起，</p>
+<p>开始编译，建立软连接：<code>sudo ln -s /usr/include/libv4l1-videodev.h /usr/include/linux/videodev.h</code></p>
+<p>进入目录并编译：</p>
+<pre><code>cd mjpg-streamer
+make USE_LIBV4L2=true clean all
+</code></pre><p>编译好像是成功了，因为没有报错。</p>
+<p>然后执行 <code>sudo  ./start.sh</code></p>
+<p>打开浏览器访问，树莓派ip地址:<code>8080</code></p>
+<p>发现并没有成功，摄像头并没有出来，多么痛的领悟啊。</p>
+<p>很忧桑有木有。</p>
+<p>于是又开始找问题，</p>
+<p>分析得出以下结论：</p>
+<p>摄像头没有打开，但是这不科学啊，设备可以检查到usbvideo0。</p>
+<p>摄像头驱动问题，我把摄像头放到windows下发现可以使用。</p>
+<p>就是环境问题咯。</p>
+<p>所以我一个一个尝试，首先看用摄像头拍照可以不。</p>
+<p>结果发现摄像头没有问题。</p>
+<p>就是拍出来的照片有点失真。图片如下：</p>
+<p><img src="http://imglf0.ph.126.net/kvnPMluEeM1YSALtPk3uBg==/6630796186327897140.jpg" alt=""><br>然后又各种找资料。</p>
+<p>找到一个用motion软件做的摄像头识别。好像是专门的网络摄像头监控软件。</p>
+<p>嘿嘿，希望还是有的。</p>
+<pre><code>sudo apt-get install motion 
+</code></pre><p>配置motion，编辑motion.conf文件<br>    sudo vi /etc/motion/motion.conf</p>
+<p>找到”control_localhost on “和”webcam_localhost on“这两行，改为以下两行后，保存退出<br>    control_localhost off<br>    webcam_localhost off</p>
+<p>运行motion软件，输入<code>motion -n</code></p>
+<p>在pc上用浏览器打开 树莓派ip地址:8080</p>
+<p>经过我的测试 ie11  和chrome 不可以实现，火狐浏览器可以哦</p>
+<p><img src="http://imglf1.ph.126.net/HGjYV7U08iEfU8aLBA2PyQ==/2834453015494321729.jpg" alt=""><br>画面就是上面的这样子咯。</p>
+<p>昨天弄了一天效果还可以，感觉很满意。</p>
+<p>总结一下吧：</p>
+<p>树莓派和以前玩过全志A20差不多，都是烧入操作系统。</p>
+<p>直接上操作系统，因为有过这方面的经验，所以折腾起来也就不费事了。</p>
+<p>摄像头监控还做的不好，有时间再玩一玩，可能是因为昨天折腾了一天，头很晕，所以后面摄像头的思路不是很清晰。</p>
+<p>等暑假再做个wifi小车玩一玩。嘿嘿~~！</p>
+<p>还有就是最近的微信公众号效果不错，800多粉丝了。</p>
+<p>这几天查成绩功能不可用，还是很不爽的，所以就传了2个游戏让大家玩。</p>
+<p>嘿嘿，另外发现小米路由器还是很坑的。</p>
+<p>星期五服务器莫名其妙的无法访问，使用的云监控没有报警，原因很奇怪，后来发现是小米路由器不知道什么时候自己把硬盘自动休眠给开启了。害的我找了半天，还以为是网络问题呢。结果把小米路由器的硬盘休眠功能一关闭，服务器就不挂了，正常运行了一天。等查成绩功能教务系统开放了再看一看效果。实在不行就用树莓派当web服务器了。刷个openwrt玩一玩。</p>
 ]]></content>
     </entry>
     

@@ -271,6 +271,314 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/30/mcurs232/" itemprop="url">
+                  单片机串口通讯RXD与TXD如何对接
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-30T21:23:43+08:00" content="2016-11-30">
+              2016-11-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/30/mcurs232/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/mcurs232/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="单片机串口通讯RXD与TXD如何对接"><a href="#单片机串口通讯RXD与TXD如何对接" class="headerlink" title="单片机串口通讯RXD与TXD如何对接"></a>单片机串口通讯RXD与TXD如何对接</h1><blockquote>
+<p>串口直通线和交叉线的区别</p>
+</blockquote>
+<h3 id="1：串口交叉线"><a href="#1：串口交叉线" class="headerlink" title="1：串口交叉线"></a>1：串口交叉线</h3><p>串口线两头都一样都相同。都是公对公或者母对母串口线，这种线必须是交叉线。</p>
+<p>一端的第二针与另一端的第三针是通路的，说明此线是交叉线。<br>以下是判断方法：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/2108422507.jpg" alt=""></p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/2023506305.jpg" alt=""></p>
+<h3 id="2：串口直通线"><a href="#2：串口直通线" class="headerlink" title="2：串口直通线"></a>2：串口直通线</h3><p>如果用户串口设备与串口服务器连接使用公对母串口线，那必须使用公对母直通线。</p>
+<p>一端公头的2对应，另一端母头的2，一端母头的3对应另一端公头的3.</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/3271306913.jpg" alt=""></p>
+<h3 id="3：公母头定义："><a href="#3：公母头定义：" class="headerlink" title="3：公母头定义："></a>3：公母头定义：</h3><p>公头：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/4086203997.png" alt=""></p>
+<p>母头：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/10/2966605950.jpg" alt=""></p>
+<h3 id="4："><a href="#4：" class="headerlink" title="4："></a>4：</h3><p>使用WiFi网络串口服务器，或者DTU，我们配套的串口线都是标配的，如果我们的串口服务器的公头的，那我们配套的串口线应该是母对母的交叉线，如果客户的设备的公头，可以直接用我们配套的线，前提是客户的串口母头符合标准母头串口定义。如果客户买的我们的串口服务器是母头，那我们配套的串口线应该是公对母的直通线，如果客户的设备是公头，那使用我们的公对母的直通线应该是可以通信的。前提是客户的公头串口是标准的串口，符合公头串口引脚定义。</p>
+<p>摘自：<a href="http://www.usr.cn/Faq/117.html" target="_blank" rel="external">http://www.usr.cn/Faq/117.html</a></p>
+<p>对接方法</p>
+<p>相信很多人都对单片机与计算机或者芯片通信时，RXD与TXD如何连接比较困惑。因为在一些电路图中，有的是直连接法，有的是交叉接法，让人有点摸不着头脑。</p>
+<p>首先需要明白两个概念，就是DTE和DCE。DTE是指数据终端设备，典型的DTE就是计算机和单片机。DCE是指数据通信设备，典型的DCE就是MODEM。RS232串口标准中的RXD和TXD都是站在DTE立场上的，而不是DCE。明白了这一点，再讲下面的接线方法，就很好理解了。</p>
+<p>单片机与计算机进行串口通信时，单片机的RXD接计算机的TXD，单片机的TXD接计算机的RXD。</p>
+<blockquote>
+<p>（1）使用串口直通线。设计电路时，单片机的RXD连接电路板DB9的TXD，单片机的TXD连接电路板DB9的RXD，具体实现可在232电平转换芯片处反接。</p>
+<p>（2）使用串口交叉线。设计电路时，因为串口线已做交叉，单片机的RXD连接电路板DB9的RXD，单片机的TXD连接电路板DB9的TXD，均直连即可。</p>
+</blockquote>
+<p>这就可以解释为什么有的电路中使用直连接法，有的电路中使用交叉接法，就是因为使用的串口线不同。</p>
+<p>单片机与串口设备（如GPRS模块、载波芯片等）通信时，一律将RXD与TXD反接，即单片机的RXD接设备的TXD，单片机的TXD接设备的RXD。</p>
+<p>摘自： <a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a></p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/30/linuxarmgcc/" itemprop="url">
+                  ubuntu 16.04下安装arm-linux-gcc
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-30T21:20:00+08:00" content="2016-11-30">
+              2016-11-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/30/linuxarmgcc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/linuxarmgcc/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="ubuntu-16-04下安装arm-linux-gcc"><a href="#ubuntu-16-04下安装arm-linux-gcc" class="headerlink" title="ubuntu 16.04下安装arm-linux-gcc"></a>ubuntu 16.04下安装arm-linux-gcc</h1><p>最近在玩<code>micropython</code>，下载了<code>micropython</code>的源码后想进行编译玩一玩。</p>
+<p><a href="https://github.com/micropython/micropython">https://github.com/micropython/micropython</a></p>
+<p>查看<code>readme.md</code>发现编译stm32的固件需要安装<code>arm-linux-gcc</code>等<code>gnu arm toolchain</code>交叉编译工具.</p>
+<p>说干就干，还好电脑装了双系统，打开<code>ubuntu16.04</code>。</p>
+<p>开始安装。</p>
+          <div class="post-more-link text-left">
+            <a class="btn" href="/2016/11/30/linuxarmgcc/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/30/cppsqlite3sche/" itemprop="url">
+                  C++使用sqlite3进行简单的课表管理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-30T21:12:46+08:00" content="2016-11-30">
+              2016-11-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/30/cppsqlite3sche/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/cppsqlite3sche/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="C-使用sqlite3进行简单的课表管理"><a href="#C-使用sqlite3进行简单的课表管理" class="headerlink" title="C++使用sqlite3进行简单的课表管理"></a>C++使用sqlite3进行简单的课表管理</h1><h2 id="一、生成sqlite3-lib"><a href="#一、生成sqlite3-lib" class="headerlink" title="一、生成sqlite3.lib"></a>一、生成sqlite3.lib</h2><p>1.在sqlite官网 <a href="http://www.sqlite.org/download.html">http://www.sqlite.org/download.html</a> 上下载<code>sqlite-amalgamation-3071000.zip</code> 和<code>sqlite-dll-win32-x86-3071000.zip</code>。</p>
+<p>2.分别解压上述两个文件到各自文件夹下（<code>sqlite3.def、sqlite3.dll</code>在同一文件夹<code>sqlite-dll</code>下）。</p>
+          <div class="post-more-link text-left">
+            <a class="btn" href="/2016/11/30/cppsqlite3sche/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/29/pyinstaller-py2exe-exe/" itemprop="url">
                   pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标
                 </a>
@@ -1044,339 +1352,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/22/cordova2/" itemprop="url">
-                  cordova+ionic跨平台应用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-22T00:00:00+08:00" content="2016-05-22">
-              2016-05-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/cordova/" itemprop="url" rel="index">
-                    <span itemprop="name">cordova</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/22/cordova2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/22/cordova2/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="原文地址：-http-blog-rayuu-com-cordova2-html"><a href="#原文地址：-http-blog-rayuu-com-cordova2-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova2.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova2.html" title="cordova+ionic跨平台应用" target="_blank" rel="external">http://blog.rayuu.com/cordova2.html</a></h1>
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/18/cordova1/" itemprop="url">
-                  cordova入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-18T00:00:00+08:00" content="2016-05-18">
-              2016-05-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/cordova/" itemprop="url" rel="index">
-                    <span itemprop="name">cordova</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/18/cordova1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/cordova1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="原文地址：-http-blog-rayuu-com-cordova1-html"><a href="#原文地址：-http-blog-rayuu-com-cordova1-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova1.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova1.html" title="cordova入门" target="_blank" rel="external">http://blog.rayuu.com/cordova1.html</a></h1>
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/17/12864lecd/" itemprop="url">
-                  51单片机三线串行驱动12864液晶
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-17T00:00:00+08:00" content="2016-05-17">
-              2016-05-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/单片机/" itemprop="url" rel="index">
-                    <span itemprop="name">单片机</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/17/12864lecd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/17/12864lecd/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="原文地址：-http-blog-rayuu-com-12864lcd-html"><a href="#原文地址：-http-blog-rayuu-com-12864lcd-html" class="headerlink" title="原文地址： http://blog.rayuu.com/12864lcd.html"></a>原文地址： <a href="http://blog.rayuu.com/12864lcd.html" title="51单片机三线串行驱动12864液晶" target="_blank" rel="external">http://blog.rayuu.com/12864lcd.html</a></h1>
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1417,7 +1398,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1431,7 +1412,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

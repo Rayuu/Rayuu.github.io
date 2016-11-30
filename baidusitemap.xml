@@ -4,6 +4,57 @@
 
     
   <url>
+    <loc>http://rayuu.com/2016/11/30/mcurs232/</loc>
+    <lastmod>2016-11-30T13:28:15.137Z</lastmod>
+    <data>
+        <display>
+        <title>单片机串口通讯RXD与TXD如何对接</title>
+        <pubTime>2016-11-30T13:23:43.000Z</pubTime>
+        
+        <tag>单片机</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/11/30/linuxarmgcc/</loc>
+    <lastmod>2016-11-30T13:23:26.958Z</lastmod>
+    <data>
+        <display>
+        <title>ubuntu 16.04下安装arm-linux-gcc</title>
+        <pubTime>2016-11-30T13:20:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://rayuu.com/2016/11/30/cppsqlite3sche/</loc>
+    <lastmod>2016-11-30T13:23:21.317Z</lastmod>
+    <data>
+        <display>
+        <title>C++使用sqlite3进行简单的课表管理</title>
+        <pubTime>2016-11-30T13:12:46.000Z</pubTime>
+        
+        <tag>c/c++</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/</loc>
     <lastmod>2016-09-29T13:04:56.039Z</lastmod>
     <data>
