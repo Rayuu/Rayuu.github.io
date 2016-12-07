@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/12/2989482191.png">
 <meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/12/815996677.png">
 <meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/12/3304270685.jpg">
-<meta property="og:updated_time" content="2016-12-03T14:38:12.068Z">
+<meta property="og:updated_time" content="2016-12-07T11:30:00.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用pyqt4编写cs计算工具">
 <meta name="twitter:description" content="利用pyqt4编写cs计算工具
@@ -327,23 +327,8 @@
 <p>现在来分享一下编写过程中的心得体会，以及遇到的坑。</p>
 <p>Python的环境是2.7。</p>
 <p>CS校验和的C代码如下：</p>
-<pre><code>/******************************************************************
-*校验码 将所有相加MOD 256
-*******************************************************************/
-unsigned char Get_csckNum( unsigned char *Ptr, unsigned char Len )
-{
-    register unsigned char Num;
-    Num = 0;
-    while( Len &gt; 0 )
-    {
-        Num += *Ptr;
-        printf(&quot;%d--%d\n&quot;,Len,Num);
-        Ptr++;
-        Len--;
-    }
-    return Num;
-}
-</code></pre><p>转为Python代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/******************************************************************</span><br><span class="line">*校验码 将所有相加MOD 256</span><br><span class="line">*******************************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">Get_csckNum</span><span class="params">( <span class="keyword">unsigned</span> <span class="keyword">char</span> *Ptr, <span class="keyword">unsigned</span> <span class="keyword">char</span> Len )</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> Num;</span><br><span class="line">	Num = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>( Len &gt; <span class="number">0</span> )</span><br><span class="line">	&#123;</span><br><span class="line">		Num += *Ptr;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d--%d\n"</span>,Len,Num);</span><br><span class="line">		Ptr++;</span><br><span class="line">		Len--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> Num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转为Python代码</p>
 <pre><code>def CalCS(self,inputstr):
     input = inputstr.replace(&quot; &quot;, &quot;&quot;)
     content = []
