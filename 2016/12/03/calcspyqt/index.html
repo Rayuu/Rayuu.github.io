@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/12/2989482191.png">
 <meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/12/815996677.png">
 <meta property="og:image" content="http://7xlqnm.com1.z0.glb.clouddn.com/2016/12/3304270685.jpg">
-<meta property="og:updated_time" content="2016-12-07T11:30:00.823Z">
+<meta property="og:updated_time" content="2016-12-07T11:32:44.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用pyqt4编写cs计算工具">
 <meta name="twitter:description" content="利用pyqt4编写cs计算工具
@@ -328,62 +328,12 @@
 <p>Python的环境是2.7。</p>
 <p>CS校验和的C代码如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/******************************************************************</span><br><span class="line">*校验码 将所有相加MOD 256</span><br><span class="line">*******************************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">char</span> <span class="title">Get_csckNum</span><span class="params">( <span class="keyword">unsigned</span> <span class="keyword">char</span> *Ptr, <span class="keyword">unsigned</span> <span class="keyword">char</span> Len )</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> Num;</span><br><span class="line">	Num = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>( Len &gt; <span class="number">0</span> )</span><br><span class="line">	&#123;</span><br><span class="line">		Num += *Ptr;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d--%d\n"</span>,Len,Num);</span><br><span class="line">		Ptr++;</span><br><span class="line">		Len--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> Num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>转为Python代码</p>
-<pre><code>def CalCS(self,inputstr):
-    input = inputstr.replace(&quot; &quot;, &quot;&quot;)
-    content = []
-    for i in range(0, len(input), 2):
-        content.append(input[i:i + 2])
-    print content
-    int_list = [int(i, 16) for i in content]
-    print int_list
-    num = 0
-    for i in range(0, len(int_list)):
-        num = num + int(int_list[i])
-    return hex(num % 256)
-</code></pre><h2 id="一、软件界面设计"><a href="#一、软件界面设计" class="headerlink" title="一、软件界面设计"></a>一、软件界面设计</h2><p>我用的是QT Designer来进行界面的绘制，第一次用。但是感觉直接写代码来绘制图形界面提升的会更快。<br>首先打开QT designer，添加需要用到的小组件。<br>最终我的设计界面如下：</p>
+<p>转为Python代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CalCS</span><span class="params">(self,inputstr)</span>:</span></span><br><span class="line">       input = inputstr.replace(<span class="string">" "</span>, <span class="string">""</span>)</span><br><span class="line">       content = []</span><br><span class="line">       <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(input), <span class="number">2</span>):</span><br><span class="line">           content.append(input[i:i + <span class="number">2</span>])</span><br><span class="line">       <span class="keyword">print</span> content</span><br><span class="line">       int_list = [int(i, <span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> content]</span><br><span class="line">       <span class="keyword">print</span> int_list</span><br><span class="line">       num = <span class="number">0</span></span><br><span class="line">       <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(int_list)):</span><br><span class="line">           num = num + int(int_list[i])</span><br><span class="line">       <span class="keyword">return</span> hex(num % <span class="number">256</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="一、软件界面设计"><a href="#一、软件界面设计" class="headerlink" title="一、软件界面设计"></a>一、软件界面设计</h2><p>我用的是QT Designer来进行界面的绘制，第一次用。但是感觉直接写代码来绘制图形界面提升的会更快。<br>首先打开QT designer，添加需要用到的小组件。<br>最终我的设计界面如下：</p>
 <p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/12/684297600.png" alt=""></p>
 <p>界面绘制完成后，保存会生成一个后缀名为.ui的文件。</p>
-<h2 id="二、Python程序的编写"><a href="#二、Python程序的编写" class="headerlink" title="二、Python程序的编写"></a>二、Python程序的编写</h2><p>界面完成后，进行框架的导入。<br>开始编写程序。</p>
-<pre><code>from __future__ import division
-import sys
-from PyQt4 import QtCore, QtGui,uic
-
-from uicode import *
-qtCreatorFile = &quot;calc.ui&quot; # Enter file here.
-Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
-
-class MyApp(QtGui.QMainWindow, Ui_MainWindow):
-    def __init__(self):
-        QtGui.QMainWindow.__init__(self)
-        Ui_MainWindow.__init__(self)
-        self.setupUi(self)
-        self.calc_button.clicked.connect(self.CalculateTax)
-    def CalculateTax(self):
-        content = str(self.content_box.toPlainText())
-        total = self.CalCS(content)
-        total_string = &quot;&quot; + str(total)
-        self.results_window.setText(total_string)
-
-    def CalCS(self,inputstr):
-        input = inputstr.replace(&quot; &quot;, &quot;&quot;)
-        content = []
-        for i in range(0, len(input), 2):
-            content.append(input[i:i + 2])
-        # print content
-        int_list = [int(i, 16) for i in content]
-        # print int_list
-        num = 0
-        for i in range(0, len(int_list)):
-            num = num + int(int_list[i])
-        return hex(num % 256)
-
-if __name__ == &quot;__main__&quot;:
-    app = QtGui.QApplication(sys.argv)
-    window = MyApp()
-    window.show()
-    sys.exit(app.exec_())
-</code></pre><p>至此，最简单的程序就编写完成了。</p>
+<h2 id="二、Python程序的编写"><a href="#二、Python程序的编写" class="headerlink" title="二、Python程序的编写"></a>二、Python程序的编写</h2><p>界面完成后，进行框架的导入。<br>开始编写程序。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtCore, QtGui,uic</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> uicode <span class="keyword">import</span> *</span><br><span class="line">qtCreatorFile = <span class="string">"calc.ui"</span> <span class="comment"># Enter file here.</span></span><br><span class="line">Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span><span class="params">(QtGui.QMainWindow, Ui_MainWindow)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        QtGui.QMainWindow.__init__(self)</span><br><span class="line">        Ui_MainWindow.__init__(self)</span><br><span class="line">        self.setupUi(self)</span><br><span class="line">        self.calc_button.clicked.connect(self.CalculateTax)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">CalculateTax</span><span class="params">(self)</span>:</span></span><br><span class="line">        content = str(self.content_box.toPlainText())</span><br><span class="line">        total = self.CalCS(content)</span><br><span class="line">        total_string = <span class="string">""</span> + str(total)</span><br><span class="line">        self.results_window.setText(total_string)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">CalCS</span><span class="params">(self,inputstr)</span>:</span></span><br><span class="line">        input = inputstr.replace(<span class="string">" "</span>, <span class="string">""</span>)</span><br><span class="line">        content = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(input), <span class="number">2</span>):</span><br><span class="line">            content.append(input[i:i + <span class="number">2</span>])</span><br><span class="line">        <span class="comment"># print content</span></span><br><span class="line">        int_list = [int(i, <span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> content]</span><br><span class="line">        <span class="comment"># print int_list</span></span><br><span class="line">        num = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(int_list)):</span><br><span class="line">            num = num + int(int_list[i])</span><br><span class="line">        <span class="keyword">return</span> hex(num % <span class="number">256</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = QtGui.QApplication(sys.argv)</span><br><span class="line">    window = MyApp()</span><br><span class="line">    window.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure></p>
+<p>至此，最简单的程序就编写完成了。</p>
 <h2 id="三、生成exe可执行程序"><a href="#三、生成exe可执行程序" class="headerlink" title="三、生成exe可执行程序"></a>三、生成exe可执行程序</h2><p>利用pyinstaller直接生成。<br>命令代码：</p>
 <pre><code>pyinstaller -w -F main.py
 </code></pre><p>具体见下面链接<br><a href="http://blog.rayuu.com/pyinstaller_py2exe_exe.html" target="_blank" rel="external">http://blog.rayuu.com/pyinstaller_py2exe_exe.html</a><br>但是在生成的过程中会报错，原因是.ui的界面代码没有打包到exe文件里面去。</p>
@@ -412,48 +362,8 @@ if __name__ == &quot;__main__&quot;:
 pyuic4 %1 &gt; %~n1.py
 </code></pre><p>这样代码就转换成功了。</p>
 <p>本次生成的界面代码文件名称为 <code>uicode.py</code></p>
-<p>下面修改代码</p>
-<pre><code>from __future__ import division
-import sys
-from PyQt4 import QtCore, QtGui,uic
-
-# 从uicode.py里面导入界面代码
-from uicode import *
-
-class MyApp(QtGui.QMainWindow):
-
-    def __init__(self,parent=None):
-        QtGui.QWidget.__init__(self,parent)
-        # 重载
-        self.ui=Ui_MainWindow()
-        self.ui.setupUi(self)
-        self.ui.calc_button.clicked.connect(self.CalculateTax)
-
-    def CalculateTax(self):
-        content = str(self.ui.content_box.toPlainText())
-        total = self.CalCS(content)
-        total_string = &quot;&quot; + str(total)
-        self.ui.results_window.setText(total_string)
-
-    def CalCS(self,inputstr):
-        input = inputstr.replace(&quot; &quot;, &quot;&quot;)
-        content = []
-        for i in range(0, len(input), 2):
-            content.append(input[i:i + 2])
-        # print content
-        int_list = [int(i, 16) for i in content]
-        # print int_list
-        num = 0
-        for i in range(0, len(int_list)):
-            num = num + int(int_list[i])
-        return hex(num % 256)
-
-if __name__ == &quot;__main__&quot;:
-    app = QtGui.QApplication(sys.argv)
-    window = MyApp()
-    window.show()
-    sys.exit(app.exec_())
-</code></pre><p>最后重新打包生成exe文件就可以直接运行了。</p>
+<p>下面修改代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtCore, QtGui,uic</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 从uicode.py里面导入界面代码</span></span><br><span class="line"><span class="keyword">from</span> uicode <span class="keyword">import</span> *</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span><span class="params">(QtGui.QMainWindow)</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,parent=None)</span>:</span></span><br><span class="line">        QtGui.QWidget.__init__(self,parent)</span><br><span class="line">        <span class="comment"># 重载</span></span><br><span class="line">        self.ui=Ui_MainWindow()</span><br><span class="line">        self.ui.setupUi(self)</span><br><span class="line">        self.ui.calc_button.clicked.connect(self.CalculateTax)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">CalculateTax</span><span class="params">(self)</span>:</span></span><br><span class="line">        content = str(self.ui.content_box.toPlainText())</span><br><span class="line">        total = self.CalCS(content)</span><br><span class="line">        total_string = <span class="string">""</span> + str(total)</span><br><span class="line">        self.ui.results_window.setText(total_string)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">CalCS</span><span class="params">(self,inputstr)</span>:</span></span><br><span class="line">        input = inputstr.replace(<span class="string">" "</span>, <span class="string">""</span>)</span><br><span class="line">        content = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(input), <span class="number">2</span>):</span><br><span class="line">            content.append(input[i:i + <span class="number">2</span>])</span><br><span class="line">        <span class="comment"># print content</span></span><br><span class="line">        int_list = [int(i, <span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> content]</span><br><span class="line">        <span class="comment"># print int_list</span></span><br><span class="line">        num = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(int_list)):</span><br><span class="line">            num = num + int(int_list[i])</span><br><span class="line">        <span class="keyword">return</span> hex(num % <span class="number">256</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = QtGui.QApplication(sys.argv)</span><br><span class="line">    window = MyApp()</span><br><span class="line">    window.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure></p>
+<p>最后重新打包生成exe文件就可以直接运行了。</p>
 <p>只是打包的库比较多，所以最后的程序大小有10几兆。</p>
 <p>最后：</p>
 <p>另外，如果界面需要加载资源文件的话，还要进行另外的操作，把资源文件转为.qrc后缀的文件。</p>
@@ -491,129 +401,8 @@ if __name__ == &quot;__main__&quot;:
 <pre><code>qresource prefix=&quot;picture&quot;
 </code></pre><p>在这里，正确的使用是：</p>
 <pre><code>:picture/img/firefox.png
-</code></pre><p>附：<code>uicode.py</code></p>
-<pre><code># -*- coding: utf-8 -*-
+</code></pre><p>附：<code>uicode.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Form implementation generated from reading ui file 'C:\Users\jx007\Desktop\PyQt_first-master\calc.ui'</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by: PyQt4 UI code generator 4.11.4</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># WARNING! All changes made in this file will be lost!</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtCore, QtGui</span><br><span class="line"><span class="comment"># 导入资源</span></span><br><span class="line"><span class="keyword">import</span> sources</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">     _fromUtf8 = QtCore.QString.fromUtf8</span><br><span class="line"><span class="keyword">except</span> AttributeError:</span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">_fromUtf8</span><span class="params">(s)</span>:</span></span><br><span class="line">          <span class="keyword">return</span> s</span><br><span class="line"> </span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	_encoding = QtGui.QApplication.UnicodeUTF8</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_translate</span><span class="params">(context, text, disambig)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> QtGui.QApplication.translate(context, text, disambig, _encoding)</span><br><span class="line"><span class="keyword">except</span> AttributeError:</span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">_translate</span><span class="params">(context, text, disambig)</span>:</span></span><br><span class="line">          <span class="keyword">return</span> QtGui.QApplication.translate(context, text, disambig)</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ui_MainWindow</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">setupUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">           MainWindow.setObjectName(_fromUtf8(<span class="string">"MainWindow"</span>))</span><br><span class="line">			MainWindow.resize(<span class="number">700</span>, <span class="number">240</span>)</span><br><span class="line">			icon = QtGui.QIcon()</span><br><span class="line">			<span class="comment"># icon.addPixmap(QtGui.QPixmap(_fromUtf8("ico.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)</span></span><br><span class="line">			icon.addPixmap(QtGui.QPixmap(_fromUtf8(<span class="string">":ico/ico.png"</span>)), QtGui.QIcon.Normal, QtGui.QIcon.Off)</span><br><span class="line">			MainWindow.setWindowIcon(icon)</span><br><span class="line">			self.centralwidget = QtGui.QWidget(MainWindow)</span><br><span class="line">			self.centralwidget.setObjectName(_fromUtf8(<span class="string">"centralwidget"</span>))</span><br><span class="line">			self.gridLayout = QtGui.QGridLayout(self.centralwidget)</span><br><span class="line">			self.gridLayout.setObjectName(_fromUtf8(<span class="string">"gridLayout"</span>))</span><br><span class="line">			self.label_3 = QtGui.QLabel(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setPointSize(<span class="number">20</span>)</span><br><span class="line">			font.setBold(<span class="keyword">True</span>)</span><br><span class="line">			font.setWeight(<span class="number">75</span>)</span><br><span class="line">			self.label_3.setFont(font)</span><br><span class="line">			self.label_3.setObjectName(_fromUtf8(<span class="string">"label_3"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.label_3, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.label = QtGui.QLabel(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setPointSize(<span class="number">10</span>)</span><br><span class="line">			font.setBold(<span class="keyword">True</span>)</span><br><span class="line">			font.setWeight(<span class="number">75</span>)</span><br><span class="line">			self.label.setFont(font)</span><br><span class="line">			self.label.setObjectName(_fromUtf8(<span class="string">"label"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.label, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.content_box = QtGui.QTextEdit(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setFamily(_fromUtf8(<span class="string">"Times New Roman"</span>))</span><br><span class="line">			font.setPointSize(<span class="number">10</span>)</span><br><span class="line">			font.setBold(<span class="keyword">False</span>)</span><br><span class="line">			font.setWeight(<span class="number">50</span>)</span><br><span class="line">			self.content_box.setFont(font)</span><br><span class="line">			self.content_box.setObjectName(_fromUtf8(<span class="string">"content_box"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.content_box, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.calc_button = QtGui.QPushButton(self.centralwidget)</span><br><span class="line">			self.calc_button.setObjectName(_fromUtf8(<span class="string">"calc_button"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.calc_button, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.label_2 = QtGui.QLabel(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setPointSize(<span class="number">10</span>)</span><br><span class="line">			font.setBold(<span class="keyword">True</span>)</span><br><span class="line">			font.setWeight(<span class="number">75</span>)</span><br><span class="line">			self.label_2.setFont(font)</span><br><span class="line">			self.label_2.setObjectName(_fromUtf8(<span class="string">"label_2"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.label_2, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.results_window = QtGui.QTextEdit(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setFamily(_fromUtf8(<span class="string">"Times New Roman"</span>))</span><br><span class="line">			font.setPointSize(<span class="number">14</span>)</span><br><span class="line">			font.setBold(<span class="keyword">False</span>)</span><br><span class="line">			font.setWeight(<span class="number">50</span>)</span><br><span class="line">			self.results_window.setFont(font)</span><br><span class="line">			self.results_window.setObjectName(_fromUtf8(<span class="string">"results_window"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.results_window, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			MainWindow.setCentralWidget(self.centralwidget)</span><br><span class="line">			self.menubar = QtGui.QMenuBar(MainWindow)</span><br><span class="line">			self.menubar.setGeometry(QtCore.QRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">700</span>, <span class="number">23</span>))</span><br><span class="line">			self.menubar.setObjectName(_fromUtf8(<span class="string">"menubar"</span>))</span><br><span class="line">			MainWindow.setMenuBar(self.menubar)</span><br><span class="line">			self.statusbar = QtGui.QStatusBar(MainWindow)</span><br><span class="line">			self.statusbar.setObjectName(_fromUtf8(<span class="string">"statusbar"</span>))</span><br><span class="line">			MainWindow.setStatusBar(self.statusbar)</span><br><span class="line"> </span><br><span class="line">			self.retranslateUi(MainWindow)</span><br><span class="line">			QtCore.QMetaObject.connectSlotsByName(MainWindow)</span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">retranslateUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">          MainWindow.setWindowTitle(_translate(<span class="string">"MainWindow"</span>, <span class="string">"CS Calculator By:Rayu 2016-11-24"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.label_3.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"CS Calculator"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.label.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Text"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.calc_button.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Calculate"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.label_2.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Result"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.results_window.setHtml(_translate(<span class="string">"MainWindow"</span>, <span class="string">"&lt;!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\"&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;html&gt;&lt;head&gt;&lt;meta name=\"qrichtext\" content=\"1\" /&gt;&lt;style type=\"text/css\"&gt;\n"</span></span><br><span class="line"><span class="string">"p, li &#123; white-space: pre-wrap; &#125;\n"</span></span><br><span class="line"><span class="string">"&lt;/style&gt;&lt;/head&gt;&lt;body style=\" font-family:\'Times New Roman\'; font-size:14pt; font-weight:400; font-style:normal;\"&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;/******************************************************************&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;*校验码 将所有相加MOD 256 &lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;*******************************************************************/&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;unsigned char Get_csckNum( unsigned char *Ptr, unsigned char Len )&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;&#123;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; register unsigned char Num;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; &lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Num = 0;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; while( Len &gt; 0 )&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; &#123;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Num += *Ptr;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; printf("</span>%d--%d\\n<span class="string">",Len,Num);&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Ptr++;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Len--;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; &#125;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; return Num;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;&#125;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"</span>, <span class="keyword">None</span>))</span><br></pre></td></tr></table></figure></p>
 
-# Form implementation generated from reading ui file &apos;C:\Users\jx007\Desktop\PyQt_first-master\calc.ui&apos;
-#
-# Created by: PyQt4 UI code generator 4.11.4
-#
-# WARNING! All changes made in this file will be lost!
-
-from PyQt4 import QtCore, QtGui
-# 导入资源
-import sources
-try:
-     _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-     def _fromUtf8(s):
-          return s
-
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-     def _translate(context, text, disambig):
-          return QtGui.QApplication.translate(context, text, disambig)
-
-class Ui_MainWindow(object):
-     def setupUi(self, MainWindow):
-           MainWindow.setObjectName(_fromUtf8(&quot;MainWindow&quot;))
-            MainWindow.resize(700, 240)
-            icon = QtGui.QIcon()
-            # icon.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;ico.png&quot;)), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-            icon.addPixmap(QtGui.QPixmap(_fromUtf8(&quot;:ico/ico.png&quot;)), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-            MainWindow.setWindowIcon(icon)
-            self.centralwidget = QtGui.QWidget(MainWindow)
-            self.centralwidget.setObjectName(_fromUtf8(&quot;centralwidget&quot;))
-            self.gridLayout = QtGui.QGridLayout(self.centralwidget)
-            self.gridLayout.setObjectName(_fromUtf8(&quot;gridLayout&quot;))
-            self.label_3 = QtGui.QLabel(self.centralwidget)
-            font = QtGui.QFont()
-            font.setPointSize(20)
-            font.setBold(True)
-            font.setWeight(75)
-            self.label_3.setFont(font)
-            self.label_3.setObjectName(_fromUtf8(&quot;label_3&quot;))
-            self.gridLayout.addWidget(self.label_3, 0, 1, 1, 1)
-            self.label = QtGui.QLabel(self.centralwidget)
-            font = QtGui.QFont()
-            font.setPointSize(10)
-            font.setBold(True)
-            font.setWeight(75)
-            self.label.setFont(font)
-            self.label.setObjectName(_fromUtf8(&quot;label&quot;))
-            self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
-            self.content_box = QtGui.QTextEdit(self.centralwidget)
-            font = QtGui.QFont()
-            font.setFamily(_fromUtf8(&quot;Times New Roman&quot;))
-            font.setPointSize(10)
-            font.setBold(False)
-            font.setWeight(50)
-            self.content_box.setFont(font)
-            self.content_box.setObjectName(_fromUtf8(&quot;content_box&quot;))
-            self.gridLayout.addWidget(self.content_box, 1, 1, 1, 1)
-            self.calc_button = QtGui.QPushButton(self.centralwidget)
-            self.calc_button.setObjectName(_fromUtf8(&quot;calc_button&quot;))
-            self.gridLayout.addWidget(self.calc_button, 1, 2, 1, 1)
-            self.label_2 = QtGui.QLabel(self.centralwidget)
-            font = QtGui.QFont()
-            font.setPointSize(10)
-            font.setBold(True)
-            font.setWeight(75)
-            self.label_2.setFont(font)
-            self.label_2.setObjectName(_fromUtf8(&quot;label_2&quot;))
-            self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
-            self.results_window = QtGui.QTextEdit(self.centralwidget)
-            font = QtGui.QFont()
-            font.setFamily(_fromUtf8(&quot;Times New Roman&quot;))
-            font.setPointSize(14)
-            font.setBold(False)
-            font.setWeight(50)
-            self.results_window.setFont(font)
-            self.results_window.setObjectName(_fromUtf8(&quot;results_window&quot;))
-            self.gridLayout.addWidget(self.results_window, 2, 1, 1, 1)
-            MainWindow.setCentralWidget(self.centralwidget)
-            self.menubar = QtGui.QMenuBar(MainWindow)
-            self.menubar.setGeometry(QtCore.QRect(0, 0, 700, 23))
-            self.menubar.setObjectName(_fromUtf8(&quot;menubar&quot;))
-            MainWindow.setMenuBar(self.menubar)
-            self.statusbar = QtGui.QStatusBar(MainWindow)
-            self.statusbar.setObjectName(_fromUtf8(&quot;statusbar&quot;))
-            MainWindow.setStatusBar(self.statusbar)
-
-            self.retranslateUi(MainWindow)
-            QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-     def retranslateUi(self, MainWindow):
-          MainWindow.setWindowTitle(_translate(&quot;MainWindow&quot;, &quot;CS Calculator By:Rayu 2016-11-24&quot;, None))
-          self.label_3.setText(_translate(&quot;MainWindow&quot;, &quot;CS Calculator&quot;, None))
-          self.label.setText(_translate(&quot;MainWindow&quot;, &quot;Text&quot;, None))
-          self.calc_button.setText(_translate(&quot;MainWindow&quot;, &quot;Calculate&quot;, None))
-          self.label_2.setText(_translate(&quot;MainWindow&quot;, &quot;Result&quot;, None))
-          self.results_window.setHtml(_translate(&quot;MainWindow&quot;, &quot;&lt;!DOCTYPE HTML PUBLIC \&quot;-//W3C//DTD HTML 4.0//EN\&quot; \&quot;http://www.w3.org/TR/REC-html40/strict.dtd\&quot;&gt;\n&quot;
-&quot;&lt;html&gt;&lt;head&gt;&lt;meta name=\&quot;qrichtext\&quot; content=\&quot;1\&quot; /&gt;&lt;style type=\&quot;text/css\&quot;&gt;\n&quot;
-&quot;p, li { white-space: pre-wrap; }\n&quot;
-&quot;&lt;/style&gt;&lt;/head&gt;&lt;body style=\&quot; font-family:\&apos;Times New Roman\&apos;; font-size:14pt; font-weight:400; font-style:normal;\&quot;&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt;/******************************************************************&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt;*校验码 将所有相加MOD 256 &lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt;*******************************************************************/&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt;unsigned char Get_csckNum( unsigned char *Ptr, unsigned char Len )&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt;{&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; register unsigned char Num;&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; &lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; Num = 0;&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; while( Len &gt; 0 )&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; {&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; Num += *Ptr;&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; printf(&quot;%d--%d\\n&quot;,Len,Num);&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; Ptr++;&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; Len--;&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; }&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt; return Num;&lt;/span&gt;&lt;/p&gt;\n&quot;
-&quot;&lt;p style=\&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\&quot;&gt;&lt;span style=\&quot; font-family:\&apos;SimSun\&apos;; font-size:9pt;\&quot;&gt;}&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&quot;, None))
-</code></pre>
       
     </div>
 
