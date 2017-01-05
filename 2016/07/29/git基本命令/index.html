@@ -312,6 +312,11 @@
             </div>
             <time class="pink-link-context" datetime="2016-07-29T12:03:54.000Z"><a href="/2016/07/29/git基本命令/">2016-07-29</a></time>
 
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
             
     <div class="tags-row">
         
@@ -388,7 +393,24 @@ git pull
 <p>’<code>git stash list</code>’ 命令可以将当前的Git栈信息打印出来，<br>你只需要将找到对应的版本号，<br>例如使用’git stash apply stash@{1}’<br>就可以将你指定版本号为stash@{1}的工作取出来，<br>当你将所有的栈都应用回来的时候，可以使用’<code>git stash clear</code>’来将栈清空。</p>
 <p>转自：<a href="http://blog.csdn.net/wh_19910525/article/details/7784901" target="_blank" rel="external">http://blog.csdn.net/wh_19910525/article/details/7784901</a></p>
 
+                
+<p class="pink-link-context">
+    <a href="/2016/08/13/MicrocontrollersLowPower/" rel="next" title="瑞萨单片机系统低功耗的设计">
+    上一篇：瑞萨单片机系统低功耗的设计
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2016/06/01/cmdhere/" rel="next" title="windows右键添加cmd菜单">
+    下一篇：windows右键添加cmd菜单
+  </a>
+</p>
+
+
             </div>
+			
         </div>
     </div>
 </article>
@@ -523,6 +545,8 @@ var _hmt = _hmt || [];
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/materialize.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
 <script>
     (function($) {
@@ -564,6 +588,22 @@ var _hmt = _hmt || [];
 
             // 文章目录
             $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
             // 修正文章目录的left-border颜色
             var color = $('.table-of-contents-text').css('color');
             $('.table-of-contents-link').css('border-left-color', color);

@@ -312,6 +312,11 @@
             </div>
             <time class="pink-link-context" datetime="2015-08-04T16:00:00.000Z"><a href="/2015/08/05/2015-08-05-pi3/">2015-08-05</a></time>
 
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
             
     <div class="tags-row">
         
@@ -338,7 +343,24 @@
 <p>没有报错则说明安装成功。</p>
 <p>下面就是用I/O口控制小车了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO  </span><br><span class="line"><span class="keyword">import</span> time  </span><br><span class="line">GPIO.setmode(GPIO.BOARD)   </span><br><span class="line">GPIO.setup(<span class="number">11</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">12</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">15</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">16</span>, GPIO.OUT)</span><br><span class="line">in11 = GPIO.PWM(<span class="number">11</span>, <span class="number">50</span>)</span><br><span class="line">in12 = GPIO.PWM(<span class="number">12</span>, <span class="number">50</span>)</span><br><span class="line">in21 = GPIO.PWM(<span class="number">15</span>, <span class="number">50</span>)</span><br><span class="line">in22 = GPIO.PWM(<span class="number">16</span>, <span class="number">50</span>) </span><br><span class="line">shudu=<span class="number">30</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">yanshi</span><span class="params">(t)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">        t=t<span class="number">-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">houtui</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">30</span>)</span><br><span class="line">    in12.start(<span class="number">0</span>)</span><br><span class="line">    in21.start(<span class="number">30</span>)</span><br><span class="line">    in22.start(<span class="number">0</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tingzhi</span><span class="params">()</span>:</span></span><br><span class="line">    in11.stop()</span><br><span class="line">    in12.stop()</span><br><span class="line">    in21.stop()</span><br><span class="line">    in22.stop()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhizou1</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(<span class="number">30</span>)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(<span class="number">30</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhizou</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(shudu)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(shudu)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">youzhuan</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(<span class="number">30</span>)</span><br><span class="line">    in21.start(<span class="number">30</span>)</span><br><span class="line">    in22.start(<span class="number">0</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zuozhuan</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">30</span>)</span><br><span class="line">    in12.start(<span class="number">0</span>)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(<span class="number">30</span>)  </span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>: </span><br><span class="line">    fangxiang=raw_input()</span><br><span class="line">    <span class="keyword">if</span> fangxiang==<span class="string">'q'</span>:</span><br><span class="line">        shudu=shudu+<span class="number">10</span></span><br><span class="line">        zhizou()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'e'</span>:</span><br><span class="line">        shudu=shudu<span class="number">-10</span></span><br><span class="line">        zhizou()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'w'</span>:</span><br><span class="line">	    zhizou1()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'a'</span>:</span><br><span class="line">        t=<span class="number">30000</span></span><br><span class="line">        <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">            t=t<span class="number">-1</span></span><br><span class="line">	        zuozhuan()</span><br><span class="line">            tingzhi()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'s'</span>:</span><br><span class="line">	    houtui()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'d'</span>:</span><br><span class="line">        t=<span class="number">30000</span></span><br><span class="line">        <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">            t=t<span class="number">-1</span></span><br><span class="line">	        youzhuan()</span><br><span class="line">            tingzhi()</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">	    tingzhi()</span><br></pre></td></tr></table></figure></p>
 
+                
+<p class="pink-link-context">
+    <a href="/2016/05/03/cetnoticket/" rel="next" title="CET4、6级无证查询99接口">
+    上一篇：CET4、6级无证查询99接口
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2015/06/06/2015-06-06-pi1/" rel="next" title="树莓派折腾之旅（一）">
+    下一篇：树莓派折腾之旅（一）
+  </a>
+</p>
+
+
             </div>
+			
         </div>
     </div>
 </article>
@@ -473,6 +495,8 @@ var _hmt = _hmt || [];
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/materialize.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
 <script>
     (function($) {
@@ -514,6 +538,22 @@ var _hmt = _hmt || [];
 
             // 文章目录
             $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
             // 修正文章目录的left-border颜色
             var color = $('.table-of-contents-text').css('color');
             $('.table-of-contents-link').css('border-left-color', color);

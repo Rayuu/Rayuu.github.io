@@ -312,6 +312,11 @@
             </div>
             <time class="pink-link-context" datetime="2015-03-21T16:00:00.000Z"><a href="/2015/03/22/2015-03-26-Linux1/">2015-03-22</a></time>
 
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
             
     <div class="tags-row">
         
@@ -340,7 +345,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser test2 -g testgroup</span><br></pre></td></tr></table></figure>
 <p>其中useradd新建用户在home目录下面没有文件夹，而adduser则有。<br><br>ps -e  查看进程<br><br>kill 3400杀死3400进程<br><br>kill -9 pid process<br><br>mkdir 目录名         =&gt; 创建一个目录<br><br>rmdir 空目录名      =&gt; 删除一个空目录<br><br>rm 文件名 文件名   =&gt; 删除一个文件或多个文件<br><br>rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切<br><br>touch 文件名        =&gt; 创建一个空文件<br><br>重命名文件（夹） / 移动文件（夹）到指定文件夹<br><br>执行格式： mv source destination<br><br>mv file1 file2    =&gt; 将文件 file1，更改文件名为 file2。<br><br>mv file1 dir1    =&gt; 将文件 file1，移到目录 dir1下，文件名仍为 file1。<br><br>mv dir1 dir2    =&gt; 若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到<br>目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和<br>子目录，更改为目录 dir2。<br><br>今天就练到这里。明天继续！加油！<br></p>
 
+                
+<p class="pink-link-context">
+    <a href="/2015/06/06/2015-06-06-pi2/" rel="next" title="树莓派折腾之旅（二）">
+    上一篇：树莓派折腾之旅（二）
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2015/03/22/2015-03-22-chome-science/" rel="next" title="chrome科学上网">
+    下一篇：chrome科学上网
+  </a>
+</p>
+
+
             </div>
+			
         </div>
     </div>
 </article>
@@ -475,6 +497,8 @@ var _hmt = _hmt || [];
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/materialize.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
 <script>
     (function($) {
@@ -516,6 +540,22 @@ var _hmt = _hmt || [];
 
             // 文章目录
             $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
             // 修正文章目录的left-border颜色
             var color = $('.table-of-contents-text').css('color');
             $('.table-of-contents-link').css('border-left-color', color);
