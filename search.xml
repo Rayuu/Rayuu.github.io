@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title><![CDATA[浏览器首页被hao.qquu8.com/?m=yx&r=j劫持]]></title>
+      <url>http://rayuu.com/2017/03/09/chromehao123/</url>
+      <content type="html"><![CDATA[<p>昨天帮一个同学找了一个小马激活工具，今天早上电脑一开机，打开浏览器就发现首页变为了</p>
+<p><a href="http://hao.qquu8.com/?m=yx&amp;r=j" target="_blank" rel="external">http://hao.qquu8.com/?m=yx&amp;r=j</a> 然后跳转到hao123。</p>
+<p>心想还是要支持正版系统啊！</p>
+<p>我首先是改浏览器的配置，把chrome的首页设置为打开新的标签页，结果操作无效。</p>
+<p>紧接着我分别删除了桌面和任务栏chrome的快捷方式，属性快捷方式目标后面跟的<a href="http://hao.qquu8.com/?m=yx&amp;r=j这个链接。" target="_blank" rel="external">http://hao.qquu8.com/?m=yx&amp;r=j这个链接。</a></p>
+<p><code>&quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot;</code>只保留这个，还有任务栏的地址在</p>
+<pre><code>C:\Users\rayu\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch
+
+C:\Users\rayu\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar
+</code></pre><p>这两个地方的<a href="http://hao.qquu8.com/?m=yx&amp;r=j也删除了。" target="_blank" rel="external">http://hao.qquu8.com/?m=yx&amp;r=j也删除了。</a></p>
+<p><img src="http://blog.rayuu.com/usr/uploads/2017/03/1570470093.png" alt="a"></p>
+<p>这时候打开浏览器不会跳转到hao123了，我以为战斗结束了，也就没去管他了。</p>
+<p>过了几个小时，我把浏览器关掉重新打开，发现又出现了hao123首页。</p>
+<p>这我就不淡定了，强迫症又犯了。</p>
+<p>开始网上找解决方案。</p>
+<p>参考文章：<a href="http://xinghao.me/2016/03/01/2016-03-01-kill-hao123/" target="_blank" rel="external">http://xinghao.me/2016/03/01/2016-03-01-kill-hao123/</a></p>
+<p>我其实就是按照上面链接里的方法来做的。</p>
+<p>不过还是要自己记录一下是怎么做的。</p>
+<h3 id="1、用WMI-Event-Viewer查看WMI事件。下载地址：http-down-cncrk-com-8080-soft-keygen-WMITools-zip"><a href="#1、用WMI-Event-Viewer查看WMI事件。下载地址：http-down-cncrk-com-8080-soft-keygen-WMITools-zip" class="headerlink" title="1、用WMI Event Viewer查看WMI事件。下载地址：http://down.cncrk.com:8080/soft/keygen/WMITools.zip"></a>1、用WMI Event Viewer查看WMI事件。下载地址：<a href="http://down.cncrk.com:8080/soft/keygen/WMITools.zip" target="_blank" rel="external">http://down.cncrk.com:8080/soft/keygen/WMITools.zip</a></h3><h3 id="2、用管理员打开wbemeventviewer-exe，在root-CIMV2里面选择-EventConsumer-gt-ActiveScriptEventConsumer"><a href="#2、用管理员打开wbemeventviewer-exe，在root-CIMV2里面选择-EventConsumer-gt-ActiveScriptEventConsumer" class="headerlink" title="2、用管理员打开wbemeventviewer.exe，在root\CIMV2里面选择_EventConsumer -&gt; ActiveScriptEventConsumer"></a>2、用管理员打开wbemeventviewer.exe，在root\CIMV2里面选择_EventConsumer -&gt; ActiveScriptEventConsumer</h3><p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2017/03/1824951337.png" alt="2"></p>
+<p>双击ActiveScriptEventConsumer.Name=”VBScriptKids_consumer”，弹出属性页面：</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2017/03/3738714703.png" alt="3"></p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2017/03/991659301.png" alt="4"></p>
+<p>在 ScriptText里面看见了hao.qquu8.com/?m=yx&amp;r=j这一串代码。</p>
+<p>然后把它删掉，或者直接在WMI event viewer中将“_EventFilter:Name=”unown_filter””项目右键删除！</p>
+<p>这样问题就解决了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[换了一个新主题]]></title>
       <url>http://rayuu.com/2016/12/08/newtheme/</url>
       <content type="html"><![CDATA[<h1 id="换了一个新主题"><a href="#换了一个新主题" class="headerlink" title="换了一个新主题"></a>换了一个新主题</h1><p>感觉自己萌萌哒！！！！</p>
