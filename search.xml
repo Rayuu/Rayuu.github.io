@@ -946,6 +946,69 @@ git pull
     </entry>
     
     <entry>
+      <title><![CDATA[树莓派折腾之旅（二）]]></title>
+      <url>http://rayuu.com/2015/06/06/2015-06-06-pi2/</url>
+      <content type="html"><![CDATA[<p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
+<p>######我是参考的这个帖子做的</p>
+<p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882" target="_blank" rel="external">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
+<p>插上摄像头可以看见usbvideo0.</p>
+<p>接下来安装</p>
+<pre><code>sudo apt-get install subversion
+
+sudo apt-get install libv4l-dev
+
+sudo apt-get install libjpeg8-dev
+
+sudo apt-get install imagemagick
+</code></pre><a id="more"></a>
+<p>到上面这些步骤都没有错。</p>
+<p>下面下载的是<code>mipg-steamer</code>软件，编译并安装。</p>
+<p>那个帖子里面的下载地址都过期了，所以我就重新百度 google找啊找。</p>
+<p>在网上搜<code>mjpg-streamer</code>搜出一个mjpg-streamer-r63，这个包始终编译不成功，有郁闷了很久。</p>
+<p>终于在github上面有一个和帖子说的一样的。</p>
+<p>还有在这里也有一个链接<a href="http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138" target="_blank" rel="external">http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138</a></p>
+<p>于是希望重新燃起，</p>
+<p>开始编译，建立软连接：<code>sudo ln -s /usr/include/libv4l1-videodev.h /usr/include/linux/videodev.h</code></p>
+<p>进入目录并编译：</p>
+<pre><code>cd mjpg-streamer
+make USE_LIBV4L2=true clean all
+</code></pre><p>编译好像是成功了，因为没有报错。</p>
+<p>然后执行 <code>sudo  ./start.sh</code></p>
+<p>打开浏览器访问，树莓派ip地址:<code>8080</code></p>
+<p>发现并没有成功，摄像头并没有出来，多么痛的领悟啊。</p>
+<p>很忧桑有木有。</p>
+<p>于是又开始找问题，</p>
+<p>分析得出以下结论：</p>
+<p>摄像头没有打开，但是这不科学啊，设备可以检查到usbvideo0。</p>
+<p>摄像头驱动问题，我把摄像头放到windows下发现可以使用。</p>
+<p>就是环境问题咯。</p>
+<p>所以我一个一个尝试，首先看用摄像头拍照可以不。</p>
+<p>结果发现摄像头没有问题。</p>
+<p>就是拍出来的照片有点失真。图片如下：</p>
+<p><img src="http://imglf0.ph.126.net/kvnPMluEeM1YSALtPk3uBg==/6630796186327897140.jpg" alt=""><br>然后又各种找资料。</p>
+<p>找到一个用motion软件做的摄像头识别。好像是专门的网络摄像头监控软件。</p>
+<p>嘿嘿，希望还是有的。</p>
+<pre><code>sudo apt-get install motion 
+</code></pre><p>配置motion，编辑motion.conf文件<br>    sudo vi /etc/motion/motion.conf</p>
+<p>找到”control_localhost on “和”webcam_localhost on“这两行，改为以下两行后，保存退出<br>    control_localhost off<br>    webcam_localhost off</p>
+<p>运行motion软件，输入<code>motion -n</code></p>
+<p>在pc上用浏览器打开 树莓派ip地址:8080</p>
+<p>经过我的测试 ie11  和chrome 不可以实现，火狐浏览器可以哦</p>
+<p><img src="http://imglf1.ph.126.net/HGjYV7U08iEfU8aLBA2PyQ==/2834453015494321729.jpg" alt=""><br>画面就是上面的这样子咯。</p>
+<p>昨天弄了一天效果还可以，感觉很满意。</p>
+<p>总结一下吧：</p>
+<p>树莓派和以前玩过全志A20差不多，都是烧入操作系统。</p>
+<p>直接上操作系统，因为有过这方面的经验，所以折腾起来也就不费事了。</p>
+<p>摄像头监控还做的不好，有时间再玩一玩，可能是因为昨天折腾了一天，头很晕，所以后面摄像头的思路不是很清晰。</p>
+<p>等暑假再做个wifi小车玩一玩。嘿嘿~~！</p>
+<p>还有就是最近的微信公众号效果不错，800多粉丝了。</p>
+<p>这几天查成绩功能不可用，还是很不爽的，所以就传了2个游戏让大家玩。</p>
+<p>嘿嘿，另外发现小米路由器还是很坑的。</p>
+<p>星期五服务器莫名其妙的无法访问，使用的云监控没有报警，原因很奇怪，后来发现是小米路由器不知道什么时候自己把硬盘自动休眠给开启了。害的我找了半天，还以为是网络问题呢。结果把小米路由器的硬盘休眠功能一关闭，服务器就不挂了，正常运行了一天。等查成绩功能教务系统开放了再看一看效果。实在不行就用树莓派当web服务器了。刷个openwrt玩一玩。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[树莓派折腾之旅（一）]]></title>
       <url>http://rayuu.com/2015/06/06/2015-06-06-pi1/</url>
       <content type="html"><![CDATA[<h6 id="买了一星期的树莓派今天终于有时间折腾了。"><a href="#买了一星期的树莓派今天终于有时间折腾了。" class="headerlink" title="买了一星期的树莓派今天终于有时间折腾了。"></a>买了一星期的树莓派今天终于有时间折腾了。</h6><h6 id="早上一大早就起来，弄了一天。嘿嘿！"><a href="#早上一大早就起来，弄了一天。嘿嘿！" class="headerlink" title="早上一大早就起来，弄了一天。嘿嘿！"></a>早上一大早就起来，弄了一天。嘿嘿！</h6><h6 id="昨天把系统下载下来了。"><a href="#昨天把系统下载下来了。" class="headerlink" title="昨天把系统下载下来了。"></a>昨天把系统下载下来了。</h6><h6 id="树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads"><a href="#树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads" class="headerlink" title="树莓派官方 Raspbian 系统下载：http://www.raspberrypi.org/downloads"></a>树莓派官方 Raspbian 系统下载：<a href="http://www.raspberrypi.org/downloads" target="_blank" rel="external">http://www.raspberrypi.org/downloads</a></h6><p>首先开始烧系统到内存卡。用win32disk imager</p>
@@ -1054,88 +1117,6 @@ while True:
     </entry>
     
     <entry>
-      <title><![CDATA[树莓派折腾之旅（二）]]></title>
-      <url>http://rayuu.com/2015/06/06/2015-06-06-pi2/</url>
-      <content type="html"><![CDATA[<p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
-<p>######我是参考的这个帖子做的</p>
-<p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882" target="_blank" rel="external">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
-<p>插上摄像头可以看见usbvideo0.</p>
-<p>接下来安装</p>
-<pre><code>sudo apt-get install subversion
-
-sudo apt-get install libv4l-dev
-
-sudo apt-get install libjpeg8-dev
-
-sudo apt-get install imagemagick
-</code></pre><a id="more"></a>
-<p>到上面这些步骤都没有错。</p>
-<p>下面下载的是<code>mipg-steamer</code>软件，编译并安装。</p>
-<p>那个帖子里面的下载地址都过期了，所以我就重新百度 google找啊找。</p>
-<p>在网上搜<code>mjpg-streamer</code>搜出一个mjpg-streamer-r63，这个包始终编译不成功，有郁闷了很久。</p>
-<p>终于在github上面有一个和帖子说的一样的。</p>
-<p>还有在这里也有一个链接<a href="http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138" target="_blank" rel="external">http://pan.baidu.com/share/link?shareid=507341537&amp;uk=84253138</a></p>
-<p>于是希望重新燃起，</p>
-<p>开始编译，建立软连接：<code>sudo ln -s /usr/include/libv4l1-videodev.h /usr/include/linux/videodev.h</code></p>
-<p>进入目录并编译：</p>
-<pre><code>cd mjpg-streamer
-make USE_LIBV4L2=true clean all
-</code></pre><p>编译好像是成功了，因为没有报错。</p>
-<p>然后执行 <code>sudo  ./start.sh</code></p>
-<p>打开浏览器访问，树莓派ip地址:<code>8080</code></p>
-<p>发现并没有成功，摄像头并没有出来，多么痛的领悟啊。</p>
-<p>很忧桑有木有。</p>
-<p>于是又开始找问题，</p>
-<p>分析得出以下结论：</p>
-<p>摄像头没有打开，但是这不科学啊，设备可以检查到usbvideo0。</p>
-<p>摄像头驱动问题，我把摄像头放到windows下发现可以使用。</p>
-<p>就是环境问题咯。</p>
-<p>所以我一个一个尝试，首先看用摄像头拍照可以不。</p>
-<p>结果发现摄像头没有问题。</p>
-<p>就是拍出来的照片有点失真。图片如下：</p>
-<p><img src="http://imglf0.ph.126.net/kvnPMluEeM1YSALtPk3uBg==/6630796186327897140.jpg" alt=""><br>然后又各种找资料。</p>
-<p>找到一个用motion软件做的摄像头识别。好像是专门的网络摄像头监控软件。</p>
-<p>嘿嘿，希望还是有的。</p>
-<pre><code>sudo apt-get install motion 
-</code></pre><p>配置motion，编辑motion.conf文件<br>    sudo vi /etc/motion/motion.conf</p>
-<p>找到”control_localhost on “和”webcam_localhost on“这两行，改为以下两行后，保存退出<br>    control_localhost off<br>    webcam_localhost off</p>
-<p>运行motion软件，输入<code>motion -n</code></p>
-<p>在pc上用浏览器打开 树莓派ip地址:8080</p>
-<p>经过我的测试 ie11  和chrome 不可以实现，火狐浏览器可以哦</p>
-<p><img src="http://imglf1.ph.126.net/HGjYV7U08iEfU8aLBA2PyQ==/2834453015494321729.jpg" alt=""><br>画面就是上面的这样子咯。</p>
-<p>昨天弄了一天效果还可以，感觉很满意。</p>
-<p>总结一下吧：</p>
-<p>树莓派和以前玩过全志A20差不多，都是烧入操作系统。</p>
-<p>直接上操作系统，因为有过这方面的经验，所以折腾起来也就不费事了。</p>
-<p>摄像头监控还做的不好，有时间再玩一玩，可能是因为昨天折腾了一天，头很晕，所以后面摄像头的思路不是很清晰。</p>
-<p>等暑假再做个wifi小车玩一玩。嘿嘿~~！</p>
-<p>还有就是最近的微信公众号效果不错，800多粉丝了。</p>
-<p>这几天查成绩功能不可用，还是很不爽的，所以就传了2个游戏让大家玩。</p>
-<p>嘿嘿，另外发现小米路由器还是很坑的。</p>
-<p>星期五服务器莫名其妙的无法访问，使用的云监控没有报警，原因很奇怪，后来发现是小米路由器不知道什么时候自己把硬盘自动休眠给开启了。害的我找了半天，还以为是网络问题呢。结果把小米路由器的硬盘休眠功能一关闭，服务器就不挂了，正常运行了一天。等查成绩功能教务系统开放了再看一看效果。实在不行就用树莓派当web服务器了。刷个openwrt玩一玩。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[linux复习笔记（一）]]></title>
-      <url>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</url>
-      <content type="html"><![CDATA[<h6 id="从今天开始，准备复习一下一些以前学过的linux命令。"><a href="#从今天开始，准备复习一下一些以前学过的linux命令。" class="headerlink" title="从今天开始，准备复习一下一些以前学过的linux命令。"></a>从今天开始，准备复习一下一些以前学过的linux命令。</h6><h6 id="然后好进行后面的学习。"><a href="#然后好进行后面的学习。" class="headerlink" title="然后好进行后面的学习。"></a>然后好进行后面的学习。</h6><ul>
-<li>——————————————-<br></li>
-</ul>
-<h6 id="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"><a href="#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。" class="headerlink" title="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"></a>首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。</h6><h6 id="系统安装完成后-首先更新源。"><a href="#系统安装完成后-首先更新源。" class="headerlink" title="系统安装完成后,首先更新源。"></a>系统安装完成后,首先更新源。</h6><h6 id="吼吼吼！"><a href="#吼吼吼！" class="headerlink" title="吼吼吼！"></a>吼吼吼！</h6><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su passwd root</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su xcy</span><br></pre></td></tr></table></figure>
-<p>然后是安装ssh<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server openssh -client</span><br></pre></td></tr></table></figure></p>
-<p>安装完成服务端和客户端后，用电脑进行ssh远程登录。<br><br>连接成功。<br><br>回忆起来了一些命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 filename</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd testgroup</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd test1 -g testgroup</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser test2 -g testgroup</span><br></pre></td></tr></table></figure>
-<p>其中useradd新建用户在home目录下面没有文件夹，而adduser则有。<br><br>ps -e  查看进程<br><br>kill 3400杀死3400进程<br><br>kill -9 pid process<br><br>mkdir 目录名         =&gt; 创建一个目录<br><br>rmdir 空目录名      =&gt; 删除一个空目录<br><br>rm 文件名 文件名   =&gt; 删除一个文件或多个文件<br><br>rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切<br><br>touch 文件名        =&gt; 创建一个空文件<br><br>重命名文件（夹） / 移动文件（夹）到指定文件夹<br><br>执行格式： mv source destination<br><br>mv file1 file2    =&gt; 将文件 file1，更改文件名为 file2。<br><br>mv file1 dir1    =&gt; 将文件 file1，移到目录 dir1下，文件名仍为 file1。<br><br>mv dir1 dir2    =&gt; 若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到<br>目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和<br>子目录，更改为目录 dir2。<br><br>今天就练到这里。明天继续！加油！<br></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[chrome科学上网]]></title>
       <url>http://rayuu.com/2015/03/22/2015-03-22-chome-science/</url>
       <content type="html"><![CDATA[<ul>
@@ -1172,6 +1153,25 @@ make USE_LIBV4L2=true clean all
 <li>这样配置就完成了。可以轻松打开youtube和facebook等一些网站了。</li>
 <li>最后，你还可以在右下角设置ie代理。这样ie浏览器同样也可以上了。</li>
 </ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux复习笔记（一）]]></title>
+      <url>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</url>
+      <content type="html"><![CDATA[<h6 id="从今天开始，准备复习一下一些以前学过的linux命令。"><a href="#从今天开始，准备复习一下一些以前学过的linux命令。" class="headerlink" title="从今天开始，准备复习一下一些以前学过的linux命令。"></a>从今天开始，准备复习一下一些以前学过的linux命令。</h6><h6 id="然后好进行后面的学习。"><a href="#然后好进行后面的学习。" class="headerlink" title="然后好进行后面的学习。"></a>然后好进行后面的学习。</h6><ul>
+<li>——————————————-<br></li>
+</ul>
+<h6 id="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"><a href="#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。" class="headerlink" title="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"></a>首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。</h6><h6 id="系统安装完成后-首先更新源。"><a href="#系统安装完成后-首先更新源。" class="headerlink" title="系统安装完成后,首先更新源。"></a>系统安装完成后,首先更新源。</h6><h6 id="吼吼吼！"><a href="#吼吼吼！" class="headerlink" title="吼吼吼！"></a>吼吼吼！</h6><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su passwd root</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su xcy</span><br></pre></td></tr></table></figure>
+<p>然后是安装ssh<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server openssh -client</span><br></pre></td></tr></table></figure></p>
+<p>安装完成服务端和客户端后，用电脑进行ssh远程登录。<br><br>连接成功。<br><br>回忆起来了一些命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 filename</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd testgroup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd test1 -g testgroup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser test2 -g testgroup</span><br></pre></td></tr></table></figure>
+<p>其中useradd新建用户在home目录下面没有文件夹，而adduser则有。<br><br>ps -e  查看进程<br><br>kill 3400杀死3400进程<br><br>kill -9 pid process<br><br>mkdir 目录名         =&gt; 创建一个目录<br><br>rmdir 空目录名      =&gt; 删除一个空目录<br><br>rm 文件名 文件名   =&gt; 删除一个文件或多个文件<br><br>rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切<br><br>touch 文件名        =&gt; 创建一个空文件<br><br>重命名文件（夹） / 移动文件（夹）到指定文件夹<br><br>执行格式： mv source destination<br><br>mv file1 file2    =&gt; 将文件 file1，更改文件名为 file2。<br><br>mv file1 dir1    =&gt; 将文件 file1，移到目录 dir1下，文件名仍为 file1。<br><br>mv dir1 dir2    =&gt; 若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到<br>目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和<br>子目录，更改为目录 dir2。<br><br>今天就练到这里。明天继续！加油！<br></p>
 ]]></content>
     </entry>
     
