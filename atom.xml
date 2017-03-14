@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Rayu技术分享</title>
+  <subtitle>Rayu&#39;s Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
   
+  <link href="http://rayuu.com/"/>
+  <updated>2017-03-14T14:49:01.560Z</updated>
+  <id>http://rayuu.com/</id>
   
+  <author>
+    <name>Rayu</name>
     
-    <entry>
-      <title><![CDATA[gcc编译流程解析]]></title>
-      <url>http://rayuu.com/2017/03/14/gccanalysis/</url>
-      <content type="html"><![CDATA[<h2 id="gcc编译流程解析"><a href="#gcc编译流程解析" class="headerlink" title="gcc编译流程解析"></a>gcc编译流程解析</h2><p>[TOC]</p>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gcc编译流程解析</title>
+    <link href="http://rayuu.com/2017/03/14/gccanalysis/"/>
+    <id>http://rayuu.com/2017/03/14/gccanalysis/</id>
+    <published>2017-03-14T14:45:24.000Z</published>
+    <updated>2017-03-14T14:49:01.560Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="gcc编译流程解析"><a href="#gcc编译流程解析" class="headerlink" title="gcc编译流程解析"></a>gcc编译流程解析</h2><p>[TOC]</p>
 <h3 id="1、预处理"><a href="#1、预处理" class="headerlink" title="1、预处理"></a>1、预处理</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello! This is our embedded world!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在该阶段，对包含的头文件（<code>#include</code>）和宏定义（<code>#define</code>、<code>#ifdef</code>等）进行处理。</p>
 <p>可以通过<code>gcc -E</code>选项进行查看。该选项的作用是让gcc 在预处理结束后停止编译过程。</p>
@@ -148,12 +164,27 @@
 <p><code>gcc –Wall  –O -g –c kang.c -o kang.o</code></p>
 <p><code>-Wall</code> 是打开警告开关，<br><code>-O</code>代表默认优化，可选：-O0不优化，-O1低级优化，-O2中级优化，-O3高级优化，-Os代码空间优化。<br><code>-g</code>是生成调试信息，生成的可执行文件具有和源代码关联的可调试的信息。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[浏览器首页被hao.qquu8.com劫持]]></title>
-      <url>http://rayuu.com/2017/03/09/chromehao123/</url>
-      <content type="html"><![CDATA[<p>昨天帮一个同学找了一个小马激活工具，今天早上电脑一开机，打开浏览器就发现首页变为了</p>
+    <summary type="html">
+    
+      &lt;h2 id=&quot;gcc编译流程解析&quot;&gt;&lt;a href=&quot;#gcc编译流程解析&quot; class=&quot;headerlink&quot; title=&quot;gcc编译流程解析&quot;&gt;&lt;/a&gt;gcc编译流程解析&lt;/h2&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h3 id=&quot;1、预处理&quot;&gt;&lt;a href=&quot;#1、预处理&quot; 
+    
+    </summary>
+    
+    
+      <category term="c/c++" scheme="http://rayuu.com/tags/c-c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器首页被hao.qquu8.com劫持</title>
+    <link href="http://rayuu.com/2017/03/09/chromehao123/"/>
+    <id>http://rayuu.com/2017/03/09/chromehao123/</id>
+    <published>2017-03-09T11:10:55.000Z</published>
+    <updated>2017-03-14T14:38:34.590Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天帮一个同学找了一个小马激活工具，今天早上电脑一开机，打开浏览器就发现首页变为了</p>
 <p><a href="http://hao.qquu8.com/" target="_blank" rel="external">http://hao.qquu8.com/</a> 然后跳转到hao123。</p>
 <a id="more"></a>
 <p>心想还是要支持正版系统啊！</p>
@@ -180,19 +211,48 @@ C:\Users\rayu\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinn
 <p>然后把它删掉，或者直接在WMI event viewer中将“_EventFilter:Name=”unown_filter””项目右键删除！</p>
 <p>这样问题就解决了。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[换了一个新主题]]></title>
-      <url>http://rayuu.com/2016/12/08/newtheme/</url>
-      <content type="html"><![CDATA[<h1 id="换了一个新主题"><a href="#换了一个新主题" class="headerlink" title="换了一个新主题"></a>换了一个新主题</h1><p>感觉自己萌萌哒！！！！</p>
+    <summary type="html">
+    
+      &lt;p&gt;昨天帮一个同学找了一个小马激活工具，今天早上电脑一开机，打开浏览器就发现首页变为了&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://hao.qquu8.com/&quot;&gt;http://hao.qquu8.com/&lt;/a&gt; 然后跳转到hao123。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="chrome 主页劫持" scheme="http://rayuu.com/tags/chrome-%E4%B8%BB%E9%A1%B5%E5%8A%AB%E6%8C%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>换了一个新主题</title>
+    <link href="http://rayuu.com/2016/12/08/newtheme/"/>
+    <id>http://rayuu.com/2016/12/08/newtheme/</id>
+    <published>2016-12-08T14:07:08.000Z</published>
+    <updated>2016-12-08T14:07:47.729Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="换了一个新主题"><a href="#换了一个新主题" class="headerlink" title="换了一个新主题"></a>换了一个新主题</h1><p>感觉自己萌萌哒！！！！</p>
 <a id="more"></a>]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[利用pyqt4编写cs计算工具]]></title>
-      <url>http://rayuu.com/2016/12/03/calcspyqt/</url>
-      <content type="html"><![CDATA[<p>利用pyqt4编写cs计算工具</p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;换了一个新主题&quot;&gt;&lt;a href=&quot;#换了一个新主题&quot; class=&quot;headerlink&quot; title=&quot;换了一个新主题&quot;&gt;&lt;/a&gt;换了一个新主题&lt;/h1&gt;&lt;p&gt;感觉自己萌萌哒！！！！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://rayuu.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用pyqt4编写cs计算工具</title>
+    <link href="http://rayuu.com/2016/12/03/calcspyqt/"/>
+    <id>http://rayuu.com/2016/12/03/calcspyqt/</id>
+    <published>2016-12-03T14:24:05.000Z</published>
+    <updated>2016-12-07T11:32:44.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>利用pyqt4编写cs计算工具</p>
 <p>之前用Python做了一个通道号查找的小程序，只不过没有做界面。</p>
 <p>最近的一个项目要用到帧校验（CS），为了方便，写了一个计算的小程序。</p>
 <a id="more"></a>
@@ -276,12 +336,28 @@ pyuic4 %1 &gt; %~n1.py
 <pre><code>:picture/img/firefox.png
 </code></pre><p>附：<code>uicode.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Form implementation generated from reading ui file 'C:\Users\jx007\Desktop\PyQt_first-master\calc.ui'</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by: PyQt4 UI code generator 4.11.4</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># WARNING! All changes made in this file will be lost!</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> PyQt4 <span class="keyword">import</span> QtCore, QtGui</span><br><span class="line"><span class="comment"># 导入资源</span></span><br><span class="line"><span class="keyword">import</span> sources</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">     _fromUtf8 = QtCore.QString.fromUtf8</span><br><span class="line"><span class="keyword">except</span> AttributeError:</span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">_fromUtf8</span><span class="params">(s)</span>:</span></span><br><span class="line">          <span class="keyword">return</span> s</span><br><span class="line"> </span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	_encoding = QtGui.QApplication.UnicodeUTF8</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_translate</span><span class="params">(context, text, disambig)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> QtGui.QApplication.translate(context, text, disambig, _encoding)</span><br><span class="line"><span class="keyword">except</span> AttributeError:</span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">_translate</span><span class="params">(context, text, disambig)</span>:</span></span><br><span class="line">          <span class="keyword">return</span> QtGui.QApplication.translate(context, text, disambig)</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ui_MainWindow</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">setupUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">           MainWindow.setObjectName(_fromUtf8(<span class="string">"MainWindow"</span>))</span><br><span class="line">			MainWindow.resize(<span class="number">700</span>, <span class="number">240</span>)</span><br><span class="line">			icon = QtGui.QIcon()</span><br><span class="line">			<span class="comment"># icon.addPixmap(QtGui.QPixmap(_fromUtf8("ico.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)</span></span><br><span class="line">			icon.addPixmap(QtGui.QPixmap(_fromUtf8(<span class="string">":ico/ico.png"</span>)), QtGui.QIcon.Normal, QtGui.QIcon.Off)</span><br><span class="line">			MainWindow.setWindowIcon(icon)</span><br><span class="line">			self.centralwidget = QtGui.QWidget(MainWindow)</span><br><span class="line">			self.centralwidget.setObjectName(_fromUtf8(<span class="string">"centralwidget"</span>))</span><br><span class="line">			self.gridLayout = QtGui.QGridLayout(self.centralwidget)</span><br><span class="line">			self.gridLayout.setObjectName(_fromUtf8(<span class="string">"gridLayout"</span>))</span><br><span class="line">			self.label_3 = QtGui.QLabel(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setPointSize(<span class="number">20</span>)</span><br><span class="line">			font.setBold(<span class="keyword">True</span>)</span><br><span class="line">			font.setWeight(<span class="number">75</span>)</span><br><span class="line">			self.label_3.setFont(font)</span><br><span class="line">			self.label_3.setObjectName(_fromUtf8(<span class="string">"label_3"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.label_3, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.label = QtGui.QLabel(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setPointSize(<span class="number">10</span>)</span><br><span class="line">			font.setBold(<span class="keyword">True</span>)</span><br><span class="line">			font.setWeight(<span class="number">75</span>)</span><br><span class="line">			self.label.setFont(font)</span><br><span class="line">			self.label.setObjectName(_fromUtf8(<span class="string">"label"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.label, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.content_box = QtGui.QTextEdit(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setFamily(_fromUtf8(<span class="string">"Times New Roman"</span>))</span><br><span class="line">			font.setPointSize(<span class="number">10</span>)</span><br><span class="line">			font.setBold(<span class="keyword">False</span>)</span><br><span class="line">			font.setWeight(<span class="number">50</span>)</span><br><span class="line">			self.content_box.setFont(font)</span><br><span class="line">			self.content_box.setObjectName(_fromUtf8(<span class="string">"content_box"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.content_box, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.calc_button = QtGui.QPushButton(self.centralwidget)</span><br><span class="line">			self.calc_button.setObjectName(_fromUtf8(<span class="string">"calc_button"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.calc_button, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.label_2 = QtGui.QLabel(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setPointSize(<span class="number">10</span>)</span><br><span class="line">			font.setBold(<span class="keyword">True</span>)</span><br><span class="line">			font.setWeight(<span class="number">75</span>)</span><br><span class="line">			self.label_2.setFont(font)</span><br><span class="line">			self.label_2.setObjectName(_fromUtf8(<span class="string">"label_2"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.label_2, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			self.results_window = QtGui.QTextEdit(self.centralwidget)</span><br><span class="line">			font = QtGui.QFont()</span><br><span class="line">			font.setFamily(_fromUtf8(<span class="string">"Times New Roman"</span>))</span><br><span class="line">			font.setPointSize(<span class="number">14</span>)</span><br><span class="line">			font.setBold(<span class="keyword">False</span>)</span><br><span class="line">			font.setWeight(<span class="number">50</span>)</span><br><span class="line">			self.results_window.setFont(font)</span><br><span class="line">			self.results_window.setObjectName(_fromUtf8(<span class="string">"results_window"</span>))</span><br><span class="line">			self.gridLayout.addWidget(self.results_window, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">			MainWindow.setCentralWidget(self.centralwidget)</span><br><span class="line">			self.menubar = QtGui.QMenuBar(MainWindow)</span><br><span class="line">			self.menubar.setGeometry(QtCore.QRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">700</span>, <span class="number">23</span>))</span><br><span class="line">			self.menubar.setObjectName(_fromUtf8(<span class="string">"menubar"</span>))</span><br><span class="line">			MainWindow.setMenuBar(self.menubar)</span><br><span class="line">			self.statusbar = QtGui.QStatusBar(MainWindow)</span><br><span class="line">			self.statusbar.setObjectName(_fromUtf8(<span class="string">"statusbar"</span>))</span><br><span class="line">			MainWindow.setStatusBar(self.statusbar)</span><br><span class="line"> </span><br><span class="line">			self.retranslateUi(MainWindow)</span><br><span class="line">			QtCore.QMetaObject.connectSlotsByName(MainWindow)</span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">retranslateUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">          MainWindow.setWindowTitle(_translate(<span class="string">"MainWindow"</span>, <span class="string">"CS Calculator By:Rayu 2016-11-24"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.label_3.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"CS Calculator"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.label.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Text"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.calc_button.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Calculate"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.label_2.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Result"</span>, <span class="keyword">None</span>))</span><br><span class="line">          self.results_window.setHtml(_translate(<span class="string">"MainWindow"</span>, <span class="string">"&lt;!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\"&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;html&gt;&lt;head&gt;&lt;meta name=\"qrichtext\" content=\"1\" /&gt;&lt;style type=\"text/css\"&gt;\n"</span></span><br><span class="line"><span class="string">"p, li &#123; white-space: pre-wrap; &#125;\n"</span></span><br><span class="line"><span class="string">"&lt;/style&gt;&lt;/head&gt;&lt;body style=\" font-family:\'Times New Roman\'; font-size:14pt; font-weight:400; font-style:normal;\"&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;/******************************************************************&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;*校验码 将所有相加MOD 256 &lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;*******************************************************************/&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;unsigned char Get_csckNum( unsigned char *Ptr, unsigned char Len )&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;&#123;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; register unsigned char Num;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; &lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Num = 0;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; while( Len &gt; 0 )&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; &#123;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Num += *Ptr;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; printf("</span>%d--%d\\n<span class="string">",Len,Num);&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Ptr++;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; Len--;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; &#125;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt; return Num;&lt;/span&gt;&lt;/p&gt;\n"</span></span><br><span class="line"><span class="string">"&lt;p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"&gt;&lt;span style=\" font-family:\'SimSun\'; font-size:9pt;\"&gt;&#125;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"</span>, <span class="keyword">None</span>))</span><br></pre></td></tr></table></figure></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[单片机串口通讯RXD与TXD如何对接]]></title>
-      <url>http://rayuu.com/2016/11/30/mcurs232/</url>
-      <content type="html"><![CDATA[<p> 单片机串口通讯RXD与TXD如何对接</p>
+    <summary type="html">
+    
+      &lt;p&gt;利用pyqt4编写cs计算工具&lt;/p&gt;
+&lt;p&gt;之前用Python做了一个通道号查找的小程序，只不过没有做界面。&lt;/p&gt;
+&lt;p&gt;最近的一个项目要用到帧校验（CS），为了方便，写了一个计算的小程序。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://rayuu.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单片机串口通讯RXD与TXD如何对接</title>
+    <link href="http://rayuu.com/2016/11/30/mcurs232/"/>
+    <id>http://rayuu.com/2016/11/30/mcurs232/</id>
+    <published>2016-11-30T13:23:43.000Z</published>
+    <updated>2016-11-30T13:31:07.016Z</updated>
+    
+    <content type="html"><![CDATA[<p> 单片机串口通讯RXD与TXD如何对接</p>
 <blockquote>
 <p>串口直通线和交叉线的区别</p>
 </blockquote>
@@ -311,12 +387,31 @@ pyuic4 %1 &gt; %~n1.py
 <p>单片机与串口设备（如GPRS模块、载波芯片等）通信时，一律将RXD与TXD反接，即单片机的RXD接设备的TXD，单片机的TXD接设备的RXD。</p>
 <p>摘自： <a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[ubuntu 16.04下安装arm-linux-gcc]]></title>
-      <url>http://rayuu.com/2016/11/30/linuxarmgcc/</url>
-      <content type="html"><![CDATA[<p> ubuntu 16.04下安装arm-linux-gcc</p>
+    <summary type="html">
+    
+      &lt;p&gt; 单片机串口通讯RXD与TXD如何对接&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;串口直通线和交叉线的区别&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1：串口交叉线&quot;&gt;&lt;a href=&quot;#1：串口交叉线&quot; class=&quot;headerlink&quot; title=&quot;1：串口交叉线&quot;&gt;&lt;/a&gt;1：串口交叉线&lt;/h3&gt;&lt;p&gt;串口线两头都一样都相同。都是公对公或者母对母串口线，这种线必须是交叉线。&lt;/p&gt;
+&lt;p&gt;一端的第二针与另一端的第三针是通路的，说明此线是交叉线。&lt;br&gt;以下是判断方法：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="单片机" scheme="http://rayuu.com/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu 16.04下安装arm-linux-gcc</title>
+    <link href="http://rayuu.com/2016/11/30/linuxarmgcc/"/>
+    <id>http://rayuu.com/2016/11/30/linuxarmgcc/</id>
+    <published>2016-11-30T13:20:00.000Z</published>
+    <updated>2016-11-30T13:31:06.164Z</updated>
+    
+    <content type="html"><![CDATA[<p> ubuntu 16.04下安装arm-linux-gcc</p>
 <p>最近在玩<code>micropython</code>，下载了<code>micropython</code>的源码后想进行编译玩一玩。</p>
 <p><a href="https://github.com/micropython/micropython" target="_blank" rel="external">https://github.com/micropython/micropython</a></p>
 <p>查看<code>readme.md</code>发现编译stm32的固件需要安装<code>arm-linux-gcc</code>等<code>gnu arm toolchain</code>交叉编译工具.</p>
@@ -354,12 +449,31 @@ make
 <p>接下来继续研究源码！！！</p>
 <p><img src="http://p1.bqimg.com/567571/aedc56efbecc1527.png" alt=""></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[C++使用sqlite3进行简单的课表管理]]></title>
-      <url>http://rayuu.com/2016/11/30/cppsqlite3sche/</url>
-      <content type="html"><![CDATA[<p> C++使用sqlite3进行简单的课表管理</p>
+    <summary type="html">
+    
+      &lt;p&gt; ubuntu 16.04下安装arm-linux-gcc&lt;/p&gt;
+&lt;p&gt;最近在玩&lt;code&gt;micropython&lt;/code&gt;，下载了&lt;code&gt;micropython&lt;/code&gt;的源码后想进行编译玩一玩。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/micropython/micropython&quot;&gt;https://github.com/micropython/micropython&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;查看&lt;code&gt;readme.md&lt;/code&gt;发现编译stm32的固件需要安装&lt;code&gt;arm-linux-gcc&lt;/code&gt;等&lt;code&gt;gnu arm toolchain&lt;/code&gt;交叉编译工具.&lt;/p&gt;
+&lt;p&gt;说干就干，还好电脑装了双系统，打开&lt;code&gt;ubuntu16.04&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;开始安装。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://rayuu.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++使用sqlite3进行简单的课表管理</title>
+    <link href="http://rayuu.com/2016/11/30/cppsqlite3sche/"/>
+    <id>http://rayuu.com/2016/11/30/cppsqlite3sche/</id>
+    <published>2016-11-30T13:12:46.000Z</published>
+    <updated>2016-11-30T13:31:05.212Z</updated>
+    
+    <content type="html"><![CDATA[<p> C++使用sqlite3进行简单的课表管理</p>
 <h2 id="一、生成sqlite3-lib"><a href="#一、生成sqlite3-lib" class="headerlink" title="一、生成sqlite3.lib"></a>一、生成sqlite3.lib</h2><p>1.在sqlite官网 <a href="http://www.sqlite.org/download.html" target="_blank" rel="external">http://www.sqlite.org/download.html</a> 上下载<code>sqlite-amalgamation-3071000.zip</code> 和<code>sqlite-dll-win32-x86-3071000.zip</code>。</p>
 <p>2.分别解压上述两个文件到各自文件夹下（<code>sqlite3.def、sqlite3.dll</code>在同一文件夹<code>sqlite-dll</code>下）。</p>
 <a id="more"></a>
@@ -763,12 +877,28 @@ string IntToString (int a)
     return temp.str();
 }
 </code></pre>]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标]]></title>
-      <url>http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/</url>
-      <content type="html"><![CDATA[<h1 id="pyinstaller和py2exe把Python脚本生成exe文件，"><a href="#pyinstaller和py2exe把Python脚本生成exe文件，" class="headerlink" title="pyinstaller和py2exe把Python脚本生成exe文件，"></a>pyinstaller和py2exe把Python脚本生成exe文件，</h1><h1 id="并添加版本信息和自定义图标。"><a href="#并添加版本信息和自定义图标。" class="headerlink" title="并添加版本信息和自定义图标。"></a>并添加版本信息和自定义图标。</h1><p>写了一个查找产品通道号的小程序，目前还没进行异常处理。<br>以下是程序源码。</p>
+    <summary type="html">
+    
+      &lt;p&gt; C++使用sqlite3进行简单的课表管理&lt;/p&gt;
+&lt;h2 id=&quot;一、生成sqlite3-lib&quot;&gt;&lt;a href=&quot;#一、生成sqlite3-lib&quot; class=&quot;headerlink&quot; title=&quot;一、生成sqlite3.lib&quot;&gt;&lt;/a&gt;一、生成sqlite3.lib&lt;/h2&gt;&lt;p&gt;1.在sqlite官网 &lt;a href=&quot;http://www.sqlite.org/download.html&quot;&gt;http://www.sqlite.org/download.html&lt;/a&gt; 上下载&lt;code&gt;sqlite-amalgamation-3071000.zip&lt;/code&gt; 和&lt;code&gt;sqlite-dll-win32-x86-3071000.zip&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;2.分别解压上述两个文件到各自文件夹下（&lt;code&gt;sqlite3.def、sqlite3.dll&lt;/code&gt;在同一文件夹&lt;code&gt;sqlite-dll&lt;/code&gt;下）。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="c/c++" scheme="http://rayuu.com/tags/c-c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标</title>
+    <link href="http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/"/>
+    <id>http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/</id>
+    <published>2016-09-29T12:45:42.000Z</published>
+    <updated>2016-09-29T13:04:56.039Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="pyinstaller和py2exe把Python脚本生成exe文件，"><a href="#pyinstaller和py2exe把Python脚本生成exe文件，" class="headerlink" title="pyinstaller和py2exe把Python脚本生成exe文件，"></a>pyinstaller和py2exe把Python脚本生成exe文件，</h1><h1 id="并添加版本信息和自定义图标。"><a href="#并添加版本信息和自定义图标。" class="headerlink" title="并添加版本信息和自定义图标。"></a>并添加版本信息和自定义图标。</h1><p>写了一个查找产品通道号的小程序，目前还没进行异常处理。<br>以下是程序源码。</p>
 <p>另外一个地址<br><a href="http://blog.rayuu.com/pyinstaller_py2exe_exe.html" title="http://blog.rayuu.com/pyinstaller_py2exe_exe.html" target="_blank" rel="external">http://blog.rayuu.com/pyinstaller_py2exe_exe.html</a></p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># -*- coding:UTF-8 -*-</span><br><span class="line">import serial</span><br><span class="line">import time</span><br><span class="line"># import argparse</span><br><span class="line">import serial.tools.list_ports</span><br><span class="line">from time import sleep</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"># 串口</span><br><span class="line">class Serial(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print u&quot;+++++++++++++++++++++++++++++++++++++++++&quot;</span><br><span class="line">        print u&quot;+            通道号查找程序             +&quot;</span><br><span class="line">        print u&quot;+                V1.0                   +&quot;</span><br><span class="line">        print u&quot;+               by:Rayu                 +&quot;</span><br><span class="line">        print u&quot;+             2016.09.27                +&quot;</span><br><span class="line">        print u&quot;+++++++++++++++++++++++++++++++++++++++++&quot;</span><br><span class="line"> </span><br><span class="line">    # 查找串口</span><br><span class="line">    def serial_find(self):</span><br><span class="line">        plist = list(serial.tools.list_ports.comports())</span><br><span class="line">        if len(plist) &lt;= 0:</span><br><span class="line">            print u&quot;串口未发现！&quot;</span><br><span class="line">        else:</span><br><span class="line">            print u&quot;找到的串口如下:&quot;</span><br><span class="line">            for i in range(0, len(plist)):</span><br><span class="line">                print [i+1], plist[i]</span><br><span class="line">        print u&quot;请输入对应的数字选择你想要使用的串口：&lt;默认为1&gt;&quot;</span><br><span class="line">        number = raw_input()</span><br><span class="line">        if not number:</span><br><span class="line">            number = 1</span><br><span class="line">        number = int(number)</span><br><span class="line">        while number &gt; len(plist):</span><br><span class="line">            print u&quot;串口未找到，请重新输入。&quot;</span><br><span class="line">            print u&quot;请输入对应的数字选择你想要使用的串口：&quot;</span><br><span class="line">            number = raw_input()</span><br><span class="line">            number = int(number)</span><br><span class="line">        if number &lt;= len(plist):</span><br><span class="line">            uart_choose = plist[number-1][0]</span><br><span class="line">        return uart_choose</span><br><span class="line"> </span><br><span class="line">    # 串口波特率</span><br><span class="line">    def serial_baudrate(self):</span><br><span class="line">        print u&quot;请输入串口波特率：&lt;默认115200&gt;&quot;</span><br><span class="line">        baudrate = raw_input()</span><br><span class="line">        if not baudrate:</span><br><span class="line">            baudrate = 115200</span><br><span class="line">        baudrate = int(baudrate)</span><br><span class="line">        return baudrate</span><br><span class="line"> </span><br><span class="line">    # 获取设备地址</span><br><span class="line">    def input_dev_addr(self):</span><br><span class="line">        print u&apos;请输入设备地址：&lt;如：dc00000233&gt;&apos;</span><br><span class="line">        data_dev = raw_input()</span><br><span class="line">        # print data_dev, type(data_dev)</span><br><span class="line">        return data_dev</span><br><span class="line"> </span><br><span class="line">    # 打开串口</span><br><span class="line">    def serial_open(self, com, baud):</span><br><span class="line">        try:</span><br><span class="line">            ser = serial.Serial(com, baud, timeout=0.1)</span><br><span class="line">        except Exception, e:</span><br><span class="line">            print u&quot;打开串口失败，请检查串口是否被占用。\n5秒后自动退出程序&quot;</span><br><span class="line">            time.sleep(5)</span><br><span class="line">            exit(1)</span><br><span class="line">        print u&quot;串口&quot;, com, u&quot;打开成功......波特率为：&quot;, baud</span><br><span class="line">        sleep(0.5)</span><br><span class="line">        return ser</span><br><span class="line"> </span><br><span class="line">    # 更改通道号</span><br><span class="line">    def serial_send_channel(self, com, baud, dev, sta):</span><br><span class="line">        # </span><br><span class="line">        data_comm = &quot;AB&quot;</span><br><span class="line">        data_sum = &quot;01&quot;</span><br><span class="line">        # 通道号修改</span><br><span class="line">        ser = self.serial_open(com, baud)</span><br><span class="line">        start = time.clock()</span><br><span class="line">        for data_channel in range(0, 256):</span><br><span class="line">            # 转换为十六进制字符串</span><br><span class="line">            dev_channel = hex(data_channel)</span><br><span class="line">            # 把0x删掉</span><br><span class="line">            dev_channel = dev_channel[2:4]</span><br><span class="line">            if len(dev_channel) == 1:</span><br><span class="line">                dev_channel = &apos;0&apos; + dev_channel</span><br><span class="line">            # 连接字符串</span><br><span class="line">            content_addr = data_comm+dev_channel+data_sum</span><br><span class="line">            # print content_addr,&quot;content_addr&quot;,type(content_addr)</span><br><span class="line">            # 十六进制发送</span><br><span class="line">            content_addr = content_addr.decode(&quot;hex&quot;)</span><br><span class="line">            # print content_addr</span><br><span class="line">            # print u&quot;开始发送数据...&quot;</span><br><span class="line">            ser.write(content_addr)</span><br><span class="line"> </span><br><span class="line">            lowerpower = int(sta)</span><br><span class="line">            # sta = self.serial_send_order(ser,DEV)</span><br><span class="line">            re_str = []</span><br><span class="line">            cou = 0</span><br><span class="line">            find_time = data_channel + 1</span><br><span class="line">            print u&quot;进行第 %s&quot; % find_time, u&quot;次查找.....&quot;</span><br><span class="line">            i = 1</span><br><span class="line">            while i &lt;= 10:</span><br><span class="line">                i += 1</span><br><span class="line">                for c in ser.read():</span><br><span class="line">                    # re_str += c</span><br><span class="line">                    re_str.append(c)</span><br><span class="line">                    cou += 1</span><br><span class="line">                    if cou == 10:</span><br><span class="line">                        # print re_str,&quot;re_str&quot;</span><br><span class="line">                        re_str = []</span><br><span class="line">                        break</span><br><span class="line"> </span><br><span class="line">            content_order = self.serial_send_order(dev)</span><br><span class="line">            if lowerpower == 1:</span><br><span class="line">                print u&quot;低功耗设备，6秒发一次&quot;</span><br><span class="line">                ser.write(content_order)</span><br><span class="line">                time.sleep(6)</span><br><span class="line">            else:</span><br><span class="line">                # time.sleep(0)</span><br><span class="line">                ser.write(content_order)</span><br><span class="line"> </span><br><span class="line">            line = []</span><br><span class="line">            cnt = 0</span><br><span class="line">            j = 1</span><br><span class="line">            while j &lt;= 10:</span><br><span class="line">                j += 1</span><br><span class="line">                for d in ser.read():</span><br><span class="line">                    line.append(d)</span><br><span class="line">                    cnt += 1</span><br><span class="line">                    if cnt == 10:</span><br><span class="line">                        # print &quot;line&quot;,line</span><br><span class="line">                        # line = []</span><br><span class="line">                        # print data_channel</span><br><span class="line">                        print u&quot;查找结束......&quot;</span><br><span class="line">                        end = time.clock()</span><br><span class="line">                        print u&quot;用时: %f s&quot; % (end-start)</span><br><span class="line">                        line[8] = ord(line[8])</span><br><span class="line">                        # print ord(line[8])</span><br><span class="line">                        ser.close()</span><br><span class="line">                        return line[8]</span><br><span class="line">        end = time.clock()</span><br><span class="line">        print u&quot;用时: %f s&quot; % (end - start)</span><br><span class="line">        print u&quot;未找到通道号，请确定设备地址和工装是否正常......&quot;</span><br><span class="line">        ser.close()</span><br><span class="line">        return -1</span><br><span class="line"> </span><br><span class="line">    # 发送通信命令</span><br><span class="line">    def serial_send_order(self, dev):</span><br><span class="line">        # 发送通信测试命令</span><br><span class="line">        data_head = &quot;F01&quot;</span><br><span class="line">        data_dev = dev</span><br><span class="line">        data_tail = &quot;E3&quot;</span><br><span class="line">        # print data_dev</span><br><span class="line">        data_addr = data_head + data_dev + data_tail</span><br><span class="line">        # data_addr = &quot;F0&quot;</span><br><span class="line">        data_addr = data_addr.decode(&quot;hex&quot;)</span><br><span class="line">        return data_addr</span><br><span class="line"> </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    comm = Serial()</span><br><span class="line">    # 获取COM口</span><br><span class="line">    COMM = comm.serial_find()</span><br><span class="line">    # print COMM</span><br><span class="line">    BAUD = comm.serial_baudrate()</span><br><span class="line">    while True:</span><br><span class="line">        DEV = comm.input_dev_addr()</span><br><span class="line">        if DEV == &apos;q&apos;:</span><br><span class="line">            exit()</span><br><span class="line">        print u&quot;低功耗设备请输入1,否则请直接按回车......\n输入q结束程序......&quot;</span><br><span class="line">        sta = raw_input()</span><br><span class="line">        if not sta:</span><br><span class="line">            sta = 0</span><br><span class="line">        channel = comm.serial_send_channel(COMM, BAUD, DEV, sta)</span><br><span class="line">        if channel == -1:</span><br><span class="line">            print u&quot;查找失败......请重新尝试......&quot;</span><br><span class="line">        else:</span><br><span class="line">            channel = hex(channel)</span><br><span class="line">            print u&quot;通道号为: &quot;, channel</span><br><span class="line"> </span><br><span class="line">        # comm.serial_send_order(DEV)</span><br><span class="line">        # print BAUD</span><br><span class="line">        # comm.serial_open(COMM, BAUD)</span><br><span class="line">        # parser = argparse.ArgumentParser(description=&quot;通道号查找程序&quot;)</span><br><span class="line">        # parser.add_argument(&apos;--port&apos;, action=&apos;store&apos;, dest=&apos;port&apos;, type=int, required=True)</span><br><span class="line">        # given_args = parser.parse_args()</span><br><span class="line">        # port = given_args.port</span><br></pre></td></tr></table></figure>
@@ -807,12 +937,29 @@ icon=&apos;833.ico&apos;,
 </code></pre><p>在<code>dist</code>文件夹下就产生了一个<code>exe</code>文件，图标也是我们想要的那个图标了，至于程序的详细信息可以通过右键查看详细信息进行查看了。</p>
 <p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/09/1746137199.jpg" alt="详细信息"></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[瑞萨单片机系统低功耗的设计]]></title>
-      <url>http://rayuu.com/2016/08/13/MicrocontrollersLowPower/</url>
-      <content type="html"><![CDATA[<p>经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。</p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;pyinstaller和py2exe把Python脚本生成exe文件，&quot;&gt;&lt;a href=&quot;#pyinstaller和py2exe把Python脚本生成exe文件，&quot; class=&quot;headerlink&quot; title=&quot;pyinstaller和py2exe把Python脚本生成exe文件，&quot;&gt;&lt;/a&gt;pyinstaller和py2exe把Python脚本生成exe文件，&lt;/h1&gt;&lt;h1 id=&quot;并添加版本信息和自定义图标。&quot;&gt;&lt;a href=&quot;#并添加版本信息和自定义图标。&quot; class=&quot;headerlink&quot; title=&quot;并添加版本信息和自定义图标。&quot;&gt;&lt;/a&gt;并添加版本信息和自定义图标。&lt;/h1&gt;&lt;p&gt;写了一个查找产品通道号的小程序，目前还没进行异常处理。&lt;br&gt;以下是程序源码。&lt;/p&gt;
+&lt;p&gt;另外一个地址&lt;br&gt;&lt;a href=&quot;http://blog.rayuu.com/pyinstaller_py2exe_exe.html&quot; title=&quot;http://blog.rayuu.com/pyinstaller_py2exe_exe.html&quot;&gt;http://blog.rayuu.com/pyinstaller_py2exe_exe.html&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://rayuu.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://rayuu.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>瑞萨单片机系统低功耗的设计</title>
+    <link href="http://rayuu.com/2016/08/13/MicrocontrollersLowPower/"/>
+    <id>http://rayuu.com/2016/08/13/MicrocontrollersLowPower/</id>
+    <published>2016-08-13T14:57:16.000Z</published>
+    <updated>2016-08-13T15:17:05.281Z</updated>
+    
+    <content type="html"><![CDATA[<p>经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。</p>
 <p>这和要求的功耗设计都不在一个数量级，要求的功耗是在微安级别的。所以需要一个方法降低系统的功耗。</p>
 <a id="more"></a>
 <p>单片机系统的功耗是由MCU和其他外围电路的功耗共同决定。所以首先要对单片机系统的工作特点非常熟悉。<br>查阅手册发现，现在用的瑞萨单片机，有STOP,HALT,SNOOZE三种模式可以降低功耗。</p>
@@ -896,12 +1043,29 @@ __interrupt static void r_it_interrupt( void)
 <p>基本满足要求设计。不过还需要继续完善。</p>
 <p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/08/3328869344.png" alt="效果图"></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[git基本命令推送到github]]></title>
-      <url>http://rayuu.com/2016/07/29/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
-      <content type="html"><![CDATA[<h1 id="使用git上传下载github上的代码"><a href="#使用git上传下载github上的代码" class="headerlink" title="使用git上传下载github上的代码"></a>使用git上传下载github上的代码</h1><blockquote>
+    <summary type="html">
+    
+      &lt;p&gt;经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。&lt;/p&gt;
+&lt;p&gt;这和要求的功耗设计都不在一个数量级，要求的功耗是在微安级别的。所以需要一个方法降低系统的功耗。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="单片机" scheme="http://rayuu.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+      <category term="瑞萨 低功耗 单片机" scheme="http://rayuu.com/tags/%E7%91%9E%E8%90%A8-%E4%BD%8E%E5%8A%9F%E8%80%97-%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git基本命令推送到github</title>
+    <link href="http://rayuu.com/2016/07/29/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    <id>http://rayuu.com/2016/07/29/git基本命令/</id>
+    <published>2016-07-29T12:03:54.000Z</published>
+    <updated>2016-07-29T13:40:47.794Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用git上传下载github上的代码"><a href="#使用git上传下载github上的代码" class="headerlink" title="使用git上传下载github上的代码"></a>使用git上传下载github上的代码</h1><blockquote>
 <p>1、安装git<br>2、在本地创建ssh key</p>
 </blockquote>
 <a id="more"></a>
@@ -963,24 +1127,59 @@ git pull
 <p>’<code>git stash list</code>’ 命令可以将当前的Git栈信息打印出来，<br>你只需要将找到对应的版本号，<br>例如使用’git stash apply stash@{1}’<br>就可以将你指定版本号为stash@{1}的工作取出来，<br>当你将所有的栈都应用回来的时候，可以使用’<code>git stash clear</code>’来将栈清空。</p>
 <p>转自：<a href="http://blog.csdn.net/wh_19910525/article/details/7784901" target="_blank" rel="external">http://blog.csdn.net/wh_19910525/article/details/7784901</a></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[windows右键添加cmd菜单]]></title>
-      <url>http://rayuu.com/2016/06/01/cmdhere/</url>
-      <content type="html"><![CDATA[<p>windows右键添加cmd菜单</p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用git上传下载github上的代码&quot;&gt;&lt;a href=&quot;#使用git上传下载github上的代码&quot; class=&quot;headerlink&quot; title=&quot;使用git上传下载github上的代码&quot;&gt;&lt;/a&gt;使用git上传下载github上的代码&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;1、安装git&lt;br&gt;2、在本地创建ssh key&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://rayuu.com/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://rayuu.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows右键添加cmd菜单</title>
+    <link href="http://rayuu.com/2016/06/01/cmdhere/"/>
+    <id>http://rayuu.com/2016/06/01/cmdhere/</id>
+    <published>2016-06-01T04:09:55.000Z</published>
+    <updated>2016-06-01T04:22:37.641Z</updated>
+    
+    <content type="html"><![CDATA[<p>windows右键添加cmd菜单</p>
 <p>在windows右键添加cmd菜单，如下图。<br>原文地址：<a href="http://blog.rayuu.com/cmdhere.html" target="_blank" rel="external">http://blog.rayuu.com/cmdhere.html</a><br><a id="more"></a></p>
 <p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/06/3150704417.jpg" alt="效果图"></p>
 <p>这样使用cmd进入某个路径就方便多了！！！！</p>
 <h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><h1 id="1、创建一个记事本文件，将以下文字复制进去，然后保存。"><a href="#1、创建一个记事本文件，将以下文字复制进去，然后保存。" class="headerlink" title="1、创建一个记事本文件，将以下文字复制进去，然后保存。"></a>1、创建一个记事本文件，将以下文字复制进去，然后保存。</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00 </span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\cmdhere] </span><br><span class="line">@=<span class="string">"Cmd&amp;Here"</span></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\cmdhere\<span class="built_in">command</span>] </span><br><span class="line">@=<span class="string">"cmd.exe /c start cmd.exe /k pushd \"%l \\..\" "</span></span><br><span class="line">[HKEY_CLASSES_ROOT\Folder\shell\cmdhere] </span><br><span class="line">@=<span class="string">"Cmd&amp;Here"</span></span><br><span class="line">[HKEY_CLASSES_ROOT\Folder\shell\cmdhere\<span class="built_in">command</span>] </span><br><span class="line">@=<span class="string">"cmd.exe /c start cmd.exe /k pushd \"%l\" "</span></span><br></pre></td></tr></table></figure>
 <h1 id="2、将记事本的文件的后缀-txt-改成-reg。"><a href="#2、将记事本的文件的后缀-txt-改成-reg。" class="headerlink" title="2、将记事本的文件的后缀 txt 改成 reg。"></a>2、将记事本的文件的后缀 txt 改成 reg。</h1><h1 id="3、双击运行这个文件，提示添加注册表项，选择“是”。"><a href="#3、双击运行这个文件，提示添加注册表项，选择“是”。" class="headerlink" title="3、双击运行这个文件，提示添加注册表项，选择“是”。"></a>3、双击运行这个文件，提示添加注册表项，选择“是”。</h1><h1 id="4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"><a href="#4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！" class="headerlink" title="4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"></a>4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！</h1><p>点进去就是命令行了。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[将hexo博客同时托管到github和coding]]></title>
-      <url>http://rayuu.com/2016/05/29/git-coding/</url>
-      <content type="html"><![CDATA[<h1 id="将hexo博客同时托管到github和coding"><a href="#将hexo博客同时托管到github和coding" class="headerlink" title="将hexo博客同时托管到github和coding"></a>将hexo博客同时托管到github和coding</h1><p>发现百度的sitemap.xml抓取不到github上面的，所以今天又弄了一个coding。</p>
+    <summary type="html">
+    
+      &lt;p&gt;windows右键添加cmd菜单&lt;/p&gt;
+&lt;p&gt;在windows右键添加cmd菜单，如下图。&lt;br&gt;原文地址：&lt;a href=&quot;http://blog.rayuu.com/cmdhere.html&quot;&gt;http://blog.rayuu.com/cmdhere.html&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术分享" scheme="http://rayuu.com/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="windows" scheme="http://rayuu.com/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>将hexo博客同时托管到github和coding</title>
+    <link href="http://rayuu.com/2016/05/29/git-coding/"/>
+    <id>http://rayuu.com/2016/05/29/git-coding/</id>
+    <published>2016-05-29T05:57:09.000Z</published>
+    <updated>2016-05-31T13:46:12.098Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="将hexo博客同时托管到github和coding"><a href="#将hexo博客同时托管到github和coding" class="headerlink" title="将hexo博客同时托管到github和coding"></a>将hexo博客同时托管到github和coding</h1><p>发现百度的sitemap.xml抓取不到github上面的，所以今天又弄了一个coding。</p>
 <p>在个人设置里面添加好公钥后，本地git登录</p>
 <p>然后在站点配置文件<code>_config.yml</code>里面配置如下：</p>
 <a id="more"></a>
@@ -997,23 +1196,57 @@ git pull
 <p>让服务器使用<code>ssh</code>协议。<br>成功的话就一切正常。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
 <p>上传！！！搞定。。。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[随笔]]></title>
-      <url>http://rayuu.com/2016/05/28/2015-03-19-first/</url>
-      <content type="html"><![CDATA[<p>一年后，我又在<code>github</code>上搭起了博客，虽然搬瓦工也买了一年的服务器。<br>它的地址是<a href="http://blog.rayuu.com/" title="rayu技术分享" target="_blank" rel="external">http://blog.rayuu.com/</a></p>
+    <summary type="html">
+    
+      &lt;h1 id=&quot;将hexo博客同时托管到github和coding&quot;&gt;&lt;a href=&quot;#将hexo博客同时托管到github和coding&quot; class=&quot;headerlink&quot; title=&quot;将hexo博客同时托管到github和coding&quot;&gt;&lt;/a&gt;将hexo博客同时托管到github和coding&lt;/h1&gt;&lt;p&gt;发现百度的sitemap.xml抓取不到github上面的，所以今天又弄了一个coding。&lt;/p&gt;
+&lt;p&gt;在个人设置里面添加好公钥后，本地git登录&lt;/p&gt;
+&lt;p&gt;然后在站点配置文件&lt;code&gt;_config.yml&lt;/code&gt;里面配置如下：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://rayuu.com/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://rayuu.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随笔</title>
+    <link href="http://rayuu.com/2016/05/28/2015-03-19-first/"/>
+    <id>http://rayuu.com/2016/05/28/2015-03-19-first/</id>
+    <published>2016-05-27T16:00:00.000Z</published>
+    <updated>2016-05-28T08:24:17.352Z</updated>
+    
+    <content type="html"><![CDATA[<p>一年后，我又在<code>github</code>上搭起了博客，虽然搬瓦工也买了一年的服务器。<br>它的地址是<a href="http://blog.rayuu.com/" title="rayu技术分享" target="_blank" rel="external">http://blog.rayuu.com/</a></p>
 <a id="more"></a>
 <ul>
 <li>Rayu 2016-05-28 </li>
 </ul>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[centos6.4从python2.6升级python2.7.9]]></title>
-      <url>http://rayuu.com/2016/05/25/cetos-python-update/</url>
-      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-86-html"><a href="#原文地址：-http-blog-rayuu-com-86-html" class="headerlink" title="原文地址： http://blog.rayuu.com/86.html"></a>原文地址： <a href="http://blog.rayuu.com/86.html" title="centos6.4从python2.6升级python2.7.9" target="_blank" rel="external">http://blog.rayuu.com/86.html</a></h1><p>centos6.4系统自带的python版本是2.6，用起来不是很方便。</p>
+    <summary type="html">
+    
+      &lt;p&gt;一年后，我又在&lt;code&gt;github&lt;/code&gt;上搭起了博客，虽然搬瓦工也买了一年的服务器。&lt;br&gt;它的地址是&lt;a href=&quot;http://blog.rayuu.com/&quot; title=&quot;rayu技术分享&quot;&gt;http://blog.rayuu.com/&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://rayuu.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="http://rayuu.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos6.4从python2.6升级python2.7.9</title>
+    <link href="http://rayuu.com/2016/05/25/cetos-python-update/"/>
+    <id>http://rayuu.com/2016/05/25/cetos-python-update/</id>
+    <published>2016-05-24T16:00:00.000Z</published>
+    <updated>2016-05-28T09:09:09.806Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-86-html"><a href="#原文地址：-http-blog-rayuu-com-86-html" class="headerlink" title="原文地址： http://blog.rayuu.com/86.html"></a>原文地址： <a href="http://blog.rayuu.com/86.html" title="centos6.4从python2.6升级python2.7.9" target="_blank" rel="external">http://blog.rayuu.com/86.html</a></h1><p>centos6.4系统自带的python版本是2.6，用起来不是很方便。</p>
 <p>于是今天我又开始折腾了。</p>
 <p>首先看一下系统的版本</p>
 <h1 id="lsb-release-a"><a href="#lsb-release-a" class="headerlink" title="lsb_release -a"></a>lsb_release -a</h1><p>发现是centos6.4</p>
@@ -1037,48 +1270,163 @@ git pull
 <p>改成</p>
 <p>#!/usr/bin/python2.6<br>保存并退出大功告成。。。。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[cordova+ionic跨平台应用]]></title>
-      <url>http://rayuu.com/2016/05/22/cordova2/</url>
-      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cordova2-html"><a href="#原文地址：-http-blog-rayuu-com-cordova2-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova2.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova2.html" title="cordova+ionic跨平台应用" target="_blank" rel="external">http://blog.rayuu.com/cordova2.html</a></h1>]]></content>
-    </entry>
+    <summary type="html">
     
-    <entry>
-      <title><![CDATA[cordova入门]]></title>
-      <url>http://rayuu.com/2016/05/18/cordova1/</url>
-      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cordova1-html"><a href="#原文地址：-http-blog-rayuu-com-cordova1-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova1.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova1.html" title="cordova入门" target="_blank" rel="external">http://blog.rayuu.com/cordova1.html</a></h1>]]></content>
-    </entry>
+      &lt;h1 id=&quot;原文地址：-http-blog-rayuu-com-86-html&quot;&gt;&lt;a href=&quot;#原文地址：-http-blog-rayuu-com-86-html&quot; class=&quot;headerlink&quot; title=&quot;原文地址： http://blog.rayuu.com/86.html&quot;&gt;&lt;/a&gt;原文地址： &lt;a href=&quot;http://blog.rayuu.com/86.html&quot; title=&quot;centos6.4从python2.6升级python2.7.9&quot;&gt;http://blog.rayuu.com/86.html&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;centos6.4系统自带的python版本是2.6，用起来不是很方便。&lt;/p&gt;
+&lt;p&gt;于是今天我又开始折腾了。&lt;/p&gt;
+&lt;p&gt;首先看一下系统的版本&lt;/p&gt;
+&lt;h1 id=&quot;lsb-release-a&quot;&gt;&lt;a href=&quot;#lsb-release-a&quot; class=&quot;headerlink&quot; title=&quot;lsb_release -a&quot;&gt;&lt;/a&gt;lsb_release -a&lt;/h1&gt;&lt;p&gt;发现是centos6.4&lt;/p&gt;
     
-    <entry>
-      <title><![CDATA[51单片机三线串行驱动12864液晶]]></title>
-      <url>http://rayuu.com/2016/05/17/12864lecd/</url>
-      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-12864lcd-html"><a href="#原文地址：-http-blog-rayuu-com-12864lcd-html" class="headerlink" title="原文地址： http://blog.rayuu.com/12864lcd.html"></a>原文地址： <a href="http://blog.rayuu.com/12864lcd.html" title="51单片机三线串行驱动12864液晶" target="_blank" rel="external">http://blog.rayuu.com/12864lcd.html</a></h1>]]></content>
-    </entry>
+    </summary>
     
-    <entry>
-      <title><![CDATA[typecho微信助手]]></title>
-      <url>http://rayuu.com/2016/05/12/wechat/</url>
-      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-typewechat-html"><a href="#原文地址：-http-blog-rayuu-com-typewechat-html" class="headerlink" title="原文地址： http://blog.rayuu.com/typewechat.html"></a>原文地址： <a href="http://blog.rayuu.com/typewechat.html" title="typecho微信助手" target="_blank" rel="external">http://blog.rayuu.com/typewechat.html</a></h1>]]></content>
-    </entry>
+      <category term="python" scheme="http://rayuu.com/categories/python/"/>
     
-    <entry>
-      <title><![CDATA[16led摇摇棒]]></title>
-      <url>http://rayuu.com/2016/05/09/16led/</url>
-      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-16led-html"><a href="#原文地址：-http-blog-rayuu-com-16led-html" class="headerlink" title="原文地址： http://blog.rayuu.com/16led.html"></a>原文地址： <a href="http://blog.rayuu.com/16led.html" title="16led摇摇棒" target="_blank" rel="external">http://blog.rayuu.com/16led.html</a></h1>]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[CET4、6级无证查询99接口]]></title>
-      <url>http://rayuu.com/2016/05/03/cetnoticket/</url>
-      <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cetnoticket-html"><a href="#原文地址：-http-blog-rayuu-com-cetnoticket-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cetnoticket.html"></a>原文地址： <a href="http://blog.rayuu.com/cetnoticket.html" title="CET4、6级无证查询99接口" target="_blank" rel="external">http://blog.rayuu.com/cetnoticket.html</a></h1>]]></content>
-    </entry>
+      <category term="python" scheme="http://rayuu.com/tags/python/"/>
     
-    <entry>
-      <title><![CDATA[树莓派折腾之旅（三）]]></title>
-      <url>http://rayuu.com/2015/08/05/2015-08-05-pi3/</url>
-      <content type="html"><![CDATA[<p>###暑假放假了，做了一个wifi小车。</p>
+  </entry>
+  
+  <entry>
+    <title>cordova+ionic跨平台应用</title>
+    <link href="http://rayuu.com/2016/05/22/cordova2/"/>
+    <id>http://rayuu.com/2016/05/22/cordova2/</id>
+    <published>2016-05-21T16:00:00.000Z</published>
+    <updated>2016-05-28T09:13:55.253Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cordova2-html"><a href="#原文地址：-http-blog-rayuu-com-cordova2-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova2.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova2.html" title="cordova+ionic跨平台应用" target="_blank" rel="external">http://blog.rayuu.com/cordova2.html</a></h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原文地址：-http-blog-rayuu-com-cordova2-html&quot;&gt;&lt;a href=&quot;#原文地址：-http-blog-rayuu-com-cordova2-html&quot; class=&quot;headerlink&quot; title=&quot;原文地址： http://b
+    
+    </summary>
+    
+      <category term="cordova" scheme="http://rayuu.com/categories/cordova/"/>
+    
+    
+      <category term="cordova" scheme="http://rayuu.com/tags/cordova/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cordova入门</title>
+    <link href="http://rayuu.com/2016/05/18/cordova1/"/>
+    <id>http://rayuu.com/2016/05/18/cordova1/</id>
+    <published>2016-05-17T16:00:00.000Z</published>
+    <updated>2016-05-28T09:24:20.273Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cordova1-html"><a href="#原文地址：-http-blog-rayuu-com-cordova1-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cordova1.html"></a>原文地址： <a href="http://blog.rayuu.com/cordova1.html" title="cordova入门" target="_blank" rel="external">http://blog.rayuu.com/cordova1.html</a></h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原文地址：-http-blog-rayuu-com-cordova1-html&quot;&gt;&lt;a href=&quot;#原文地址：-http-blog-rayuu-com-cordova1-html&quot; class=&quot;headerlink&quot; title=&quot;原文地址： http://b
+    
+    </summary>
+    
+      <category term="cordova" scheme="http://rayuu.com/categories/cordova/"/>
+    
+    
+      <category term="cordova" scheme="http://rayuu.com/tags/cordova/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>51单片机三线串行驱动12864液晶</title>
+    <link href="http://rayuu.com/2016/05/17/12864lecd/"/>
+    <id>http://rayuu.com/2016/05/17/12864lecd/</id>
+    <published>2016-05-16T16:00:00.000Z</published>
+    <updated>2016-05-28T09:17:43.408Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-12864lcd-html"><a href="#原文地址：-http-blog-rayuu-com-12864lcd-html" class="headerlink" title="原文地址： http://blog.rayuu.com/12864lcd.html"></a>原文地址： <a href="http://blog.rayuu.com/12864lcd.html" title="51单片机三线串行驱动12864液晶" target="_blank" rel="external">http://blog.rayuu.com/12864lcd.html</a></h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原文地址：-http-blog-rayuu-com-12864lcd-html&quot;&gt;&lt;a href=&quot;#原文地址：-http-blog-rayuu-com-12864lcd-html&quot; class=&quot;headerlink&quot; title=&quot;原文地址： http://b
+    
+    </summary>
+    
+      <category term="单片机" scheme="http://rayuu.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+      <category term="lcd12864" scheme="http://rayuu.com/tags/lcd12864/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>typecho微信助手</title>
+    <link href="http://rayuu.com/2016/05/12/wechat/"/>
+    <id>http://rayuu.com/2016/05/12/wechat/</id>
+    <published>2016-05-11T16:00:00.000Z</published>
+    <updated>2016-05-28T09:19:05.503Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-typewechat-html"><a href="#原文地址：-http-blog-rayuu-com-typewechat-html" class="headerlink" title="原文地址： http://blog.rayuu.com/typewechat.html"></a>原文地址： <a href="http://blog.rayuu.com/typewechat.html" title="typecho微信助手" target="_blank" rel="external">http://blog.rayuu.com/typewechat.html</a></h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原文地址：-http-blog-rayuu-com-typewechat-html&quot;&gt;&lt;a href=&quot;#原文地址：-http-blog-rayuu-com-typewechat-html&quot; class=&quot;headerlink&quot; title=&quot;原文地址： http
+    
+    </summary>
+    
+      <category term="微信" scheme="http://rayuu.com/categories/%E5%BE%AE%E4%BF%A1/"/>
+    
+    
+      <category term="微信助手" scheme="http://rayuu.com/tags/%E5%BE%AE%E4%BF%A1%E5%8A%A9%E6%89%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>16led摇摇棒</title>
+    <link href="http://rayuu.com/2016/05/09/16led/"/>
+    <id>http://rayuu.com/2016/05/09/16led/</id>
+    <published>2016-05-08T16:00:00.000Z</published>
+    <updated>2016-05-28T09:16:23.529Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-16led-html"><a href="#原文地址：-http-blog-rayuu-com-16led-html" class="headerlink" title="原文地址： http://blog.rayuu.com/16led.html"></a>原文地址： <a href="http://blog.rayuu.com/16led.html" title="16led摇摇棒" target="_blank" rel="external">http://blog.rayuu.com/16led.html</a></h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原文地址：-http-blog-rayuu-com-16led-html&quot;&gt;&lt;a href=&quot;#原文地址：-http-blog-rayuu-com-16led-html&quot; class=&quot;headerlink&quot; title=&quot;原文地址： http://blog.ra
+    
+    </summary>
+    
+      <category term="单片机" scheme="http://rayuu.com/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+      <category term="led摇摇棒" scheme="http://rayuu.com/tags/led%E6%91%87%E6%91%87%E6%A3%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CET4、6级无证查询99接口</title>
+    <link href="http://rayuu.com/2016/05/03/cetnoticket/"/>
+    <id>http://rayuu.com/2016/05/03/cetnoticket/</id>
+    <published>2016-05-02T16:00:00.000Z</published>
+    <updated>2016-05-28T09:19:51.598Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原文地址：-http-blog-rayuu-com-cetnoticket-html"><a href="#原文地址：-http-blog-rayuu-com-cetnoticket-html" class="headerlink" title="原文地址： http://blog.rayuu.com/cetnoticket.html"></a>原文地址： <a href="http://blog.rayuu.com/cetnoticket.html" title="CET4、6级无证查询99接口" target="_blank" rel="external">http://blog.rayuu.com/cetnoticket.html</a></h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原文地址：-http-blog-rayuu-com-cetnoticket-html&quot;&gt;&lt;a href=&quot;#原文地址：-http-blog-rayuu-com-cetnoticket-html&quot; class=&quot;headerlink&quot; title=&quot;原文地址： ht
+    
+    </summary>
+    
+      <category term="cet" scheme="http://rayuu.com/categories/cet/"/>
+    
+    
+      <category term="cet" scheme="http://rayuu.com/tags/cet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派折腾之旅（三）</title>
+    <link href="http://rayuu.com/2015/08/05/2015-08-05-pi3/"/>
+    <id>http://rayuu.com/2015/08/05/2015-08-05-pi3/</id>
+    <published>2015-08-04T16:00:00.000Z</published>
+    <updated>2016-05-28T08:20:30.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>###暑假放假了，做了一个wifi小车。</p>
 <p>先是搭硬件，小车，电机驱动，稳压，电池什么的。</p>
 <p>此处略去很多字。</p>
 <p>既然是wifi小车，首先要让车跑起来。</p>
@@ -1090,12 +1438,34 @@ git pull
 <p>没有报错则说明安装成功。</p>
 <p>下面就是用I/O口控制小车了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO  </span><br><span class="line"><span class="keyword">import</span> time  </span><br><span class="line">GPIO.setmode(GPIO.BOARD)   </span><br><span class="line">GPIO.setup(<span class="number">11</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">12</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">15</span>, GPIO.OUT) </span><br><span class="line">GPIO.setup(<span class="number">16</span>, GPIO.OUT)</span><br><span class="line">in11 = GPIO.PWM(<span class="number">11</span>, <span class="number">50</span>)</span><br><span class="line">in12 = GPIO.PWM(<span class="number">12</span>, <span class="number">50</span>)</span><br><span class="line">in21 = GPIO.PWM(<span class="number">15</span>, <span class="number">50</span>)</span><br><span class="line">in22 = GPIO.PWM(<span class="number">16</span>, <span class="number">50</span>) </span><br><span class="line">shudu=<span class="number">30</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">yanshi</span><span class="params">(t)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">        t=t<span class="number">-1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">houtui</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">30</span>)</span><br><span class="line">    in12.start(<span class="number">0</span>)</span><br><span class="line">    in21.start(<span class="number">30</span>)</span><br><span class="line">    in22.start(<span class="number">0</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tingzhi</span><span class="params">()</span>:</span></span><br><span class="line">    in11.stop()</span><br><span class="line">    in12.stop()</span><br><span class="line">    in21.stop()</span><br><span class="line">    in22.stop()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhizou1</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(<span class="number">30</span>)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(<span class="number">30</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhizou</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(shudu)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(shudu)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">youzhuan</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">0</span>)</span><br><span class="line">    in12.start(<span class="number">30</span>)</span><br><span class="line">    in21.start(<span class="number">30</span>)</span><br><span class="line">    in22.start(<span class="number">0</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zuozhuan</span><span class="params">()</span>:</span></span><br><span class="line">    in11.start(<span class="number">30</span>)</span><br><span class="line">    in12.start(<span class="number">0</span>)</span><br><span class="line">    in21.start(<span class="number">0</span>)</span><br><span class="line">    in22.start(<span class="number">30</span>)  </span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>: </span><br><span class="line">    fangxiang=raw_input()</span><br><span class="line">    <span class="keyword">if</span> fangxiang==<span class="string">'q'</span>:</span><br><span class="line">        shudu=shudu+<span class="number">10</span></span><br><span class="line">        zhizou()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'e'</span>:</span><br><span class="line">        shudu=shudu<span class="number">-10</span></span><br><span class="line">        zhizou()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'w'</span>:</span><br><span class="line">	    zhizou1()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'a'</span>:</span><br><span class="line">        t=<span class="number">30000</span></span><br><span class="line">        <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">            t=t<span class="number">-1</span></span><br><span class="line">	        zuozhuan()</span><br><span class="line">            tingzhi()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'s'</span>:</span><br><span class="line">	    houtui()</span><br><span class="line">    <span class="keyword">elif</span> fangxiang==<span class="string">'d'</span>:</span><br><span class="line">        t=<span class="number">30000</span></span><br><span class="line">        <span class="keyword">while</span> t&gt;<span class="number">0</span>:</span><br><span class="line">            t=t<span class="number">-1</span></span><br><span class="line">	        youzhuan()</span><br><span class="line">            tingzhi()</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">	    tingzhi()</span><br></pre></td></tr></table></figure></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[树莓派折腾之旅（二）]]></title>
-      <url>http://rayuu.com/2015/06/06/2015-06-06-pi2/</url>
-      <content type="html"><![CDATA[<p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
+    <summary type="html">
+    
+      &lt;p&gt;###暑假放假了，做了一个wifi小车。&lt;/p&gt;
+&lt;p&gt;先是搭硬件，小车，电机驱动，稳压，电池什么的。&lt;/p&gt;
+&lt;p&gt;此处略去很多字。&lt;/p&gt;
+&lt;p&gt;既然是wifi小车，首先要让车跑起来。&lt;/p&gt;
+&lt;p&gt;让车跑，首先要控制I/O口。&lt;/p&gt;
+&lt;p&gt;用的是python的GPIO口的库。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install python-dev&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 下载 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ wget http://raspberry-gpio-python.googlecode.com/files/RPi.GPIO-0.5.3a.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 解压缩 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ tar xvzf RPi.GPIO-0.5.3a.tar.gz &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 进入解压之后的目录 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; RPi.GPIO-0.5.3a &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 启动安装 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ sudo python setup.py install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="树莓派" scheme="http://rayuu.com/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+      <category term="树莓派" scheme="http://rayuu.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派折腾之旅（二）</title>
+    <link href="http://rayuu.com/2015/06/06/2015-06-06-pi2/"/>
+    <id>http://rayuu.com/2015/06/06/2015-06-06-pi2/</id>
+    <published>2015-06-05T16:00:00.000Z</published>
+    <updated>2016-05-28T08:18:30.612Z</updated>
+    
+    <content type="html"><![CDATA[<p>######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。</p>
 <p>######我是参考的这个帖子做的</p>
 <p><a href="http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882" target="_blank" rel="external">http://www.shumeipai.net/forum.php?mod=viewthread&amp;tid=18882</a></p>
 <p>插上摄像头可以看见usbvideo0.</p>
@@ -1153,12 +1523,40 @@ make USE_LIBV4L2=true clean all
 <p>嘿嘿，另外发现小米路由器还是很坑的。</p>
 <p>星期五服务器莫名其妙的无法访问，使用的云监控没有报警，原因很奇怪，后来发现是小米路由器不知道什么时候自己把硬盘自动休眠给开启了。害的我找了半天，还以为是网络问题呢。结果把小米路由器的硬盘休眠功能一关闭，服务器就不挂了，正常运行了一天。等查成绩功能教务系统开放了再看一看效果。实在不行就用树莓派当web服务器了。刷个openwrt玩一玩。</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[树莓派折腾之旅（一）]]></title>
-      <url>http://rayuu.com/2015/06/06/2015-06-06-pi1/</url>
-      <content type="html"><![CDATA[<h6 id="买了一星期的树莓派今天终于有时间折腾了。"><a href="#买了一星期的树莓派今天终于有时间折腾了。" class="headerlink" title="买了一星期的树莓派今天终于有时间折腾了。"></a>买了一星期的树莓派今天终于有时间折腾了。</h6><h6 id="早上一大早就起来，弄了一天。嘿嘿！"><a href="#早上一大早就起来，弄了一天。嘿嘿！" class="headerlink" title="早上一大早就起来，弄了一天。嘿嘿！"></a>早上一大早就起来，弄了一天。嘿嘿！</h6><h6 id="昨天把系统下载下来了。"><a href="#昨天把系统下载下来了。" class="headerlink" title="昨天把系统下载下来了。"></a>昨天把系统下载下来了。</h6><h6 id="树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads"><a href="#树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads" class="headerlink" title="树莓派官方 Raspbian 系统下载：http://www.raspberrypi.org/downloads"></a>树莓派官方 Raspbian 系统下载：<a href="http://www.raspberrypi.org/downloads" target="_blank" rel="external">http://www.raspberrypi.org/downloads</a></h6><p>首先开始烧系统到内存卡。用win32disk imager</p>
+    <summary type="html">
+    
+      &lt;p&gt;######昨天说到了GPIO口的配置，今天有空就再说一说摄像头吧。&lt;/p&gt;
+&lt;p&gt;######我是参考的这个帖子做的&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.shumeipai.net/forum.php?mod=viewthread&amp;amp;tid=18882&quot;&gt;http://www.shumeipai.net/forum.php?mod=viewthread&amp;amp;tid=18882&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;插上摄像头可以看见usbvideo0.&lt;/p&gt;
+&lt;p&gt;接下来安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install subversion
+
+sudo apt-get install libv4l-dev
+
+sudo apt-get install libjpeg8-dev
+
+sudo apt-get install imagemagick
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="树莓派" scheme="http://rayuu.com/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+      <category term="树莓派" scheme="http://rayuu.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派折腾之旅（一）</title>
+    <link href="http://rayuu.com/2015/06/06/2015-06-06-pi1/"/>
+    <id>http://rayuu.com/2015/06/06/2015-06-06-pi1/</id>
+    <published>2015-06-05T16:00:00.000Z</published>
+    <updated>2016-05-28T08:21:48.290Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="买了一星期的树莓派今天终于有时间折腾了。"><a href="#买了一星期的树莓派今天终于有时间折腾了。" class="headerlink" title="买了一星期的树莓派今天终于有时间折腾了。"></a>买了一星期的树莓派今天终于有时间折腾了。</h6><h6 id="早上一大早就起来，弄了一天。嘿嘿！"><a href="#早上一大早就起来，弄了一天。嘿嘿！" class="headerlink" title="早上一大早就起来，弄了一天。嘿嘿！"></a>早上一大早就起来，弄了一天。嘿嘿！</h6><h6 id="昨天把系统下载下来了。"><a href="#昨天把系统下载下来了。" class="headerlink" title="昨天把系统下载下来了。"></a>昨天把系统下载下来了。</h6><h6 id="树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads"><a href="#树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads" class="headerlink" title="树莓派官方 Raspbian 系统下载：http://www.raspberrypi.org/downloads"></a>树莓派官方 Raspbian 系统下载：<a href="http://www.raspberrypi.org/downloads" target="_blank" rel="external">http://www.raspberrypi.org/downloads</a></h6><p>首先开始烧系统到内存卡。用win32disk imager</p>
 <a id="more"></a>
 <p>官网下载地址 <a href="http://sourceforge.net/projects/win32diskimager/" target="_blank" rel="external">http://sourceforge.net/projects/win32diskimager/</a></p>
 <p><img src="http://imglf0.ph.126.net/uaBktU2DB37gHaRr8Zqs7w==/6630829171676724435.jpg" alt=""></p>
@@ -1261,12 +1659,28 @@ while True:
 <p>先吃个饭洗个澡去啦。</p>
 <p>啦啦啦！！~</p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[linux复习笔记（一）]]></title>
-      <url>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</url>
-      <content type="html"><![CDATA[<h6 id="从今天开始，准备复习一下一些以前学过的linux命令。"><a href="#从今天开始，准备复习一下一些以前学过的linux命令。" class="headerlink" title="从今天开始，准备复习一下一些以前学过的linux命令。"></a>从今天开始，准备复习一下一些以前学过的linux命令。</h6><h6 id="然后好进行后面的学习。"><a href="#然后好进行后面的学习。" class="headerlink" title="然后好进行后面的学习。"></a>然后好进行后面的学习。</h6><ul>
+    <summary type="html">
+    
+      &lt;h6 id=&quot;买了一星期的树莓派今天终于有时间折腾了。&quot;&gt;&lt;a href=&quot;#买了一星期的树莓派今天终于有时间折腾了。&quot; class=&quot;headerlink&quot; title=&quot;买了一星期的树莓派今天终于有时间折腾了。&quot;&gt;&lt;/a&gt;买了一星期的树莓派今天终于有时间折腾了。&lt;/h6&gt;&lt;h6 id=&quot;早上一大早就起来，弄了一天。嘿嘿！&quot;&gt;&lt;a href=&quot;#早上一大早就起来，弄了一天。嘿嘿！&quot; class=&quot;headerlink&quot; title=&quot;早上一大早就起来，弄了一天。嘿嘿！&quot;&gt;&lt;/a&gt;早上一大早就起来，弄了一天。嘿嘿！&lt;/h6&gt;&lt;h6 id=&quot;昨天把系统下载下来了。&quot;&gt;&lt;a href=&quot;#昨天把系统下载下来了。&quot; class=&quot;headerlink&quot; title=&quot;昨天把系统下载下来了。&quot;&gt;&lt;/a&gt;昨天把系统下载下来了。&lt;/h6&gt;&lt;h6 id=&quot;树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads&quot;&gt;&lt;a href=&quot;#树莓派官方-Raspbian-系统下载：http-www-raspberrypi-org-downloads&quot; class=&quot;headerlink&quot; title=&quot;树莓派官方 Raspbian 系统下载：http://www.raspberrypi.org/downloads&quot;&gt;&lt;/a&gt;树莓派官方 Raspbian 系统下载：&lt;a href=&quot;http://www.raspberrypi.org/downloads&quot;&gt;http://www.raspberrypi.org/downloads&lt;/a&gt;&lt;/h6&gt;&lt;p&gt;首先开始烧系统到内存卡。用win32disk imager&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="树莓派" scheme="http://rayuu.com/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+      <category term="树莓派" scheme="http://rayuu.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux复习笔记（一）</title>
+    <link href="http://rayuu.com/2015/03/22/2015-03-26-Linux1/"/>
+    <id>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</id>
+    <published>2015-03-21T16:00:00.000Z</published>
+    <updated>2016-05-28T08:21:24.123Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="从今天开始，准备复习一下一些以前学过的linux命令。"><a href="#从今天开始，准备复习一下一些以前学过的linux命令。" class="headerlink" title="从今天开始，准备复习一下一些以前学过的linux命令。"></a>从今天开始，准备复习一下一些以前学过的linux命令。</h6><h6 id="然后好进行后面的学习。"><a href="#然后好进行后面的学习。" class="headerlink" title="然后好进行后面的学习。"></a>然后好进行后面的学习。</h6><ul>
 <li>——————————————-<br></li>
 </ul>
 <h6 id="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"><a href="#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。" class="headerlink" title="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"></a>首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。</h6><h6 id="系统安装完成后-首先更新源。"><a href="#系统安装完成后-首先更新源。" class="headerlink" title="系统安装完成后,首先更新源。"></a>系统安装完成后,首先更新源。</h6><h6 id="吼吼吼！"><a href="#吼吼吼！" class="headerlink" title="吼吼吼！"></a>吼吼吼！</h6><a id="more"></a>
@@ -1280,12 +1694,31 @@ while True:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser test2 -g testgroup</span><br></pre></td></tr></table></figure>
 <p>其中useradd新建用户在home目录下面没有文件夹，而adduser则有。<br><br>ps -e  查看进程<br><br>kill 3400杀死3400进程<br><br>kill -9 pid process<br><br>mkdir 目录名         =&gt; 创建一个目录<br><br>rmdir 空目录名      =&gt; 删除一个空目录<br><br>rm 文件名 文件名   =&gt; 删除一个文件或多个文件<br><br>rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切<br><br>touch 文件名        =&gt; 创建一个空文件<br><br>重命名文件（夹） / 移动文件（夹）到指定文件夹<br><br>执行格式： mv source destination<br><br>mv file1 file2    =&gt; 将文件 file1，更改文件名为 file2。<br><br>mv file1 dir1    =&gt; 将文件 file1，移到目录 dir1下，文件名仍为 file1。<br><br>mv dir1 dir2    =&gt; 若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到<br>目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和<br>子目录，更改为目录 dir2。<br><br>今天就练到这里。明天继续！加油！<br></p>
 ]]></content>
-    </entry>
     
-    <entry>
-      <title><![CDATA[chrome科学上网]]></title>
-      <url>http://rayuu.com/2015/03/22/2015-03-22-chome-science/</url>
-      <content type="html"><![CDATA[<ul>
+    <summary type="html">
+    
+      &lt;h6 id=&quot;从今天开始，准备复习一下一些以前学过的linux命令。&quot;&gt;&lt;a href=&quot;#从今天开始，准备复习一下一些以前学过的linux命令。&quot; class=&quot;headerlink&quot; title=&quot;从今天开始，准备复习一下一些以前学过的linux命令。&quot;&gt;&lt;/a&gt;从今天开始，准备复习一下一些以前学过的linux命令。&lt;/h6&gt;&lt;h6 id=&quot;然后好进行后面的学习。&quot;&gt;&lt;a href=&quot;#然后好进行后面的学习。&quot; class=&quot;headerlink&quot; title=&quot;然后好进行后面的学习。&quot;&gt;&lt;/a&gt;然后好进行后面的学习。&lt;/h6&gt;&lt;ul&gt;
+&lt;li&gt;——————————————-&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&quot;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot;&gt;&lt;a href=&quot;#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot; class=&quot;headerlink&quot; title=&quot;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot;&gt;&lt;/a&gt;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&lt;/h6&gt;&lt;h6 id=&quot;系统安装完成后-首先更新源。&quot;&gt;&lt;a href=&quot;#系统安装完成后-首先更新源。&quot; class=&quot;headerlink&quot; title=&quot;系统安装完成后,首先更新源。&quot;&gt;&lt;/a&gt;系统安装完成后,首先更新源。&lt;/h6&gt;&lt;h6 id=&quot;吼吼吼！&quot;&gt;&lt;a href=&quot;#吼吼吼！&quot; class=&quot;headerlink&quot; title=&quot;吼吼吼！&quot;&gt;&lt;/a&gt;吼吼吼！&lt;/h6&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="http://rayuu.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://rayuu.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>chrome科学上网</title>
+    <link href="http://rayuu.com/2015/03/22/2015-03-22-chome-science/"/>
+    <id>http://rayuu.com/2015/03/22/2015-03-22-chome-science/</id>
+    <published>2015-03-21T16:00:00.000Z</published>
+    <updated>2016-05-28T07:19:51.606Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
 <li><code>chrome</code>科学上网方式</li>
 <li>（仅供喜欢折腾的chrome用户使用，使用chrome也是一种信仰。）</li>
 <li>由于xxx原因，无法上一些外国网站，比如说上google搜一些学术性的问题等，这是百度比不上的，现在百度搜索一些东西都是推广啊什么的，很恶心的。所以推荐如下科学上网方式。</li>
@@ -1320,8 +1753,23 @@ while True:
 <li>最后，你还可以在右下角设置ie代理。这样ie浏览器同样也可以上了。</li>
 </ul>
 ]]></content>
-    </entry>
     
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;code&gt;chrome&lt;/code&gt;科学上网方式&lt;/li&gt;
+&lt;li&gt;（仅供喜欢折腾的chrome用户使用，使用chrome也是一种信仰。）&lt;/li&gt;
+&lt;li&gt;由于xxx原因，无法上一些外国网站，比如说上google搜一些学术性的问题等，这是百度比不上的，现在百度搜索一些东西都是推广啊什么的，很恶心的。所以推荐如下科学上网方式。&lt;/li&gt;
+&lt;li&gt;工具： &lt;code&gt;chrome浏览器+goagent+SwitchySharp&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="chrome" scheme="http://rayuu.com/categories/chrome/"/>
+    
+    
+      <category term="chrome" scheme="http://rayuu.com/tags/chrome/"/>
+    
+  </entry>
   
-  
-</search>
+</feed>
