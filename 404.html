@@ -195,16 +195,16 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/linux/">
-                    linux <span class="right">1 篇</span></a>
+                <a class="no-padding" href="/categories/树莓派/">
+                    树莓派 <span class="right">3 篇</span></a>
                 </a>
             </li>
 
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/树莓派/">
-                    树莓派 <span class="right">3 篇</span></a>
+                <a class="no-padding" href="/categories/linux/">
+                    linux <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -227,16 +227,16 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/技术分享/">
-                    技术分享 <span class="right">1 篇</span></a>
+                <a class="no-padding" href="/categories/cordova/">
+                    cordova <span class="right">2 篇</span></a>
                 </a>
             </li>
 
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/cordova/">
-                    cordova <span class="right">2 篇</span></a>
+                <a class="no-padding" href="/categories/技术分享/">
+                    技术分享 <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -351,30 +351,23 @@
 
 
     <section id="comment">
-        <div class="card">
-            <div class="card-content">
-                <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="404.html" data-title="" data-url="http://rayuu.com/404.html"></div>
-
-                <script type="text/javascript">
-                    console.log(document.querySelector('.ds-thread'));
-                    var duoshuoQuery = {
-                        short_name: 'Rayu'
-                    };
-                    (function() {
-                        var ds = document.createElement('script');
-                        ds.type = 'text/javascript';
-                        ds.async = true;
-                        ds.src = (document.location.protocol == 'https:'
-                            ? 'https:'
-                            : 'http:') + '//static.duoshuo.com/embed.js';
-                        ds.charset = 'UTF-8';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                    })();
-                </script>
-                <!-- Duoshuo Comment END -->
-            </div>
-        </div>
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function() {
+                this.page.url = 'http://rayuu.com/404.html';
+                this.page.identifier = '404.html';
+            };
+            (function() {
+                var d = document,
+                    s = d.createElement('script');
+                s.src = '//Rayu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+        </noscript>
     </section>
 
 
@@ -456,7 +449,7 @@
 
     <div class="footer-copyright pink-link-context">
         <div class="container">
-            © 2017 rayuu.com, All rights reserved.
+            © 2016 rayuu.com, All rights reserved.
             <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
         </div>
     </div>

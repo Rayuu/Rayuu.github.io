@@ -7,7 +7,7 @@
 
     
 
-    <title>led摇摇棒 | Rayu&#39;s Blog</title>
+    <title>使用VS2015 visual micro安装开发arduino | Rayu&#39;s Blog</title>
     <meta name="author" content="Rayu">
     
     <meta name="description" content="风华是一指流砂">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="使用VS2015 visual micro安装开发arduino"/>
     <meta property="og:site_name" content="Rayu技术分享"/>
 
     
@@ -281,30 +281,129 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
 
         
-            <a class="breadcrumb" href="/tags/led摇摇棒/">led摇摇棒</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>使用VS2015 visual micro安装开发arduino</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2017-08-08T13:31:12.000Z"><a href="/2017/08/08/vs2015arduino/">2017-08-08</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2016/05/09/16led/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-05-08T16:00:00.000Z">2016-05-09</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                16led摇摇棒
-            </a>
+            <a href="/tags/arduino/" class="chip pink lighten-1">arduino</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>使用vs2015可以更加高效的开发arduino，所以尝试安装了一下。</p>
+<ul>
+<li>打开VS2015-&gt;菜单栏工具-&gt;扩展和更新。</li>
+</ul>
+<p><img src="https://img.rayu.me/2017/08/2361705456.png" alt="1.png"></p>
+<ul>
+<li>搜索arduino</li>
+</ul>
+<p>安装arduino IDE for visual studio.</p>
+<p><img src="https://img.rayu.me/2017/08/4282969379.png" alt="2.png"></p>
+<ul>
+<li>重新打开VS2015</li>
+</ul>
+<p>配置一下arduino ide的目录即可马上使用。</p>
+<p><img src="https://img.rayu.me/2017/08/2235480008.png" alt="3.png"></p>
+<p>在菜单栏“文件”下面点“新建”，会出现一个arduino project选项。</p>
+<p><img src="https://img.rayu.me/2017/08/1864746094.png" alt="4.png"></p>
+<p>然后输入工程名称即可新建工程。</p>
+<p><img src="https://img.rayu.me/2017/08/1938886152.png" alt="5.png"></p>
+<ul>
+<li>配置</li>
+</ul>
+<p>选板子型号和串口。</p>
+<p><img src="https://img.rayu.me/2017/08/2479133433.png" alt="6.png"></p>
+<p>如果不想下载程序后调试，就可以关闭automatic debugging.<br>具体操作如下图：</p>
+<p><img src="https://img.rayu.me/2017/08/4252945488.png" alt="7.png"></p>
+<p>在菜单栏“工具”-&gt;“选项”，也可以配置visual micro</p>
+<p><img src="https://img.rayu.me/2017/08/4053589983.png" alt="8.png"></p>
+<p>至于这个debugger调试不是很方便，只能在loop那里断点，查看变量参数。</p>
+<p>编译生成的HEX文件在debug或者release下面。</p>
+<p>这个visual micro的破解方法见另一篇文章。</p>
+
+                
+<p class="pink-link-context">
+    <a href="/2017/08/08/visualmicrocrack/" rel="next" title="最新版visual micro 破解">
+    上一篇：最新版visual micro 破解
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2017/03/14/gccanalysis/" rel="next" title="gcc编译流程解析">
+    下一篇：gcc编译流程解析
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function() {
+                this.page.url = 'http://rayuu.com/2017/08/08/vs2015arduino/';
+                this.page.identifier = '2017/08/08/vs2015arduino/';
+            };
+            (function() {
+                var d = document,
+                    s = d.createElement('script');
+                s.src = '//Rayu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+        </noscript>
+    </section>
+
 
 
 </div>
