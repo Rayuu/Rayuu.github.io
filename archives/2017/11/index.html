@@ -7,7 +7,7 @@
 
     
 
-    <title>windows右键添加cmd菜单 | Rayu&#39;s Blog</title>
+    <title>归档：2017/11 | Rayu&#39;s Blog</title>
     <meta name="author" content="Rayu">
     
     <meta name="description" content="风华是一指流砂">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="windows右键添加cmd菜单"/>
+    
     <meta property="og:site_name" content="Rayu技术分享"/>
 
     
@@ -281,88 +281,40 @@
 
     <main>
         <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
+    
+
+<nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（分类目录）</span>
-        
-            
-    
-    
-    <a class="breadcrumb" href="/categories/技术分享/">技术分享</a>
-
-
+        <span class="breadcrumb">当前位置（标签）</span>
         
 
         
     </div>
 </nav>
 
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
-    
-        <h1>windows右键添加cmd菜单</h1>
-    
 
 
-            </div>
-            <time class="pink-link-context" datetime="2016-06-01T04:09:55.000Z"><a href="/2016/06/01/cmdhere/">2016-06-01</a></time>
-
-            <span id="busuanzi_container_page_pv" class="read-times-container">
-    <i class="fa fa-eye"></i>
-    <span id="busuanzi_value_page_pv"></span>
-</span>
-
-            
-    <div class="tags-row">
+    <ul class="collapsible mt-0" data-collapsible="accordion">
         
-            <a href="/tags/windows/" class="chip pink lighten-1">windows</a>
         
-    </div>
-
-
-            <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#步骤："><span class="section table-of-contents-text">步骤：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#1、创建一个记事本文件，将以下文字复制进去，然后保存。"><span class="section table-of-contents-text">1、创建一个记事本文件，将以下文字复制进去，然后保存。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#2、将记事本的文件的后缀-txt-改成-reg。"><span class="section table-of-contents-text">2、将记事本的文件的后缀 txt 改成 reg。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#3、双击运行这个文件，提示添加注册表项，选择“是”。"><span class="section table-of-contents-text">3、双击运行这个文件，提示添加注册表项，选择“是”。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"><span class="section table-of-contents-text">4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！</span></a></li></ol>
-</div>
-
-
-            <div class="entry pink-link-context">
-                <p>windows右键添加cmd菜单</p>
-<p>在windows右键添加cmd菜单，如下图。<br>原文地址：<a href="http://blog.rayuu.com/cmdhere.html" target="_blank" rel="external">http://blog.rayuu.com/cmdhere.html</a><br><a id="more"></a></p>
-<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/06/3150704417.jpg" alt="效果图"></p>
-<p>这样使用cmd进入某个路径就方便多了！！！！</p>
-<h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><h1 id="1、创建一个记事本文件，将以下文字复制进去，然后保存。"><a href="#1、创建一个记事本文件，将以下文字复制进去，然后保存。" class="headerlink" title="1、创建一个记事本文件，将以下文字复制进去，然后保存。"></a>1、创建一个记事本文件，将以下文字复制进去，然后保存。</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00 </span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\cmdhere] </span><br><span class="line">@=<span class="string">"Cmd&amp;Here"</span></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\cmdhere\<span class="built_in">command</span>] </span><br><span class="line">@=<span class="string">"cmd.exe /c start cmd.exe /k pushd \"%l \\..\" "</span></span><br><span class="line">[HKEY_CLASSES_ROOT\Folder\shell\cmdhere] </span><br><span class="line">@=<span class="string">"Cmd&amp;Here"</span></span><br><span class="line">[HKEY_CLASSES_ROOT\Folder\shell\cmdhere\<span class="built_in">command</span>] </span><br><span class="line">@=<span class="string">"cmd.exe /c start cmd.exe /k pushd \"%l\" "</span></span><br></pre></td></tr></table></figure>
-<h1 id="2、将记事本的文件的后缀-txt-改成-reg。"><a href="#2、将记事本的文件的后缀-txt-改成-reg。" class="headerlink" title="2、将记事本的文件的后缀 txt 改成 reg。"></a>2、将记事本的文件的后缀 txt 改成 reg。</h1><h1 id="3、双击运行这个文件，提示添加注册表项，选择“是”。"><a href="#3、双击运行这个文件，提示添加注册表项，选择“是”。" class="headerlink" title="3、双击运行这个文件，提示添加注册表项，选择“是”。"></a>3、双击运行这个文件，提示添加注册表项，选择“是”。</h1><h1 id="4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"><a href="#4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！" class="headerlink" title="4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"></a>4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！</h1><p>点进去就是命令行了。</p>
-
-                
-<p class="pink-link-context">
-    <a href="/2016/07/29/git基本命令/" rel="next" title="git基本命令推送到github">
-    上一篇：git基本命令推送到github
-  </a>
-</p>
-
-
-
-<p class="pink-link-context">
-    <a href="/2016/05/29/git-coding/" rel="next" title="将hexo博客同时托管到github和coding">
-    下一篇：将hexo博客同时托管到github和coding
-  </a>
-</p>
-
-
-            </div>
-			
-        </div>
-    </div>
-</article>
-
-
-
-
+            <li>
+                <div class="collapsible-header active">
+                    <i class="fa fa-archive"></i>2017
+                </div>
+                <div class="collapsible-body">
+                    <div class="collection">
+                        
+                            <a href="/2017/11/13/esp8266-wechat-doorbell/" class="collection-item grey-text text-darken-1">
+                                <time datetime="2017-11-13T13:35:31.000Z">2017-11-13</time>
+                                <span>&nbsp;&nbsp;&nbsp;</span>
+                                基于ESP8266的微信门铃
+                            </a>
+                        
+                    </div>
+                </div>
+            </li>
+        
+    </ul>
 
 
 </div>

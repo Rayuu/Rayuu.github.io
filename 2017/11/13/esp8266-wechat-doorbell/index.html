@@ -7,7 +7,7 @@
 
     
 
-    <title>windows右键添加cmd菜单 | Rayu&#39;s Blog</title>
+    <title>基于ESP8266的微信门铃 | Rayu&#39;s Blog</title>
     <meta name="author" content="Rayu">
     
     <meta name="description" content="风华是一指流砂">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="windows右键添加cmd菜单"/>
+    <meta property="og:title" content="基于ESP8266的微信门铃"/>
     <meta property="og:site_name" content="Rayu技术分享"/>
 
     
@@ -286,10 +286,6 @@
         <span class="breadcrumb">当前位置（分类目录）</span>
         
             
-    
-    
-    <a class="breadcrumb" href="/categories/技术分享/">技术分享</a>
-
 
         
 
@@ -305,12 +301,12 @@
             <div class="article-title">
                 
     
-        <h1>windows右键添加cmd菜单</h1>
+        <h1>基于ESP8266的微信门铃</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2016-06-01T04:09:55.000Z"><a href="/2016/06/01/cmdhere/">2016-06-01</a></time>
+            <time class="pink-link-context" datetime="2017-11-13T13:35:31.000Z"><a href="/2017/11/13/esp8266-wechat-doorbell/">2017-11-13</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -320,36 +316,76 @@
             
     <div class="tags-row">
         
-            <a href="/tags/windows/" class="chip pink lighten-1">windows</a>
+            <a href="/tags/esp8266/" class="chip pink lighten-1">esp8266</a>
         
     </div>
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#步骤："><span class="section table-of-contents-text">步骤：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#1、创建一个记事本文件，将以下文字复制进去，然后保存。"><span class="section table-of-contents-text">1、创建一个记事本文件，将以下文字复制进去，然后保存。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#2、将记事本的文件的后缀-txt-改成-reg。"><span class="section table-of-contents-text">2、将记事本的文件的后缀 txt 改成 reg。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#3、双击运行这个文件，提示添加注册表项，选择“是”。"><span class="section table-of-contents-text">3、双击运行这个文件，提示添加注册表项，选择“是”。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"><span class="section table-of-contents-text">4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#基于ESP8266的微信门铃"><span class="section table-of-contents-text">基于ESP8266的微信门铃</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#前言"><span class="section table-of-contents-text">前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一、硬件准备"><span class="section table-of-contents-text">一、硬件准备</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、ESP8266模块"><span class="section table-of-contents-text">1、ESP8266模块</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、其他"><span class="section table-of-contents-text">2、其他</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二、软件准备"><span class="section table-of-contents-text">二、软件准备</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#三、系统架构"><span class="section table-of-contents-text">三、系统架构</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#使用说明"><span class="section table-of-contents-text">使用说明</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、flash模式"><span class="section table-of-contents-text">1、flash模式</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、normal模式"><span class="section table-of-contents-text">2、normal模式</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <p>windows右键添加cmd菜单</p>
-<p>在windows右键添加cmd菜单，如下图。<br>原文地址：<a href="http://blog.rayuu.com/cmdhere.html" target="_blank" rel="external">http://blog.rayuu.com/cmdhere.html</a><br><a id="more"></a></p>
-<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/06/3150704417.jpg" alt="效果图"></p>
-<p>这样使用cmd进入某个路径就方便多了！！！！</p>
-<h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><h1 id="1、创建一个记事本文件，将以下文字复制进去，然后保存。"><a href="#1、创建一个记事本文件，将以下文字复制进去，然后保存。" class="headerlink" title="1、创建一个记事本文件，将以下文字复制进去，然后保存。"></a>1、创建一个记事本文件，将以下文字复制进去，然后保存。</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00 </span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\cmdhere] </span><br><span class="line">@=<span class="string">"Cmd&amp;Here"</span></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\cmdhere\<span class="built_in">command</span>] </span><br><span class="line">@=<span class="string">"cmd.exe /c start cmd.exe /k pushd \"%l \\..\" "</span></span><br><span class="line">[HKEY_CLASSES_ROOT\Folder\shell\cmdhere] </span><br><span class="line">@=<span class="string">"Cmd&amp;Here"</span></span><br><span class="line">[HKEY_CLASSES_ROOT\Folder\shell\cmdhere\<span class="built_in">command</span>] </span><br><span class="line">@=<span class="string">"cmd.exe /c start cmd.exe /k pushd \"%l\" "</span></span><br></pre></td></tr></table></figure>
-<h1 id="2、将记事本的文件的后缀-txt-改成-reg。"><a href="#2、将记事本的文件的后缀-txt-改成-reg。" class="headerlink" title="2、将记事本的文件的后缀 txt 改成 reg。"></a>2、将记事本的文件的后缀 txt 改成 reg。</h1><h1 id="3、双击运行这个文件，提示添加注册表项，选择“是”。"><a href="#3、双击运行这个文件，提示添加注册表项，选择“是”。" class="headerlink" title="3、双击运行这个文件，提示添加注册表项，选择“是”。"></a>3、双击运行这个文件，提示添加注册表项，选择“是”。</h1><h1 id="4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"><a href="#4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！" class="headerlink" title="4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！"></a>4、然后再随便找个文件，点击右键，可以看见多了一个“cmdhere”的菜单，如上图所示！</h1><p>点进去就是命令行了。</p>
+                <h2 id="基于ESP8266的微信门铃"><a href="#基于ESP8266的微信门铃" class="headerlink" title="基于ESP8266的微信门铃"></a>基于ESP8266的微信门铃</h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习ESP8266，所以想用他来做个小玩意儿。</p>
+<p>于是就有了这篇文章，其实最终实现的效果很简单。</p>
+<p>就是当门铃按键按下，微信会收到消息提醒。</p>
+<a id="more"></a>
+<p>当然这只是初期，拓展的话可以进一步设计一套协议，添加更多设备，比如开关或者插座之类的电器设备。</p>
+<p>添加用户绑定功能，实现数据双向通信。</p>
+<p>下面介绍怎么完成他。</p>
+<h1 id="一、硬件准备"><a href="#一、硬件准备" class="headerlink" title="一、硬件准备"></a>一、硬件准备</h1><h3 id="1、ESP8266模块"><a href="#1、ESP8266模块" class="headerlink" title="1、ESP8266模块"></a>1、ESP8266模块</h3><p>我选择的是nodemcu。因为他可以直接用micro usb烧录，下载程序方便。实质上他就是一块ESP8266.</p>
+<h3 id="2、其他"><a href="#2、其他" class="headerlink" title="2、其他"></a>2、其他</h3><p>本来准备外接一个按键的，结果发现nodemcu上面自带了两个按键，一个复位键，一个flash键。</p>
+<p>因为是做门铃，所以暂时不需要杜邦线和按键了，一个安卓充电线当做下载线就可以了。</p>
+<h1 id="二、软件准备"><a href="#二、软件准备" class="headerlink" title="二、软件准备"></a>二、软件准备</h1><p>nodemcu原生是lua脚本来开发，但是我还是习惯用C来开发。</p>
+<p>于是我的开发环境就是<code>VS2015+visual micro</code>。</p>
+<p>软件环境的搭建，可以见我博客的前几篇文章。</p>
+<blockquote>
+<p>arduino IDE配置ESP8266开发环境<br><a href="https://blog.rayuu.com/arduinoesp8266.html" target="_blank" rel="external">https://blog.rayuu.com/arduinoesp8266.html</a></p>
+<p>使用VS2015 visual micro安装开发arduino<br><a href="https://blog.rayuu.com/vs2015arduino.html" target="_blank" rel="external">https://blog.rayuu.com/vs2015arduino.html</a></p>
+</blockquote>
+<h1 id="三、系统架构"><a href="#三、系统架构" class="headerlink" title="三、系统架构"></a>三、系统架构</h1><ul>
+<li><p>单片机部分：nodemcu采用C来编写；</p>
+</li>
+<li><p>后台：linux平台下使用python来写；</p>
+</li>
+<li><p>数据库：待定。</p>
+</li>
+<li><p>通信协议：基于MQTT+私有协议。</p>
+</li>
+</ul>
+<p>初期计划实现步骤大致如下：</p>
+<ol>
+<li>ESP8266固件开发（NodeMcu）；</li>
+<li>mqtt协议学习；</li>
+<li>python版mqtt开发；</li>
+<li>把wxpy与mqtt融合（后台开发）；</li>
+<li>与web版微信对接。</li>
+</ol>
+<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><h3 id="1、flash模式"><a href="#1、flash模式" class="headerlink" title="1、flash模式"></a>1、flash模式</h3><p>用户在开机前3秒内按下flash key，系统进入flash模式。</p>
+<p>在该模式下，esp8266是AP模式，会生成一个wifi热点。名称为smledart_xxxxx   xxxxx为芯片ID。</p>
+<p><img src="https://img.rayu.me/2017/11/2095694645.jpg" alt="QQ截图20171113200344.jpg"></p>
+<p>用户连接该热点后，打开浏览器，输入<a href="http://192.168.4.1" title="192.168.4.1" target="_blank" rel="external">192.168.4.1</a><br>打开配置wifi界面</p>
+<p><img src="https://img.rayu.me/2017/11/1415696817.jpg" alt="QQ截图20171113200423.jpg"></p>
+<p>输入正确的wifi热点和密码，即你家里的可以上网的wifi热点。<br>服务器地址和端口，后续不会对用户开放。这里仅供测试用。</p>
+<p><img src="https://img.rayu.me/2017/11/3708125702.png" alt="Image.png"></p>
+<p>另外后续可能采用通过smartconfig方式来连接wifi。即通过手机发送UDP报文出来，esp8266通过搜索报文自动建立连接。</p>
+<p>配置完成后，重启esp8266即可。</p>
+<p>热点名称，密码，服务器IP和端口，设备信息等信息 存在flash内，用文件系统spiffs来挂载读写。</p>
+<p>网页同样用文件系统保存，用html,js,css来编写网页</p>
+<h3 id="2、normal模式"><a href="#2、normal模式" class="headerlink" title="2、normal模式"></a>2、normal模式</h3><p>开机，等5~6秒后，esp8266连上第一步配置的wifi后，同时也会连上服务器。</p>
+<p>这时就可以正常使用了。</p>
+<p>按下flashkey后，微信就会收到相应的消息了。这里按下flashkey不同于开机前三秒按下进入flash模式。</p>
+<p><img src="https://img.rayu.me/2017/11/410307182.jpg" alt="QQ截图20171113200547.jpg"></p>
+<p>最后放上录的小视频。</p>
+<p><img src="https://img.rayu.me/2017/11/1714417562.gif" alt="aaa.gif"></p>
 
                 
-<p class="pink-link-context">
-    <a href="/2016/07/29/git基本命令/" rel="next" title="git基本命令推送到github">
-    上一篇：git基本命令推送到github
-  </a>
-</p>
-
 
 
 <p class="pink-link-context">
-    <a href="/2016/05/29/git-coding/" rel="next" title="将hexo博客同时托管到github和coding">
-    下一篇：将hexo博客同时托管到github和coding
+    <a href="/2017/08/08/visualmicrocrack/" rel="next" title="最新版visual micro 破解">
+    下一篇：最新版visual micro 破解
   </a>
 </p>
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rayuu.com/"/>
-  <updated>2017-08-08T13:36:14.230Z</updated>
+  <updated>2017-11-13T13:36:18.276Z</updated>
   <id>http://rayuu.com/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于ESP8266的微信门铃</title>
+    <link href="http://rayuu.com/2017/11/13/esp8266-wechat-doorbell/"/>
+    <id>http://rayuu.com/2017/11/13/esp8266-wechat-doorbell/</id>
+    <published>2017-11-13T13:35:31.000Z</published>
+    <updated>2017-11-13T13:36:18.276Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基于ESP8266的微信门铃"><a href="#基于ESP8266的微信门铃" class="headerlink" title="基于ESP8266的微信门铃"></a>基于ESP8266的微信门铃</h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习ESP8266，所以想用他来做个小玩意儿。</p>
+<p>于是就有了这篇文章，其实最终实现的效果很简单。</p>
+<p>就是当门铃按键按下，微信会收到消息提醒。</p>
+<a id="more"></a>
+<p>当然这只是初期，拓展的话可以进一步设计一套协议，添加更多设备，比如开关或者插座之类的电器设备。</p>
+<p>添加用户绑定功能，实现数据双向通信。</p>
+<p>下面介绍怎么完成他。</p>
+<h1 id="一、硬件准备"><a href="#一、硬件准备" class="headerlink" title="一、硬件准备"></a>一、硬件准备</h1><h3 id="1、ESP8266模块"><a href="#1、ESP8266模块" class="headerlink" title="1、ESP8266模块"></a>1、ESP8266模块</h3><p>我选择的是nodemcu。因为他可以直接用micro usb烧录，下载程序方便。实质上他就是一块ESP8266.</p>
+<h3 id="2、其他"><a href="#2、其他" class="headerlink" title="2、其他"></a>2、其他</h3><p>本来准备外接一个按键的，结果发现nodemcu上面自带了两个按键，一个复位键，一个flash键。</p>
+<p>因为是做门铃，所以暂时不需要杜邦线和按键了，一个安卓充电线当做下载线就可以了。</p>
+<h1 id="二、软件准备"><a href="#二、软件准备" class="headerlink" title="二、软件准备"></a>二、软件准备</h1><p>nodemcu原生是lua脚本来开发，但是我还是习惯用C来开发。</p>
+<p>于是我的开发环境就是<code>VS2015+visual micro</code>。</p>
+<p>软件环境的搭建，可以见我博客的前几篇文章。</p>
+<blockquote>
+<p>arduino IDE配置ESP8266开发环境<br><a href="https://blog.rayuu.com/arduinoesp8266.html" target="_blank" rel="external">https://blog.rayuu.com/arduinoesp8266.html</a></p>
+<p>使用VS2015 visual micro安装开发arduino<br><a href="https://blog.rayuu.com/vs2015arduino.html" target="_blank" rel="external">https://blog.rayuu.com/vs2015arduino.html</a></p>
+</blockquote>
+<h1 id="三、系统架构"><a href="#三、系统架构" class="headerlink" title="三、系统架构"></a>三、系统架构</h1><ul>
+<li><p>单片机部分：nodemcu采用C来编写；</p>
+</li>
+<li><p>后台：linux平台下使用python来写；</p>
+</li>
+<li><p>数据库：待定。</p>
+</li>
+<li><p>通信协议：基于MQTT+私有协议。</p>
+</li>
+</ul>
+<p>初期计划实现步骤大致如下：</p>
+<ol>
+<li>ESP8266固件开发（NodeMcu）；</li>
+<li>mqtt协议学习；</li>
+<li>python版mqtt开发；</li>
+<li>把wxpy与mqtt融合（后台开发）；</li>
+<li>与web版微信对接。</li>
+</ol>
+<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><h3 id="1、flash模式"><a href="#1、flash模式" class="headerlink" title="1、flash模式"></a>1、flash模式</h3><p>用户在开机前3秒内按下flash key，系统进入flash模式。</p>
+<p>在该模式下，esp8266是AP模式，会生成一个wifi热点。名称为smledart_xxxxx   xxxxx为芯片ID。</p>
+<p><img src="https://img.rayu.me/2017/11/2095694645.jpg" alt="QQ截图20171113200344.jpg"></p>
+<p>用户连接该热点后，打开浏览器，输入<a href="http://192.168.4.1" title="192.168.4.1" target="_blank" rel="external">192.168.4.1</a><br>打开配置wifi界面</p>
+<p><img src="https://img.rayu.me/2017/11/1415696817.jpg" alt="QQ截图20171113200423.jpg"></p>
+<p>输入正确的wifi热点和密码，即你家里的可以上网的wifi热点。<br>服务器地址和端口，后续不会对用户开放。这里仅供测试用。</p>
+<p><img src="https://img.rayu.me/2017/11/3708125702.png" alt="Image.png"></p>
+<p>另外后续可能采用通过smartconfig方式来连接wifi。即通过手机发送UDP报文出来，esp8266通过搜索报文自动建立连接。</p>
+<p>配置完成后，重启esp8266即可。</p>
+<p>热点名称，密码，服务器IP和端口，设备信息等信息 存在flash内，用文件系统spiffs来挂载读写。</p>
+<p>网页同样用文件系统保存，用html,js,css来编写网页</p>
+<h3 id="2、normal模式"><a href="#2、normal模式" class="headerlink" title="2、normal模式"></a>2、normal模式</h3><p>开机，等5~6秒后，esp8266连上第一步配置的wifi后，同时也会连上服务器。</p>
+<p>这时就可以正常使用了。</p>
+<p>按下flashkey后，微信就会收到相应的消息了。这里按下flashkey不同于开机前三秒按下进入flash模式。</p>
+<p><img src="https://img.rayu.me/2017/11/410307182.jpg" alt="QQ截图20171113200547.jpg"></p>
+<p>最后放上录的小视频。</p>
+<p><img src="https://img.rayu.me/2017/11/1714417562.gif" alt="aaa.gif"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基于ESP8266的微信门铃&quot;&gt;&lt;a href=&quot;#基于ESP8266的微信门铃&quot; class=&quot;headerlink&quot; title=&quot;基于ESP8266的微信门铃&quot;&gt;&lt;/a&gt;基于ESP8266的微信门铃&lt;/h2&gt;&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近在学习ESP8266，所以想用他来做个小玩意儿。&lt;/p&gt;
+&lt;p&gt;于是就有了这篇文章，其实最终实现的效果很简单。&lt;/p&gt;
+&lt;p&gt;就是当门铃按键按下，微信会收到消息提醒。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="esp8266" scheme="http://rayuu.com/tags/esp8266/"/>
+    
+  </entry>
   
   <entry>
     <title>最新版visual micro 破解</title>
@@ -1778,6 +1852,44 @@ while True:
   </entry>
   
   <entry>
+    <title>linux复习笔记（一）</title>
+    <link href="http://rayuu.com/2015/03/22/2015-03-26-Linux1/"/>
+    <id>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</id>
+    <published>2015-03-21T16:00:00.000Z</published>
+    <updated>2016-05-28T08:21:24.123Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="从今天开始，准备复习一下一些以前学过的linux命令。"><a href="#从今天开始，准备复习一下一些以前学过的linux命令。" class="headerlink" title="从今天开始，准备复习一下一些以前学过的linux命令。"></a>从今天开始，准备复习一下一些以前学过的linux命令。</h6><h6 id="然后好进行后面的学习。"><a href="#然后好进行后面的学习。" class="headerlink" title="然后好进行后面的学习。"></a>然后好进行后面的学习。</h6><ul>
+<li>——————————————-<br></li>
+</ul>
+<h6 id="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"><a href="#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。" class="headerlink" title="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"></a>首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。</h6><h6 id="系统安装完成后-首先更新源。"><a href="#系统安装完成后-首先更新源。" class="headerlink" title="系统安装完成后,首先更新源。"></a>系统安装完成后,首先更新源。</h6><h6 id="吼吼吼！"><a href="#吼吼吼！" class="headerlink" title="吼吼吼！"></a>吼吼吼！</h6><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su passwd root</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su xcy</span><br></pre></td></tr></table></figure>
+<p>然后是安装ssh<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server openssh -client</span><br></pre></td></tr></table></figure></p>
+<p>安装完成服务端和客户端后，用电脑进行ssh远程登录。<br><br>连接成功。<br><br>回忆起来了一些命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 filename</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd testgroup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd test1 -g testgroup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser test2 -g testgroup</span><br></pre></td></tr></table></figure>
+<p>其中useradd新建用户在home目录下面没有文件夹，而adduser则有。<br><br>ps -e  查看进程<br><br>kill 3400杀死3400进程<br><br>kill -9 pid process<br><br>mkdir 目录名         =&gt; 创建一个目录<br><br>rmdir 空目录名      =&gt; 删除一个空目录<br><br>rm 文件名 文件名   =&gt; 删除一个文件或多个文件<br><br>rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切<br><br>touch 文件名        =&gt; 创建一个空文件<br><br>重命名文件（夹） / 移动文件（夹）到指定文件夹<br><br>执行格式： mv source destination<br><br>mv file1 file2    =&gt; 将文件 file1，更改文件名为 file2。<br><br>mv file1 dir1    =&gt; 将文件 file1，移到目录 dir1下，文件名仍为 file1。<br><br>mv dir1 dir2    =&gt; 若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到<br>目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和<br>子目录，更改为目录 dir2。<br><br>今天就练到这里。明天继续！加油！<br></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h6 id=&quot;从今天开始，准备复习一下一些以前学过的linux命令。&quot;&gt;&lt;a href=&quot;#从今天开始，准备复习一下一些以前学过的linux命令。&quot; class=&quot;headerlink&quot; title=&quot;从今天开始，准备复习一下一些以前学过的linux命令。&quot;&gt;&lt;/a&gt;从今天开始，准备复习一下一些以前学过的linux命令。&lt;/h6&gt;&lt;h6 id=&quot;然后好进行后面的学习。&quot;&gt;&lt;a href=&quot;#然后好进行后面的学习。&quot; class=&quot;headerlink&quot; title=&quot;然后好进行后面的学习。&quot;&gt;&lt;/a&gt;然后好进行后面的学习。&lt;/h6&gt;&lt;ul&gt;
+&lt;li&gt;——————————————-&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&quot;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot;&gt;&lt;a href=&quot;#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot; class=&quot;headerlink&quot; title=&quot;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot;&gt;&lt;/a&gt;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&lt;/h6&gt;&lt;h6 id=&quot;系统安装完成后-首先更新源。&quot;&gt;&lt;a href=&quot;#系统安装完成后-首先更新源。&quot; class=&quot;headerlink&quot; title=&quot;系统安装完成后,首先更新源。&quot;&gt;&lt;/a&gt;系统安装完成后,首先更新源。&lt;/h6&gt;&lt;h6 id=&quot;吼吼吼！&quot;&gt;&lt;a href=&quot;#吼吼吼！&quot; class=&quot;headerlink&quot; title=&quot;吼吼吼！&quot;&gt;&lt;/a&gt;吼吼吼！&lt;/h6&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="http://rayuu.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://rayuu.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>chrome科学上网</title>
     <link href="http://rayuu.com/2015/03/22/2015-03-22-chome-science/"/>
     <id>http://rayuu.com/2015/03/22/2015-03-22-chome-science/</id>
@@ -1835,44 +1947,6 @@ while True:
     
     
       <category term="chrome" scheme="http://rayuu.com/tags/chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux复习笔记（一）</title>
-    <link href="http://rayuu.com/2015/03/22/2015-03-26-Linux1/"/>
-    <id>http://rayuu.com/2015/03/22/2015-03-26-Linux1/</id>
-    <published>2015-03-21T16:00:00.000Z</published>
-    <updated>2016-05-28T08:21:24.123Z</updated>
-    
-    <content type="html"><![CDATA[<h6 id="从今天开始，准备复习一下一些以前学过的linux命令。"><a href="#从今天开始，准备复习一下一些以前学过的linux命令。" class="headerlink" title="从今天开始，准备复习一下一些以前学过的linux命令。"></a>从今天开始，准备复习一下一些以前学过的linux命令。</h6><h6 id="然后好进行后面的学习。"><a href="#然后好进行后面的学习。" class="headerlink" title="然后好进行后面的学习。"></a>然后好进行后面的学习。</h6><ul>
-<li>——————————————-<br></li>
-</ul>
-<h6 id="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"><a href="#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。" class="headerlink" title="首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。"></a>首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。</h6><h6 id="系统安装完成后-首先更新源。"><a href="#系统安装完成后-首先更新源。" class="headerlink" title="系统安装完成后,首先更新源。"></a>系统安装完成后,首先更新源。</h6><h6 id="吼吼吼！"><a href="#吼吼吼！" class="headerlink" title="吼吼吼！"></a>吼吼吼！</h6><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su passwd root</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su xcy</span><br></pre></td></tr></table></figure>
-<p>然后是安装ssh<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server openssh -client</span><br></pre></td></tr></table></figure></p>
-<p>安装完成服务端和客户端后，用电脑进行ssh远程登录。<br><br>连接成功。<br><br>回忆起来了一些命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 filename</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd testgroup</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd test1 -g testgroup</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser test2 -g testgroup</span><br></pre></td></tr></table></figure>
-<p>其中useradd新建用户在home目录下面没有文件夹，而adduser则有。<br><br>ps -e  查看进程<br><br>kill 3400杀死3400进程<br><br>kill -9 pid process<br><br>mkdir 目录名         =&gt; 创建一个目录<br><br>rmdir 空目录名      =&gt; 删除一个空目录<br><br>rm 文件名 文件名   =&gt; 删除一个文件或多个文件<br><br>rm –rf 非空目录名 =&gt; 删除一个非空目录下的一切<br><br>touch 文件名        =&gt; 创建一个空文件<br><br>重命名文件（夹） / 移动文件（夹）到指定文件夹<br><br>执行格式： mv source destination<br><br>mv file1 file2    =&gt; 将文件 file1，更改文件名为 file2。<br><br>mv file1 dir1    =&gt; 将文件 file1，移到目录 dir1下，文件名仍为 file1。<br><br>mv dir1 dir2    =&gt; 若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到<br>目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和<br>子目录，更改为目录 dir2。<br><br>今天就练到这里。明天继续！加油！<br></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h6 id=&quot;从今天开始，准备复习一下一些以前学过的linux命令。&quot;&gt;&lt;a href=&quot;#从今天开始，准备复习一下一些以前学过的linux命令。&quot; class=&quot;headerlink&quot; title=&quot;从今天开始，准备复习一下一些以前学过的linux命令。&quot;&gt;&lt;/a&gt;从今天开始，准备复习一下一些以前学过的linux命令。&lt;/h6&gt;&lt;h6 id=&quot;然后好进行后面的学习。&quot;&gt;&lt;a href=&quot;#然后好进行后面的学习。&quot; class=&quot;headerlink&quot; title=&quot;然后好进行后面的学习。&quot;&gt;&lt;/a&gt;然后好进行后面的学习。&lt;/h6&gt;&lt;ul&gt;
-&lt;li&gt;——————————————-&lt;br&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h6 id=&quot;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot;&gt;&lt;a href=&quot;#首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot; class=&quot;headerlink&quot; title=&quot;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&quot;&gt;&lt;/a&gt;首先我是在自己的电脑上面安装的虚拟机，因为方便用ssh远程登录。&lt;/h6&gt;&lt;h6 id=&quot;系统安装完成后-首先更新源。&quot;&gt;&lt;a href=&quot;#系统安装完成后-首先更新源。&quot; class=&quot;headerlink&quot; title=&quot;系统安装完成后,首先更新源。&quot;&gt;&lt;/a&gt;系统安装完成后,首先更新源。&lt;/h6&gt;&lt;h6 id=&quot;吼吼吼！&quot;&gt;&lt;a href=&quot;#吼吼吼！&quot; class=&quot;headerlink&quot; title=&quot;吼吼吼！&quot;&gt;&lt;/a&gt;吼吼吼！&lt;/h6&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://rayuu.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="http://rayuu.com/tags/linux/"/>
     
   </entry>
   
