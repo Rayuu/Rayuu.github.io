@@ -1,0 +1,19 @@
+{
+    "social": {
+        "weibo": "http://weibo.com/chayux",
+        "github": "https://github.com/rayuu",
+		"rss": "/atom.xml"
+    },
+    "extern": {
+	    "raytaylorism主题作者": "http://raytaylorlin.com/",
+		"刘锦老司机": "http://www.unique-liu.com/",
+		"猎豹原地": "http://www.hs5233.com/",
+		"助梦者的博客": "http://blog.hizmz.com/",
+		"FMWHHH": "http://www.fmwhahaha.com/",
+		"在帝国": "http://www.dligo.cc/",
+		"summerpro": "http://blog.summerpro.cn/",
+		"BreakerのBlog": "http://breakey.cn/",
+		"Blog": "http://blog.rayuu.com",
+		"几个阿拉丁":"http://huangdapeng.cn"
+    }
+}

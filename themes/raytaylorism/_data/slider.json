@@ -1,0 +1,19 @@
+[{
+    "image": "",
+    "align": "center",
+    "title": "This is our big Tagline!",
+    "subtitle": "Here's our small slogan.",
+	"link": "/"
+}, {
+    "image": "",
+    "align": "left",
+    "title": "Left Aligned Caption",
+    "subtitle": "Here's our small slogan.",
+	"link": null
+}, {
+    "image": "",
+    "align": "right",
+    "title": "Right Aligned Caption",
+    "subtitle": "Here's our small slogan.",
+	"link": null
+}]

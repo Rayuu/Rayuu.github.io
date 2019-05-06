@@ -1,0 +1,19 @@
+[{
+    "image": "https://img.rayu.me/1119454.jpg",
+    "align": "center",
+    "title": "Hello World!",
+    "subtitle": "故事总是喜欢一波三折.",
+	"link": "/"
+}, {
+    "image": "https://img.rayu.me/194283-106.jpg",
+    "align": "left",
+    "title": "Fighting",
+    "subtitle": "",
+	"link": null
+},{
+    "image": "https://img.rayu.me/86d6277f9e2f0708b1a468fae124b899a801f2a3.jpg",
+    "align": "left",
+    "title": "心有猛虎，细嗅蔷薇.",
+    "subtitle": "In me the tiger sniffs the rose.",
+	"link": null
+}]

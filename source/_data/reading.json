@@ -1,0 +1,44 @@
+{
+    "define": {
+	    "readed": "已读",
+        "reading": "在读",
+        "wanted": "想读"
+    },
+    "contents": {
+        "readed": [{
+            "title": "程序员的自我修养",
+            "cover": "https://img.rayu.me/133994eef01f3a29735674ca9f25bc315d607c81.jpg",
+            "review": "程序员的自我修养。",
+            "score": "7",
+            "doubanLink": "http://book.douban.com"
+        }, {
+            "title": "C++ primer plus 第六版",
+            "cover": "https://img.rayu.me/296d3af33a87e95011d5506816385343faf2b465.jpg",
+            "review": "C++入门到精通。",
+            "score": "8.5",
+            "doubanLink": "http://book.douban.com"
+        }, {
+            "title": "python基础编程",
+            "cover": "https://img.rayu.me/3f8108fa513d2697a373a95953fbb2fb4216d884.jpg",
+            "review": "python基础编程！",
+            "score": "9.5",
+            "doubanLink": "http://book.douban.com"
+        }],
+		
+		"reading": [{
+            "title": "嵌入式linux应用程序开发标准教程",
+            "cover": "https://img.rayu.me/3f8108fa513d2697a373a95953fbb2fb4216d884.jpg",
+            "review": "",
+            "score": null,
+            "doubanLink": "http://book.douban.com"
+        }],
+
+        "wanted": [{
+            "title": "linux C编程从初学到精通",
+            "cover": "https://img.rayu.me/3f8108fa513d2697a373a95953fbb2fb4216d884.jpg",
+            "review": "",
+            "score": null,
+            "doubanLink": "http://book.douban.com"
+        }]
+    }
+}

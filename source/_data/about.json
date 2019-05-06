@@ -1,0 +1,32 @@
+{
+    "avatar": "https://img.rayu.me/logo.gif",
+    "name": "Rayu",
+	"tag": "单片机/嵌入式",
+    "desc": "风华是一指流砂",
+    "skills": {
+        "C/C++": 8,
+		"Python": 5,
+
+		"invisible-split-line-1": -1,
+		"PHP": 3
+    },
+    "projects": [{
+		"name": "基于物联网的智能家居控制系统",
+		"image": "",
+		"tags": ["2015年", "项目标签"],
+		"description": "你的项目A的简介",
+		"link_text": "网站链接",
+		"link": ""
+	}, {
+		"name": "校园VIP",
+		"image": "",
+		"description": "你的作品B的简介",
+		"tags": ["Github", "设计"],
+		"link_text": "Github地址",
+		"link": "https://github.com/"
+	}],
+	"reward": [
+	    "https://img.rayu.me/3f8108fa513d2697a373a95953fbb2fb4216d884.jpg",
+		"https://img.rayu.me/logo.gif"
+	]
+}
