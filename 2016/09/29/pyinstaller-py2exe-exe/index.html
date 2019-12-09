@@ -1,0 +1,1514 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标, Rayu技术分享">
+    <meta name="description" content="pyinstaller和py2exe把Python脚本生成exe文件，并添加版本信息和自定义图标。写了一个查找产品通道号的小程序，目前还没进行异常处理。以下是程序源码。
+另外一个地址http://blog.rayuu.com/pyinsta">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标 | Rayu技术分享</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.1.0"><link rel="alternate" href="/atom.xml" title="Rayu技术分享" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Rayu技术分享</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Rayu技术分享</div>
+        <div class="logo-desc">
+            
+            风华是一指流砂
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Rayuu" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Rayuu" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        pyinstaller和py2exe生成exe文件并添加版本信息和自定义图标
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/python/" class="post-category">
+                                python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2016-09-29
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="pyinstaller和py2exe把Python脚本生成exe文件，"><a href="#pyinstaller和py2exe把Python脚本生成exe文件，" class="headerlink" title="pyinstaller和py2exe把Python脚本生成exe文件，"></a>pyinstaller和py2exe把Python脚本生成exe文件，</h1><h1 id="并添加版本信息和自定义图标。"><a href="#并添加版本信息和自定义图标。" class="headerlink" title="并添加版本信息和自定义图标。"></a>并添加版本信息和自定义图标。</h1><p>写了一个查找产品通道号的小程序，目前还没进行异常处理。<br>以下是程序源码。</p>
+<p>另外一个地址<br><a href="http://blog.rayuu.com/pyinstaller_py2exe_exe.html" target="_blank" rel="noopener" title="http://blog.rayuu.com/pyinstaller_py2exe_exe.html">http://blog.rayuu.com/pyinstaller_py2exe_exe.html</a></p>
+<a id="more"></a>
+
+<pre><code>
+    # -*- coding:UTF-8 -*-
+    import serial
+    import time
+    # import argparse
+    import serial.tools.list_ports
+    from time import sleep
+
+
+    # 串口
+    class Serial(object):
+        def __init__(self):
+            print u"+++++++++++++++++++++++++++++++++++++++++"
+            print u"+            通道号查找程序             +"
+            print u"+                V1.0                   +"
+            print u"+               by:Rayu                 +"
+            print u"+             2016.09.27                +"
+            print u"+++++++++++++++++++++++++++++++++++++++++"
+
+        # 查找串口
+        def serial_find(self):
+            plist = list(serial.tools.list_ports.comports())
+            if len(plist) &lt;= 0:
+                print u"串口未发现！"
+            else:
+                print u"找到的串口如下:"
+                for i in range(0, len(plist)):
+                    print [i+1], plist[i]
+            print u"请输入对应的数字选择你想要使用的串口：&lt;默认为1&gt;"
+            number = raw_input()
+            if not number:
+                number = 1
+            number = int(number)
+            while number &gt; len(plist):
+                print u"串口未找到，请重新输入。"
+                print u"请输入对应的数字选择你想要使用的串口："
+                number = raw_input()
+                number = int(number)
+            if number &lt;= len(plist):
+                uart_choose = plist[number-1][0]
+            return uart_choose
+
+        # 串口波特率
+        def serial_baudrate(self):
+            print u"请输入串口波特率：&lt;默认115200&gt;"
+            baudrate = raw_input()
+            if not baudrate:
+                baudrate = 115200
+            baudrate = int(baudrate)
+            return baudrate
+
+        # 获取设备地址
+        def input_dev_addr(self):
+            print u'请输入设备地址：&lt;如：dc00000233&gt;'
+            data_dev = raw_input()
+            # print data_dev, type(data_dev)
+            return data_dev
+
+        # 打开串口
+        def serial_open(self, com, baud):
+            try:
+                ser = serial.Serial(com, baud, timeout=0.1)
+            except Exception, e:
+                print u"打开串口失败，请检查串口是否被占用。\n5秒后自动退出程序"
+                time.sleep(5)
+                exit(1)
+            print u"串口", com, u"打开成功......波特率为：", baud
+            sleep(0.5)
+            return ser
+
+        # 更改通道号
+        def serial_send_channel(self, com, baud, dev, sta):
+            # 
+            data_comm = "AB"
+            data_sum = "01"
+            # 通道号修改
+            ser = self.serial_open(com, baud)
+            start = time.clock()
+            for data_channel in range(0, 256):
+                # 转换为十六进制字符串
+                dev_channel = hex(data_channel)
+                # 把0x删掉
+                dev_channel = dev_channel[2:4]
+                if len(dev_channel) == 1:
+                    dev_channel = '0' + dev_channel
+                # 连接字符串
+                content_addr = data_comm+dev_channel+data_sum
+                # print content_addr,"content_addr",type(content_addr)
+                # 十六进制发送
+                content_addr = content_addr.decode("hex")
+                # print content_addr
+                # print u"开始发送数据..."
+                ser.write(content_addr)
+
+                lowerpower = int(sta)
+                # sta = self.serial_send_order(ser,DEV)
+                re_str = []
+                cou = 0
+                find_time = data_channel + 1
+                print u"进行第 %s" % find_time, u"次查找....."
+                i = 1
+                while i &lt;= 10:
+                    i += 1
+                    for c in ser.read():
+                        # re_str += c
+                        re_str.append(c)
+                        cou += 1
+                        if cou == 10:
+                            # print re_str,"re_str"
+                            re_str = []
+                            break
+
+                content_order = self.serial_send_order(dev)
+                if lowerpower == 1:
+                    print u"低功耗设备，6秒发一次"
+                    ser.write(content_order)
+                    time.sleep(6)
+                else:
+                    # time.sleep(0)
+                    ser.write(content_order)
+
+                line = []
+                cnt = 0
+                j = 1
+                while j &lt;= 10:
+                    j += 1
+                    for d in ser.read():
+                        line.append(d)
+                        cnt += 1
+                        if cnt == 10:
+                            # print "line",line
+                            # line = []
+                            # print data_channel
+                            print u"查找结束......"
+                            end = time.clock()
+                            print u"用时: %f s" % (end-start)
+                            line[8] = ord(line[8])
+                            # print ord(line[8])
+                            ser.close()
+                            return line[8]
+            end = time.clock()
+            print u"用时: %f s" % (end - start)
+            print u"未找到通道号，请确定设备地址和工装是否正常......"
+            ser.close()
+            return -1
+
+        # 发送通信命令
+        def serial_send_order(self, dev):
+            # 发送通信测试命令
+            data_head = "F01"
+            data_dev = dev
+            data_tail = "E3"
+            # print data_dev
+            data_addr = data_head + data_dev + data_tail
+            # data_addr = "F0"
+            data_addr = data_addr.decode("hex")
+            return data_addr
+
+    if __name__ == '__main__':
+        comm = Serial()
+        # 获取COM口
+        COMM = comm.serial_find()
+        # print COMM
+        BAUD = comm.serial_baudrate()
+        while True:
+            DEV = comm.input_dev_addr()
+            if DEV == 'q':
+                exit()
+            print u"低功耗设备请输入1,否则请直接按回车......\n输入q结束程序......"
+            sta = raw_input()
+            if not sta:
+                sta = 0
+            channel = comm.serial_send_channel(COMM, BAUD, DEV, sta)
+            if channel == -1:
+                print u"查找失败......请重新尝试......"
+            else:
+                channel = hex(channel)
+                print u"通道号为: ", channel
+
+            # comm.serial_send_order(DEV)
+            # print BAUD
+            # comm.serial_open(COMM, BAUD)
+            # parser = argparse.ArgumentParser(description="通道号查找程序")
+            # parser.add_argument('--port', action='store', dest='port', type=int, required=True)
+            # given_args = parser.parse_args()
+            # port = given_args.port
+
+</code></pre><h2 id="程序编写完成后，生成exe可执行文件。"><a href="#程序编写完成后，生成exe可执行文件。" class="headerlink" title="程序编写完成后，生成exe可执行文件。"></a>程序编写完成后，生成exe可执行文件。</h2><h3 id="首先利用py2exe进行转换。"><a href="#首先利用py2exe进行转换。" class="headerlink" title="首先利用py2exe进行转换。"></a>首先利用py2exe进行转换。</h3><blockquote>
+<p>1).新建setup.py</p>
+</blockquote>
+<pre><code>
+    # -*- coding: utf-8 -*-
+    __author__ = 'Rayu'
+    from distutils.core import setup
+    import py2exe
+    includes = ["encodings", "encodings.*"]
+    options = {"py2exe": {"compressed": 1, "optimize": 2, "includes": includes, "bundle_files": 1}}
+    setup(
+    version = "0.1.0",
+    description = u"[利用工装查找设备通道号]",
+    name = "FindChannel",
+    options = options,
+    zipfile = None,
+    # 生成有指定图标的exe
+    console = [{"script": "main.py",
+                "icon_resources": [(1, u"833.ico")]
+               }]
+    # 生成无图标exe
+    # windows = [{"script": "[源码文件名].py"}]
+    )
+
+    # from distutils.core import setup
+    # import py2exe
+    #
+    # setup(console=['main.py'])
+
+</code></pre><p>然后运行程序  <code>python setup.py py2exe</code></p>
+<p>在64位系统下运行会报错： <code>bundle_files:1</code> 在64位操作系统下无效。 这句话的意思就是生成单文件程序。</p>
+<p>所以64位操作系统下想生成单文件程序的可以改用<code>pyinstaller</code>.</p>
+<blockquote>
+<p>2).利用<code>pip install PyInstaller</code>  或者去官网下载安装包。</p>
+</blockquote>
+<p>我安装的<code>PyInstaller3.2</code>版本。</p>
+<p>安装完成后，在命令窗口下执行：</p>
+<pre><code>pyinstaller main.py</code></pre><p>会在当前文件夹的<code>dist</code>目录下生成<code>main</code>文件夹，里面的<code>main.exe</code>就是生成的可执行文件。</p>
+<p>把<code>main</code>文件夹整个复制出来就可以在其他地方运行了。</p>
+<p>如果想为程序添加自定义图标和版本信息，那么在<code>main.py</code>的目录下，会有一个<code>main.spec</code>文件，使用<code>notepad++</code>打开进行编辑。</p>
+<pre><code>
+    # -*- mode: python -*-
+
+    block_cipher = None
+
+
+    a = Analysis(['main.py'],
+                 pathex=['C:\\Users\\jx007\\Desktop\\commserial'],
+                 binaries=None,
+                 datas=None,
+                 hiddenimports=[],
+                 hookspath=[],
+                 runtime_hooks=[],
+                 excludes=[],
+                 win_no_prefer_redirects=False,
+                 win_private_assemblies=False,
+                 cipher=block_cipher)
+    pyz = PYZ(a.pure, a.zipped_data,
+                 cipher=block_cipher)
+    exe = EXE(pyz,
+              a.scripts,
+              a.binaries,
+              a.zipfiles,
+              a.datas,
+              name='FindChannel',
+              version='version.txt',
+              debug=False,
+              strip=False,
+              upx=True,
+              console=True , icon='833.ico')
+
+</code></pre><p>在<code>a.datas</code>, 下面添加</p>
+<pre><code>      version='version.txt',
+      icon='833.ico',</code></pre><p>然后保存。</p>
+<p>先不要执行，然后把你心仪的<code>ico</code>图标放到和<code>main.py</code>同一目录下，<code>version</code>是版本信息路径。</p>
+<p>名称为<code>version.txt</code></p>
+<p>这时候我们需要编写<code>version.txt</code></p>
+<p>下面是一个例子：</p>
+<pre><code>
+    # UTF-8
+    #
+    VSVersionInfo(
+      ffi=FixedFileInfo(
+        # filevers and prodvers should be always a tuple with four items: (1, 2, 3, 4)
+        # Set not needed items to zero 0.
+        filevers=(6, 1, 7600, 16385),
+        prodvers=(6, 1, 7600, 16385),
+        # Contains a bitmask that specifies the valid bits 'flags'r
+        mask=0x3f,
+        # Contains a bitmask that specifies the Boolean attributes of the file.
+        flags=0x0,
+        # The operating system for which this file was designed.
+        # 0x4 - NT and there is no need to change it.
+        OS=0x40004,
+        # The general type of file.
+        # 0x1 - the file is an application.
+        fileType=0x1,
+        # The function of the file.
+        # 0x0 - the function is not defined for this fileType
+        subtype=0x0,
+        # Creation date and time stamp.
+        date=(0, 0)
+        ),
+      kids=[
+        StringFileInfo(
+          [
+          StringTable(
+            u'040904B0',
+            [StringStruct(u'CompanyName', u'Microsoft Corporation'),
+            StringStruct(u'FileDescription', u'Windows Command Processor'),
+            StringStruct(u'FileVersion', u'6.1.7600.16385 (win7_rtm.090713-1255)'),
+            StringStruct(u'InternalName', u'cmd'),
+            StringStruct(u'LegalCopyright', u'© Microsoft Corporation. All rights reserved.'),
+            StringStruct(u'OriginalFilename', u'Cmd.Exe'),
+            StringStruct(u'ProductName', u'Microsoft® Windows® Operating System'),
+            StringStruct(u'ProductVersion', u'6.1.7600.16385')])
+          ]), 
+        VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
+      ]
+    )
+
+</code></pre><p>如果你想要自己找这个文件的话，可以参考<code>pyinstaller3</code>的文档，里面写的很详细。</p>
+<p>下面简单介绍一下如何获取这个文件。</p>
+<p>首先在文档里面写到了，利用 <code>pyi-grab_version executable_with_version_resource</code> 这个命令来获取命令的版本信息。</p>
+<p>我们运行 <code>pyi-grab_version c:/windows/system32/cmd.exe</code></p>
+<p>然后会把一个<code>file_version_info.txt</code>记事本文件保存在你cmd命令运行时候的路径下面。<br>找到并打开它，就是上面所列出的内容了。<br>然后根据自己的需要进行修改就可以了。<br>最后在<code>main.py</code>的路径下执行</p>
+<pre><code>pyinstaller main.spec</code></pre><p>在<code>dist</code>文件夹下就产生了一个<code>exe</code>文件，图标也是我们想要的那个图标了，至于程序的详细信息可以通过右键查看详细信息进行查看了。</p>
+<p><img src="http://7xlqnm.com1.z0.glb.clouddn.com/2016/09/1746137199.jpg" alt="详细信息"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://rayuu.com" rel="external nofollow noreferrer">Rayu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/">http://rayuu.com/2016/09/29/pyinstaller-py2exe-exe/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://rayuu.com" target="_blank">Rayu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2016/11/30/cppsqlite3sche/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++使用sqlite3进行简单的课表管理">
+                        
+                        <span class="card-title">C++使用sqlite3进行简单的课表管理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                             C++使用sqlite3进行简单的课表管理
+一、生成sqlite3.lib1.在sqlite官网 http://www.sqlite.org/download.html 上下载sqlite-amalgamation-3071000.zip
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2016-11-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Rayu
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/c-c/">
+                        <span class="chip bg-color">c/c++</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2016/08/13/microcontrollerslowpower/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="瑞萨单片机系统低功耗的设计">
+                        
+                        <span class="card-title">瑞萨单片机系统低功耗的设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            经过一周多的单片机设计，功能基本完成。但是发现运行功耗非常大，电流在5mA左右，无线发射和接收时更是高达15mA。
+这和要求的功耗设计都不在一个数量级，要求的功耗是在微安级别的。所以需要一个方法降低系统的功耗。
+
+
+单片机系统的功耗是由MC
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-08-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" class="post-category">
+                                    单片机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%91%9E%E8%90%A8-%E4%BD%8E%E5%8A%9F%E8%80%97-%E5%8D%95%E7%89%87%E6%9C%BA/">
+                        <span class="chip bg-color">瑞萨 低功耗 单片机</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://rayuu.com" target="_blank">Rayu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">18.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "12";
+                    var startDate = "09";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Rayuu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:291070726@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=291070726" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 291070726" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78435170-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-78435170-1');
+</script>
+
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8484bf8c2b12e836d3c963f924d4b2fd";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
