@@ -473,14 +473,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    934
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    3 分
                 </div>
                 
 				
@@ -504,7 +504,7 @@
     {
         printf("Hello! This is our embedded world!\n");
         return 0;
-    }</stdio.h></code></pre>
+    }</code></pre>
 <p>在该阶段，对包含的头文件（<code>#include</code>）和宏定义（<code>#define</code>、<code>#ifdef</code>等）进行处理。</p>
 <p>可以通过<code>gcc -E</code>选项进行查看。该选项的作用是让gcc 在预处理结束后停止编译过程。</p>
 <p><code>gcc -E hello.c -o hello.i</code></p>
@@ -619,7 +619,7 @@ int main(int argc,char *argv[])
 {
     unsigned int x,y;
     unsigned long long res;
-    if((argc&lt;3) || (sscanf(argv[1],"%u",&amp;x)!=1) || (sscanf(argv[2],"%u",&amp;y))!=1)
+    if((argc<3) || (sscanf(argv[1],"%u",&x)!=1) || (sscanf(argv[2],"%u",&y))!=1)
     {
         printf("Usage: pow base exponent\n");
         exit(1);
@@ -627,7 +627,7 @@ int main(int argc,char *argv[])
     res = unsgn_pow(x,y);
     printf("%u ^ %u = %u\n",x,y,res);
     exit(0);
-}</stdlib.h></stdio.h></code></pre>
+}</code></pre>
 <pre><code>gcc -c unsgn_pow.c
 ar rcsv libpow.a unsgn_pow.o
 gcc -o pow_test pow_test.c -L. -lpow
@@ -1169,7 +1169,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.6k</span>&nbsp;字
+                class="white-color">18.1k</span>&nbsp;字
             
             
             
