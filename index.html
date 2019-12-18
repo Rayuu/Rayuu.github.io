@@ -346,6 +346,13 @@
 
 <div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
+        <div id="prev-cover" class="left waves-effect carousel-control">
+            <i class="icon fa fa-angle-left"></i>
+        </div>
+        <div id="next-cover" class="right waves-effect carousel-control">
+            <i class="icon fa fa-angle-right"></i>
+        </div>
+    
 
     <div class="carousel-item red white-text bg-cover about-cover">
         <div class="container">
@@ -432,6 +439,58 @@
         </div>
     </div>
 
+    
+        
+
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/11.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">【笔记】matlab建模生成代码注意事项</div>
+                            <div class="description center-align">
+                                
+                                    一、代码生成后，查看生成报告。如下图所示：
+
+代码文件简介：
+1、ert_main.c该文件中会调用 “模型名称_step();”函数，用于单步执行，可以根据实际情况放在定时器中断或者任务调度里面执行该函数。除此之外，该文件中的main函数
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2019/12/18/modelcodegennote/" class="waves-effect waves-light btn" target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/3.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Matlab生成stm32代码</div>
+                            <div class="description center-align">
+                                
+                                    一、整体思路利用Matlab的simulink搭建模型生成C代码，通过stm32cubemx生成工程，最后在KEIL或者IAR等工具里面编译生成代码下载至MCU中执行。本文以流水灯建立模型和简单使用定时器为例进行演示。
+二、开发环境1、安装
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2019/12/18/matlabgenstm32code/" class="waves-effect waves-light btn" target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
     
 </div>
 
@@ -560,6 +619,112 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/12/18/matlabgenstm32code/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Matlab生成stm32代码">
+                            
+                            <span class="card-title">Matlab生成stm32代码</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一、整体思路利用Matlab的simulink搭建模型生成C代码，通过stm32cubemx生成工程，最后在KEIL或者IAR等工具里面编译生成代码下载至MCU中执行。本文以流水灯建立模型和简单使用定时器为例进行演示。
+二、开发环境1、安装
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/matlab/" class="post-category">
+                                    matlab
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/matlab/">
+                            <span class="chip bg-color">matlab</span>
+                        </a>
+                        
+                        <a href="/tags/simulink/">
+                            <span class="chip bg-color">simulink</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/12/18/modelcodegennote/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="【笔记】matlab建模生成代码注意事项">
+                            
+                            <span class="card-title">【笔记】matlab建模生成代码注意事项</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一、代码生成后，查看生成报告。如下图所示：
+
+代码文件简介：
+1、ert_main.c该文件中会调用 “模型名称_step();”函数，用于单步执行，可以根据实际情况放在定时器中断或者任务调度里面执行该函数。除此之外，该文件中的main函数
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/matlab/" class="post-category">
+                                    matlab
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/matlab/">
+                            <span class="chip bg-color">matlab</span>
+                        </a>
+                        
+                        <a href="/tags/simulink/">
+                            <span class="chip bg-color">simulink</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -758,101 +923,6 @@ $(function () {
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2017/03/09/chromehao123/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="浏览器首页被hao.qquu8.com劫持">
-                            
-                            <span class="card-title">浏览器首页被hao.qquu8.com劫持</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                昨天帮一个同学找了一个小马激活工具，今天早上电脑一开机，打开浏览器就发现首页变为了
-http://hao.qquu8.com/ 然后跳转到hao123。
-
-
-心想还是要支持正版系统啊！
-我首先是改浏览器的配置，把chrome的首页设置为打开
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Rayu
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/chrome%E4%B8%BB%E9%A1%B5%E5%8A%AB%E6%8C%81/">
-                            <span class="chip bg-color">chrome主页劫持</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2016/12/08/newtheme/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="换了一个新主题">
-                            
-                            <span class="card-title">换了一个新主题</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                换了一个新主题感觉自己萌萌哒！！！！
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.da
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2016-12-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Rayu
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                            <span class="chip bg-color">随笔</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -896,7 +966,7 @@ http://hao.qquu8.com/ 然后跳转到hao123。
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
+                class="white-color">20.9k</span>&nbsp;字
             
             
             
